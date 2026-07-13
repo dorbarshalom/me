@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dor_bar_shalom.system_prompt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0b0e14;
+      color: #c9d1d9;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    ::selection {
+      background: #3d5a80;
+      color: #fff;
+    }
+
+    a {
+      color: #7ee787;
+      text-decoration: none;
+      border-bottom: 1px dotted #7ee787;
+    }
+
+    a:hover {
+      color: #a3f7bf;
+    }
+
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 240px;
+    }
+
+    .identity-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .identity-sticky {
+      position: sticky;
+      top: 12px;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: #10151c;
+      border: 1px solid #21262d;
+      border-radius: 14px;
+      padding: 12px 18px;
+      margin: 0 0 24px;
+      box-shadow: 0 14px 28px -14px rgba(0, 0, 0, 0.6);
+    }
+
+    .identity-sticky .avatar {
+      margin: 0;
+    }
+
+    .identity-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .identity-contact {
+      text-align: right;
+      font-size: 12.5px;
+      color: #8b949e;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .identity-contact a {
+      color: #8b949e;
+      border-bottom: 1px dotted #545d68;
+    }
+
+    .identity-contact a:hover {
+      color: #e6edf3;
+    }
+
+    .identity-contact div {
+      margin: 1px 0;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid #21262d;
+      flex-shrink: 0;
+    }
+
+    .logo-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: #fff;
+      vertical-align: -12px;
+      margin-right: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo-box img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .logo-box.fallback {
+      background: #21262d;
+      color: #8b949e;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .logo-box.logo-top {
+      display: flex;
+      margin: 0 0 8px 0;
+    }
+
+    .proj-line,
+    .memory-line {
+      display: flex;
+      align-items: center;
+    }
+
+    .co-logo {
+      display: block;
+      max-width: 96px;
+      width: auto;
+      height: auto;
+      margin: 0 0 8px 0;
+      filter: brightness(0) invert(1);
+    }
+
+    .co-logo.hifred {
+      max-width: 64px;
+    }
+
+    .co-logo.d-id {
+      max-width: 48px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .dot.r {
+      background: #ff5f56;
+    }
+
+    .dot.y {
+      background: #ffbd2e;
+    }
+
+    .dot.g {
+      background: #27c93f;
+    }
+
+    .filename {
+      margin-left: 12px;
+      color: #6e7681;
+      font-size: 13px;
+    }
+
+    .comment {
+      color: #6e7681;
+    }
+
+    .tag {
+      color: #ff7b72;
+    }
+
+    .tagname {
+      color: #ff7b72;
+    }
+
+    .key {
+      color: #79c0ff;
+    }
+
+    .string {
+      color: #a5d6ff;
+    }
+
+    .val {
+      color: #c9d1d9;
+    }
+
+    .muted {
+      color: #8b949e;
+    }
+
+    .accent {
+      color: #d2a8ff;
+    }
+
+    .status-run {
+      color: #3fb950;
+    }
+
+    .block {
+      margin-bottom: 30px;
+    }
+
+    .indent {
+      padding-left: 20px;
+      border-left: 1px solid #21262d;
+      margin-left: 4px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1em;
+      background: #7ee787;
+      vertical-align: text-bottom;
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    #boot {
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .tagline {
+      margin-top: 10px;
+      color: #7ee787;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .hidden-block {
+      opacity: 0;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2.section {
+      color: #ff7b72;
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      text-transform: none;
+    }
+
+    .section-title {
+      color: #ff7b72;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin: 0 0 10px;
+      text-transform: lowercase;
+    }
+
+    .section-sub {
+      color: #6e7681;
+      font-size: 13px;
+      font-weight: 400;
+      margin-left: 4px;
+    }
+
+    ul {
+      margin: 6px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    li {
+      margin: 12px 0;
+    }
+
+    li::before {
+      content: "- ";
+      color: #6e7681;
+    }
+
+    ul.no-dash li::before {
+      content: none;
+    }
+
+    ul.no-dash li {
+      margin-bottom: 12px;
+    }
+
+    ul.no-dash li .key {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .memory-item {
+      margin-bottom: 44px;
+    }
+
+    .memory-date {
+      color: #79c0ff;
+      font-size: 13px;
+    }
+
+    .memory-duration {
+      color: #6e7681;
+      font-size: 12px;
+      margin-left: 6px;
+    }
+
+    .memory-role {
+      color: #c9d1d9;
+      font-weight: 700;
+    }
+
+    .memory-co {
+      color: #d2a8ff;
+    }
+
+    .memory-detail {
+      color: #8b949e;
+      font-size: 13.5px;
+      margin-top: 2px;
+    }
+
+    .more-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      color: #8b949e;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 11px;
+      cursor: pointer;
+      padding: 2px 9px 2px 7px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .more-toggle:hover {
+      color: #e6edf3;
+      border-color: #545d68;
+    }
+
+    .more-toggle .mt-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 12px;
+      height: 12px;
+      font-size: 12px;
+      line-height: 1;
+      color: #79c0ff;
+    }
+
+    .mem-more {
+      display: none;
+      margin-top: 6px;
+      padding: 8px 12px;
+      color: #c9d1d9;
+      font-size: 13.5px;
+      background: #10151c;
+      border-radius: 8px;
+      border-left: 2px solid #21262d;
+    }
+
+    .mem-more.open {
+      display: block;
+    }
+
+    .mem-more.empty {
+      color: #6e7681;
+      font-style: italic;
+    }
+
+    .proj {
+      margin-bottom: 28px;
+    }
+
+    .proj-name {
+      color: #3fb950;
+      font-weight: 700;
+    }
+
+    .proj-meta {
+      color: #6e7681;
+      font-size: 13px;
+    }
+
+    .proj-desc {
+      color: #c9d1d9;
+      margin-top: 3px;
+    }
+
+    .invoke-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+      background: #0d1117;
+      border-top: 1px solid #21262d;
+      box-shadow: 0 -12px 24px -12px rgba(0, 0, 0, 0.4);
+    }
+
+    .invoke-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 14px 24px 20px;
+    }
+
+    .prompt-box {}
+
+    .invoke-label {
+      color: #6e7681;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    #response {
+      margin-bottom: 10px;
+      color: #c9d1d9;
+      white-space: pre-wrap;
+      max-height: 120px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    #response:empty {
+      display: none;
+    }
+
+    #response .response-label {
+      color: #7ee787;
+      font-size: 11px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .chat-box {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      background: #161b22;
+      border: 1.5px solid #3d5a80;
+      border-radius: 22px;
+      padding: 10px 10px 10px 18px;
+      box-shadow: 0 0 0 3px rgba(61, 90, 128, 0.18), 0 10px 24px -10px rgba(0, 0, 0, 0.55);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .chat-box:focus-within {
+      border-color: #7ee787;
+      box-shadow: 0 0 0 3px rgba(126, 231, 135, 0.18), 0 10px 24px -10px rgba(0, 0, 0, 0.55);
+    }
+
+    #askInput {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #e6edf3;
+      font-family: inherit;
+      font-size: 15px;
+      line-height: 1.4;
+      padding: 4px 0;
+    }
+
+    #askInput::placeholder {
+      color: #6e7681;
+    }
+
+    .send-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: #e6edf3;
+      color: #0b0e14;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      padding: 0;
+    }
+
+    .send-btn:disabled {
+      background: #30363d;
+      color: #6e7681;
+      cursor: default;
+    }
+
+    .send-btn svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .suggestions {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .sugg {
+      font-size: 12px;
+      color: #8b949e;
+      border: 1px solid #30363d;
+      border-radius: 14px;
+      padding: 5px 12px;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .sugg:hover {
+      color: #e6edf3;
+      border-color: #545d68;
+    }
+
+    .footer {
+      margin-top: 40px;
+      color: #6e7681;
+      font-size: 12.5px;
+    }
+
+    .footer a {
+      color: #6e7681;
+      border-bottom: 1px dotted #444;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        font-size: 14px;
+      }
+
+      .wrap {
+        padding: 32px 16px 260px;
+      }
+
+      .invoke-inner {
+        padding: 14px 16px 18px;
+      }
+
+      .identity-sticky {
+        padding: 10px 12px;
+      }
+
+      .identity-contact {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="filename">dor_bar_shalom.md — system_prompt — v5.2.0</span>
+    </div>
+
+    <div id="boot"></div>
+
+    <div id="content" style="display:none;">
+
+      <div class="identity-sticky">
+        <div class="identity-left">
+          <img class="avatar" src="img/profile.jpeg" alt="Dor Bar Shalom">
+          <div>
+            <span class="key">name</span>: <span class="string">Dor Bar Shalom</span><br>
+            <span class="key">role</span>: <span class="string">E2E AI Product Builder &amp; Leader</span>
+          </div>
+        </div>
+        <div class="identity-contact">
+          <div><a href="mailto:dorbarshalom@gmail.com">dorbarshalom@gmail.com</a></div>
+          <div><a href="tel:+972546800360">054.680.0360</a></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="section-title">identity</div>
+        <div class="indent">
+          <span class="key">location</span>: <span class="string">Petah-Tikva, Israel (aka the center of the solar
+            system)</span><br>
+          <span class="key">summary</span>: <span class="val">20 years shaping products. The last few spent rebuilding
+            how I work around AI &mdash; not as a tool on the side, but as a full teammate in discovery, analysis,
+            design and shipping.</span>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="section-title">capabilities</div>
+        <div class="indent">
+          <ul class="no-dash">
+            <li><span class="key">product_strategy</span> own 0&rarr;1 and mature-product roadmaps end to end
+            </li>
+            <li><span class="key">ai_native_workflow</span> run discovery, data analysis and spec drafting solo
+              with AI; work that used to need an analyst and a week now takes an afternoon</li>
+            <li><span class="key">ux_ui_design</span> research, wireframes, high-fidelity &mdash; still doing it
+              myself</li>
+            <li><span class="key">rapid_prototyping</span> ship production grade code with Claude / Cursor /
+              Anti Gravity, no
+              dev queue required</li>
+            <li><span class="key">experimentation</span> AB tests, funnel analysis, session recordings, heatmaps
+            </li>
+            <li><span class="key">ai_product_shipping</span> led products built on LLM + RAG, live in production
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="section-title">tools</div>
+        <div class="indent">
+          <ul class="no-dash">
+            <li><span class="key">Claude</span> (Code + Projects) daily build partner</li>
+            <li><span class="key">Cursor / Anti Gravity</span> ship production grade products, no dev queue</li>
+            <li><span class="key">Figma &amp; Google Stitch</span> hands-on, pixel-level design, AI-native when
+              it's faster</li>
+            <li><span class="key">Mixpanel</span> master</li>
+            <li><span class="key">Hotjar &amp; session recordings</span> obsessive rewatcher</li>
+            <li><span class="key">NotebookLM</span> research synthesis in minutes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="section-title">active_processes</div>
+        <div class="indent">
+          <div class="proj">
+            <img class="co-logo hifred" src="img/logo_hifred.svg" alt="hifred.ai logo">
+            <div class="proj-line">
+              <span class="proj-name">hifred.ai</span>&nbsp;<span class="proj-meta">&mdash; co-founder &mdash; Jan 2026
+                &rarr; present &mdash; <span class="status-run">running</span></span>
+            </div>
+            <div class="proj-desc">AI-native workflow for product teams: one coherent process for discovery, data and
+              roadmapping, instead of every PM duct-taping their own AI tools together.</div>
+          </div>
+          <div class="proj">
+            <img class="co-logo" src="img/logo_maintor.svg" alt="maintor.systems logo">
+            <div class="proj-line">
+              <span class="proj-name">maintor.systems</span>&nbsp;<span class="proj-meta">&mdash; co-founder &mdash; Oct
+                2025 &rarr; present &mdash; <span class="status-run">running</span></span>
+            </div>
+            <div class="proj-desc">CMMS helping factories and industrial organizations manage breakdown and planned
+              maintenance. 2 active B2B customers.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="section-title">memory <span class="section-sub">experience log, most recent first</span></div>
+        <div class="indent">
+          <div class="memory-item">
+            <img class="co-logo" src="img/logo_storydoc.svg" alt="Storydoc logo">
+            <div class="memory-date">2025.05 &rarr; 2026.01 <span class="memory-duration">(8 mo)</span></div>
+            <div class="memory-line">
+              <span><span class="memory-role">VP of Products</span> @ <span class="memory-co">Storydoc</span></span>
+              <button class="more-toggle" data-target="mem-more-storydoc"><span class="mt-icon">+</span>more</button>
+            </div>
+            <div class="mem-more empty" id="mem-more-storydoc">more detail coming soon.</div>
+          </div>
+          <div class="memory-item">
+            <img class="co-logo d-id" src="img/logo_d-id.svg" alt="D-ID logo">
+            <div class="memory-date">2021.11 &rarr; 2025.05 <span class="memory-duration">(3 yr 6 mo)</span></div>
+            <div class="memory-line">
+              <span><span class="memory-role">Director of Product Integrations</span> @ <span
+                  class="memory-co">D-ID</span></span>
+              <button class="more-toggle" data-target="mem-more-did"><span class="mt-icon">+</span>more</button>
+            </div>
+            <div class="memory-detail">Shipped LLM + RAG-powered digital agents &mdash; D-ID Agents, Video Translate,
+              Creative Reality Studio Mobile App</div>
+            <div class="mem-more empty" id="mem-more-did">more detail coming soon.</div>
+          </div>
+          <div class="memory-item">
+            <img class="co-logo" src="img/logo_vcita.svg" alt="vCita logo">
+            <div class="memory-date">2019.09 &rarr; 2021.11 <span class="memory-duration">(2 yr 2 mo)</span></div>
+            <div class="memory-line">
+              <span><span class="memory-role">Head of Product</span> @ <span class="memory-co">vCita</span> <span
+                  class="muted">(WiseStamp)</span></span>
+              <button class="more-toggle" data-target="mem-more-vcita"><span class="mt-icon">+</span>more</button>
+            </div>
+            <div class="mem-more empty" id="mem-more-vcita">more detail coming soon.</div>
+          </div>
+          <div class="memory-item">
+            <img class="co-logo" src="img/logo_wisestamp.svg" alt="WiseStamp logo">
+            <div class="memory-date">2015.11 &rarr; 2019.09 <span class="memory-duration">(3 yr 10 mo)</span></div>
+            <div class="memory-line">
+              <span><span class="memory-role">Head of Product</span> @ <span class="memory-co">WiseStamp</span></span>
+              <button class="more-toggle" data-target="mem-more-wisestamp"><span class="mt-icon">+</span>more</button>
+            </div>
+            <div class="memory-detail">Built WiseIntro, WiseCards and WiseKick from scratch &mdash; vision, market
+              research, spec, UX/UI, dev follow-up</div>
+            <div class="mem-more empty" id="mem-more-wisestamp">more detail coming soon.</div>
+          </div>
+          <div class="memory-item">
+            <div class="memory-date">2015.01 &rarr; 2015.11 <span class="memory-duration">(10 mo)</span></div>
+            <div class="memory-line">
+              <span><span class="memory-role">Product Manager</span> @ <span class="memory-co">Bontact</span></span>
+              <button class="more-toggle" data-target="mem-more-bontact"><span class="mt-icon">+</span>more</button>
+            </div>
+            <div class="mem-more empty" id="mem-more-bontact">more detail coming soon.</div>
+          </div>
+          <div class="memory-item">
+            <div class="memory-date">2013.01 &rarr; 2015.11 <span class="memory-duration">(2 yr 10 mo)</span></div>
+            <div class="memory-line">
+              <span><span class="memory-role">Co-founder &amp; Product/UX</span> @ <span
+                  class="memory-co">Traders-Education</span> <span class="muted">/ UX Designer @ TagzBox
+                  (parallel)</span></span>
+              <button class="more-toggle" data-target="mem-more-traders"><span class="mt-icon">+</span>more</button>
+            </div>
+            <div class="mem-more empty" id="mem-more-traders">more detail coming soon.</div>
+          </div>
+          <div class="memory-item">
+            <div class="memory-date">2010.05 &rarr; 2015.11 <span class="memory-duration">(5 yr 6 mo)</span></div>
+            <div class="memory-line">
+              <span><span class="memory-role">UX/UI Freelance</span> @ <span class="memory-co">Brandor</span></span>
+              <button class="more-toggle" data-target="mem-more-brandor"><span class="mt-icon">+</span>more</button>
+            </div>
+            <div class="memory-detail">Clients incl. Clalit Health Services, Samsung, Strauss, Travelist, Personali
+            </div>
+            <div class="mem-more empty" id="mem-more-brandor">more detail coming soon.</div>
+          </div>
+          <div class="memory-item">
+            <div class="memory-date">2005.06 &rarr; 2010.05 <span class="memory-duration">(4 yr 11 mo)</span></div>
+            <div class="memory-line">
+              <span><span class="memory-role">Designer &rarr; Art Director</span> @ <span
+                  class="memory-co">ZeDesign</span></span>
+              <button class="more-toggle" data-target="mem-more-zedesign"><span class="mt-icon">+</span>more</button>
+            </div>
+            <div class="mem-more empty" id="mem-more-zedesign">more detail coming soon.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="section-title">changelog</div>
+        <div class="indent val">
+          <div><span class="accent">v5.x</span> &mdash; AI product craftsman &amp; founder <span
+              class="muted">(2025&ndash;present)</span></div>
+          <div><span class="accent">v4.x</span> &mdash; AI-era product leadership <span
+              class="muted">(2021&ndash;2025)</span></div>
+          <div><span class="accent">v3.x</span> &mdash; Product manager <span class="muted">(2015&ndash;2021)</span>
+          </div>
+          <div><span class="accent">v2.x</span> &mdash; UX/UI + frontend <span class="muted">(2010&ndash;2015)</span>
+          </div>
+          <div><span class="accent">v1.x</span> &mdash; Designer & Art director <span
+              class="muted">(2005&ndash;2010)</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="section-title">education</div>
+        <div class="indent val">
+          <div>UOL, University of Life &mdash; self-educated &mdash; <span class="muted">2004&ndash;present</span></div>
+          <div>New York University / Purchase College &mdash; BA Music Performance &mdash; <span
+              class="muted">1999&ndash;2002</span></div>
+          <div>Rimon School of Music &mdash; Piano performance &mdash; <span class="muted">1997&ndash;1999</span></div>
+          <div>Languages &mdash; Hebrew (native) &middot; English (near-native) &middot; Arabic (fluent)</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="section-title">constraints</div>
+        <div class="indent">
+          <ul>
+            <li>Trusts data, still listens to hunch</li>
+            <li>Cannot leave a UI un-optimized on sight</li>
+            <li>Believes in simple, knows exactly how hard simple is</li>
+            <li>Hebrew / English / Arabic &mdash; former 8200</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="section-title">background_processes</div>
+        <div class="indent">
+          <ul>
+            <li><span class="key">musician</span> &mdash; piano &amp; Balkan accordion</li>
+            <li><span class="key">paraglider</span> &mdash; professional level</li>
+            <li><span class="key">homebrewer</span> &mdash; IPA specialist</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="invoke-bar" id="invokeBar" style="display:none;">
+    <div class="invoke-inner">
+      <div class="prompt-box">
+        <div id="response"></div>
+        <div class="chat-box">
+          <input id="askInput" type="text" placeholder="Ask me anything — e.g. why did you become a founder?"
+            autocomplete="off">
+          <button class="send-btn" id="sendBtn" disabled aria-label="Send">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+          </button>
+        </div>
+        <div class="suggestions">
+          <span class="sugg" data-q="why ai">why ai?</span>
+          <span class="sugg" data-q="hifred">hifred.ai</span>
+          <span class="sugg" data-q="maintor">maintor.systems</span>
+          <span class="sugg" data-q="d-id">d-id</span>
+          <span class="sugg" data-q="contact">contact</span>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <script>
+    // DEV TOGGLE: set to true to play the boot/typing intro animation,
+    // false to skip straight to the content (handy while developing).
+    const SHOW_BOOT_INTRO = false;
+
+    const introLine = "$ initializing dor_bar_shalom.md ...";
+    const loadingLine = "$ loading identity, memory, active_processes ...";
+    const tagline = "less AI talk. more AI shipped.";
+    const bootEl = document.getElementById('boot');
+    const contentEl = document.getElementById('content');
+    const invokeBar = document.getElementById('invokeBar');
+
+    function typeText(el, text, speed, done) {
+      let i = 0;
+      function step() {
+        if (i <= text.length) {
+          el.textContent = text.slice(0, i);
+          i++;
+          setTimeout(step, speed);
+        } else if (done) {
+          done();
+        }
+      }
+      step();
+    }
+
+    function revealContent() {
+      bootEl.style.display = 'none';
+      contentEl.style.display = 'block';
+      contentEl.querySelectorAll('.block').forEach((el, i) => {
+        el.classList.add('hidden-block');
+        setTimeout(() => { el.classList.remove('hidden-block'); el.classList.add('fade-in'); }, i * 60);
+      });
+      invokeBar.style.display = 'block';
+      invokeBar.classList.add('hidden-block');
+      setTimeout(() => { invokeBar.classList.remove('hidden-block'); invokeBar.classList.add('fade-in'); }, 300);
+    }
+
+    function typeLoadingLine() {
+      const loadingEl = document.createElement('div');
+      bootEl.appendChild(loadingEl);
+      typeText(loadingEl, loadingLine, 14, () => {
+        loadingEl.innerHTML = loadingLine + '<span class="cursor"></span>';
+        setTimeout(revealContent, 2000);
+      });
+    }
+
+    function typeTagline() {
+      const taglineEl = document.createElement('div');
+      taglineEl.className = 'tagline';
+      bootEl.appendChild(taglineEl);
+      typeText(taglineEl, tagline, 30, () => {
+        setTimeout(typeLoadingLine, 900);
+      });
+    }
+
+    function typeIntro() {
+      const introEl = document.createElement('div');
+      bootEl.appendChild(introEl);
+      typeText(introEl, introLine, 14, () => {
+        setTimeout(typeTagline, 200);
+      });
+    }
+
+    if (SHOW_BOOT_INTRO) {
+      typeIntro();
+    } else {
+      revealContent();
+    }
+
+    const responses = {
+      "why ai": "I stopped treating AI as a tool I occasionally reach for and started treating it as a teammate that's always on shift. Discovery, data analysis, spec drafting, even UI prototyping — I run these myself now, end to end, in a fraction of the time they used to take.",
+      "ai": "Same idea — ask me 'why ai' for the long version.",
+      "hifred": "hifred.ai — co-founded Jan 2026. We're building one coherent AI-native workflow for product teams, so PM work doesn't end up as a pile of disconnected prompts and half-built agents.",
+      "maintor": "maintor.systems — co-founded Oct 2025. A CMMS for factories and industrial orgs to manage breakdown and planned maintenance. 2 active B2B customers today.",
+      "d-id": "Director of Product Integrations at D-ID, Nov 2021–May 2025. Shipped LLM + RAG-powered digital agents — D-ID Agents, Video Translate, Creative Reality Studio Mobile App. Front-row seat to the AI wave from the very start.",
+      "storydoc": "VP of Products at Storydoc, May 2025–Jan 2026. Led product for their storytelling platform before moving to build my own thing full-time.",
+      "founder": "After a decade-plus of building other people's products, I'm now building my own — hifred.ai and maintor.systems, in parallel. Same skillset, no queue between the idea and the ship.",
+      "why did you become a founder": "After a decade-plus of building other people's products, I'm now building my own — hifred.ai and maintor.systems, in parallel. Same skillset, no queue between the idea and the ship.",
+      "contact": "dorbarshalom@gmail.com · 054.680.0360 — always happy to talk product, AI workflows, or both.",
+      "hire": "dorbarshalom@gmail.com · 054.680.0360 — always happy to talk product, AI workflows, or both.",
+      "hi": "Hi — I'm the CV. Try asking about d-id, hifred, maintor, or why ai.",
+      "hello": "Hi — I'm the CV. Try asking about d-id, hifred, maintor, or why ai."
+    };
+
+    function respond(q) {
+      const key = Object.keys(responses).find(k => q.toLowerCase().includes(k));
+      const responseEl = document.getElementById('response');
+      const text = key ? responses[key] : "Not in memory yet. Try: why ai, hifred, maintor, d-id, or contact.";
+      responseEl.innerHTML = '<span class="response-label">dor_bar_shalom</span>';
+      const span = document.createElement('span');
+      responseEl.appendChild(span);
+      let i = 0;
+      function type() {
+        if (i <= text.length) {
+          span.textContent = text.slice(0, i);
+          i++;
+          responseEl.scrollTop = responseEl.scrollHeight;
+          setTimeout(type, 8);
+        }
+      }
+      type();
+    }
+
+    const askInput = document.getElementById('askInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    function trySend() {
+      if (askInput.value.trim()) {
+        respond(askInput.value.trim());
+        askInput.value = '';
+        sendBtn.disabled = true;
+      }
+    }
+
+    askInput.addEventListener('input', () => {
+      sendBtn.disabled = !askInput.value.trim();
+    });
+    askInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        trySend();
+      }
+    });
+    sendBtn.addEventListener('click', trySend);
+    document.querySelectorAll('.sugg').forEach(el => {
+      el.addEventListener('click', () => {
+        askInput.value = el.dataset.q;
+        trySend();
+      });
+    });
+
+    document.querySelectorAll('.more-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        if (!target) return;
+        const isOpen = target.classList.toggle('open');
+        btn.innerHTML = '<span class="mt-icon">' + (isOpen ? '−' : '+') + '</span>' + (isOpen ? 'less' : 'more');
+      });
+    });
+  </script>
+
+</body>
+
+</html>
