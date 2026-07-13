@@ -38,10 +38,73 @@
       color: #a3f7bf;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     .wrap {
       max-width: 760px;
       margin: 0 auto;
       padding: 48px 24px 240px;
+    }
+
+    .side-nav {
+      position: fixed;
+      top: 160px;
+      left: calc(50% - 380px - 200px);
+      width: 168px;
+      z-index: 25;
+    }
+
+    .side-nav-label {
+      color: #6e7681;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .side-nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-left: 1px solid #21262d;
+    }
+
+    .side-nav li {
+      margin: 0;
+    }
+
+    .side-nav li::before {
+      content: none;
+    }
+
+    .side-nav a {
+      display: block;
+      padding: 5px 0 5px 14px;
+      margin-left: -1px;
+      border-left: 2px solid transparent;
+      border-bottom: none;
+      color: #6e7681;
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .side-nav a:hover {
+      color: #c9d1d9;
+    }
+
+    .side-nav a.active {
+      color: #7ee787;
+      border-left-color: #7ee787;
+    }
+
+    @media (max-width: 1150px) {
+      .side-nav {
+        display: none !important;
+      }
     }
 
     .identity-header {
@@ -319,11 +382,6 @@
 
     li {
       margin: 12px 0;
-    }
-
-    li::before {
-      content: "- ";
-      color: #6e7681;
     }
 
     ul.no-dash li::before {
@@ -605,6 +663,21 @@
 </head>
 
 <body>
+  <nav class="side-nav" id="sideNav" style="display:none;">
+    <div class="side-nav-label">index</div>
+    <ul>
+      <li><a href="#sec-identity" data-target="sec-identity">identity</a></li>
+      <li><a href="#sec-capabilities" data-target="sec-capabilities">capabilities</a></li>
+      <li><a href="#sec-tools" data-target="sec-tools">tools</a></li>
+      <li><a href="#sec-active_processes" data-target="sec-active_processes">active_processes</a></li>
+      <li><a href="#sec-memory" data-target="sec-memory">memory</a></li>
+      <li><a href="#sec-changelog" data-target="sec-changelog">changelog</a></li>
+      <li><a href="#sec-education" data-target="sec-education">education</a></li>
+      <li><a href="#sec-constraints" data-target="sec-constraints">constraints</a></li>
+      <li><a href="#sec-background_processes" data-target="sec-background_processes">background_processes</a></li>
+    </ul>
+  </nav>
+
   <div class="wrap">
 
     <div class="topbar">
@@ -630,7 +703,7 @@
         </div>
       </div>
 
-      <div class="block">
+      <div class="block" id="sec-identity">
         <div class="section-title">identity</div>
         <div class="indent">
           <span class="key">location</span>: <span class="string">Petah-Tikva, Israel (aka the center of the solar
@@ -641,7 +714,7 @@
         </div>
       </div>
 
-      <div class="block">
+      <div class="block" id="sec-capabilities">
         <div class="section-title">capabilities</div>
         <div class="indent">
           <ul class="no-dash">
@@ -662,7 +735,7 @@
         </div>
       </div>
 
-      <div class="block">
+      <div class="block" id="sec-tools">
         <div class="section-title">tools</div>
         <div class="indent">
           <ul class="no-dash">
@@ -677,7 +750,7 @@
         </div>
       </div>
 
-      <div class="block">
+      <div class="block" id="sec-active_processes">
         <div class="section-title">active_processes</div>
         <div class="indent">
           <div class="proj">
@@ -701,7 +774,7 @@
         </div>
       </div>
 
-      <div class="block">
+      <div class="block" id="sec-memory">
         <div class="section-title">memory <span class="section-sub">experience log, most recent first</span></div>
         <div class="indent">
           <div class="memory-item">
@@ -786,34 +859,38 @@
         </div>
       </div>
 
-      <div class="block">
+      <div class="block" id="sec-changelog">
         <div class="section-title">changelog</div>
         <div class="indent val">
-          <div><span class="accent">v5.x</span> &mdash; AI product craftsman &amp; founder <span
-              class="muted">(2025&ndash;present)</span></div>
-          <div><span class="accent">v4.x</span> &mdash; AI-era product leadership <span
-              class="muted">(2021&ndash;2025)</span></div>
-          <div><span class="accent">v3.x</span> &mdash; Product manager <span class="muted">(2015&ndash;2021)</span>
-          </div>
-          <div><span class="accent">v2.x</span> &mdash; UX/UI + frontend <span class="muted">(2010&ndash;2015)</span>
-          </div>
-          <div><span class="accent">v1.x</span> &mdash; Designer & Art director <span
-              class="muted">(2005&ndash;2010)</span></div>
+          <ul>
+            <li><span class="accent">v5.x</span> &mdash; AI product craftsman &amp; founder <span
+                class="muted">(2025&ndash;present)</span></li>
+            <li><span class="accent">v4.x</span> &mdash; AI-era product leadership <span
+                class="muted">(2021&ndash;2025)</span></li>
+            <li><span class="accent">v3.x</span> &mdash; Product manager <span class="muted">(2015&ndash;2021)</span>
+            </li>
+            <li><span class="accent">v2.x</span> &mdash; UX/UI + frontend <span class="muted">(2010&ndash;2015)</span>
+            </li>
+            <li><span class="accent">v1.x</span> &mdash; Designer & Art director <span
+                class="muted">(2005&ndash;2010)</span></li>
+          </ul>
         </div>
       </div>
 
-      <div class="block">
+      <div class="block" id="sec-education">
         <div class="section-title">education</div>
         <div class="indent val">
-          <div>UOL, University of Life &mdash; self-educated &mdash; <span class="muted">2004&ndash;present</span></div>
-          <div>New York University / Purchase College &mdash; BA Music Performance &mdash; <span
-              class="muted">1999&ndash;2002</span></div>
-          <div>Rimon School of Music &mdash; Piano performance &mdash; <span class="muted">1997&ndash;1999</span></div>
-          <div>Languages &mdash; Hebrew (native) &middot; English (near-native) &middot; Arabic (fluent)</div>
+          <ul>
+            <li>UOL, University of Life &mdash; self-educated &mdash; <span class="muted">2004&ndash;present</span></li>
+            <li>New York University / Purchase College &mdash; BA Music Performance &mdash; <span
+                class="muted">1999&ndash;2002</span></li>
+            <li>Rimon School of Music &mdash; Piano performance &mdash; <span class="muted">1997&ndash;1999</span></li>
+            <li>Languages &mdash; Hebrew (native) &middot; English (near-native) &middot; Arabic (fluent)</li>
+          </ul>
         </div>
       </div>
 
-      <div class="block">
+      <div class="block" id="sec-constraints">
         <div class="section-title">constraints</div>
         <div class="indent">
           <ul>
@@ -825,7 +902,7 @@
         </div>
       </div>
 
-      <div class="block">
+      <div class="block" id="sec-background_processes">
         <div class="section-title">background_processes</div>
         <div class="indent">
           <ul>
@@ -878,6 +955,7 @@
     const bootEl = document.getElementById('boot');
     const contentEl = document.getElementById('content');
     const invokeBar = document.getElementById('invokeBar');
+    const sideNav = document.getElementById('sideNav');
 
     function typeText(el, text, speed, done) {
       let i = 0;
@@ -903,6 +981,33 @@
       invokeBar.style.display = 'block';
       invokeBar.classList.add('hidden-block');
       setTimeout(() => { invokeBar.classList.remove('hidden-block'); invokeBar.classList.add('fade-in'); }, 300);
+      sideNav.style.display = 'block';
+      initScrollSpy();
+    }
+
+    function initScrollSpy() {
+      const navLinks = Array.from(sideNav.querySelectorAll('a'));
+      if (!navLinks.length) return;
+      const sections = navLinks
+        .map(link => document.getElementById(link.dataset.target))
+        .filter(Boolean);
+
+      const setActive = (id) => {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.dataset.target === id);
+        });
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length) {
+          setActive(visible[0].target.id);
+        }
+      }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+
+      sections.forEach(sec => observer.observe(sec));
     }
 
     function typeLoadingLine() {
