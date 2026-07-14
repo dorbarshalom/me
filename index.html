@@ -19,7 +19,7 @@
       background: #0b0e14;
       color: #c9d1d9;
       font-family: 'JetBrains Mono', 'Fira Code', monospace;
-      font-size: 15px;
+      font-size: 1rem;
       line-height: 1.65;
     }
 
@@ -103,6 +103,80 @@
 
     @media (max-width: 1150px) {
       .side-nav {
+        display: none !important;
+      }
+    }
+
+    .side-objective {
+      position: fixed;
+      top: 160px;
+      left: calc(50% + 400px);
+      width: 220px;
+      z-index: 25;
+    }
+
+    .so-label {
+      color: #6e7681;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .so-card {
+      background: #10151c;
+      border: 1px solid #21262d;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .so-key {
+      color: #79c0ff;
+      font-size: 0.75rem;
+      letter-spacing: 0.3px;
+    }
+
+    .so-values {
+      padding-left: 10px;
+      border-left: 2px solid #21262d;
+      margin: 5px 0 10px;
+    }
+
+    .so-val-main {
+      color: #7ee787;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .so-val-alt {
+      color: #6e7681;
+      font-size: 0.875rem;
+    }
+
+    .so-divider {
+      height: 1px;
+      background: #21262d;
+      margin: 10px 0;
+    }
+
+    .so-desc {
+      color: #c9d1d9;
+      font-size: 1rem;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .so-sub {
+      color: #8b949e;
+      font-size: 0.875rem;
+      display: block;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 1280px) {
+      .side-objective {
         display: none !important;
       }
     }
@@ -663,6 +737,22 @@
 </head>
 
 <body>
+  <aside class="side-objective" id="sideObjective" style="display:none;">
+    <div class="so-label">objective</div>
+    <div class="so-card">
+      <div class="so-key">target_role</div>
+      <div class="so-values">
+        <div class="so-val-main">"AI Product Builder"</div>
+        <div class="so-val-alt">| "EIR"</div>
+      </div>
+      <div class="so-divider"></div>
+      <span class="so-desc">Looking to partner with founders and startups that need product thinking <em>and</em> AI execution in the same person &mdash; from idea to shipped, without the queue.</span>
+      <div class="so-divider"></div>
+      <div class="so-key">open_to</div>
+      <span class="so-sub">advisory &middot; fractional &middot; full-time</span>
+    </div>
+  </aside>
+
   <nav class="side-nav" id="sideNav" style="display:none;">
     <div class="side-nav-label">index</div>
     <ul>
@@ -956,6 +1046,7 @@
     const contentEl = document.getElementById('content');
     const invokeBar = document.getElementById('invokeBar');
     const sideNav = document.getElementById('sideNav');
+    const sideObjective = document.getElementById('sideObjective');
 
     function typeText(el, text, speed, done) {
       let i = 0;
@@ -982,6 +1073,7 @@
       invokeBar.classList.add('hidden-block');
       setTimeout(() => { invokeBar.classList.remove('hidden-block'); invokeBar.classList.add('fade-in'); }, 300);
       sideNav.style.display = 'block';
+      sideObjective.style.display = 'block';
       initScrollSpy();
     }
 
@@ -1042,6 +1134,12 @@
       revealContent();
     }
 
+    // URL of the deployed Cloud Function proxy (see gemini-proxy/index.js).
+    // Fill this in after you deploy it; until then, chat uses the offline
+    // fallback answers below. The Gemini API key itself lives only on the
+    // Cloud Function side and is never present in this file.
+    const CHAT_PROXY_URL = ''; // e.g. 'https://us-central1-YOUR-PROJECT.cloudfunctions.net/chatProxy'
+
     const responses = {
       "why ai": "I stopped treating AI as a tool I occasionally reach for and started treating it as a teammate that's always on shift. Discovery, data analysis, spec drafting, even UI prototyping — I run these myself now, end to end, in a fraction of the time they used to take.",
       "ai": "Same idea — ask me 'why ai' for the long version.",
@@ -1057,10 +1155,13 @@
       "hello": "Hi — I'm the CV. Try asking about d-id, hifred, maintor, or why ai."
     };
 
-    function respond(q) {
+    function localFallback(q) {
       const key = Object.keys(responses).find(k => q.toLowerCase().includes(k));
+      return key ? responses[key] : "Not in memory yet. Try: why ai, hifred, maintor, d-id, or contact.";
+    }
+
+    function typeOut(text) {
       const responseEl = document.getElementById('response');
-      const text = key ? responses[key] : "Not in memory yet. Try: why ai, hifred, maintor, d-id, or contact.";
       responseEl.innerHTML = '<span class="response-label">dor_bar_shalom</span>';
       const span = document.createElement('span');
       responseEl.appendChild(span);
@@ -1076,14 +1177,36 @@
       type();
     }
 
+    async function respond(q) {
+      if (!CHAT_PROXY_URL) {
+        typeOut(localFallback(q));
+        return;
+      }
+      const responseEl = document.getElementById('response');
+      responseEl.innerHTML = '<span class="response-label">dor_bar_shalom</span><span class="muted">thinking…</span>';
+      try {
+        const res = await fetch(CHAT_PROXY_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ question: q })
+        });
+        if (!res.ok) throw new Error('proxy error');
+        const data = await res.json();
+        typeOut(data.answer || localFallback(q));
+      } catch (err) {
+        typeOut(localFallback(q));
+      }
+    }
+
     const askInput = document.getElementById('askInput');
     const sendBtn = document.getElementById('sendBtn');
 
     function trySend() {
       if (askInput.value.trim()) {
-        respond(askInput.value.trim());
+        const q = askInput.value.trim();
         askInput.value = '';
         sendBtn.disabled = true;
+        respond(q);
       }
     }
 

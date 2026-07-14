@@ -1,0 +1,15 @@
+{
+  "name": "gemini-chat-proxy",
+  "version": "1.0.0",
+  "description": "Server-side proxy so the CV page can talk to Gemini without ever exposing the API key to the browser.",
+  "main": "index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "functions-framework --target=chatProxy"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.4.0"
+  }
+}
