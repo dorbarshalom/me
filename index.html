@@ -188,38 +188,23 @@
       margin-bottom: 12px;
     }
 
-    .identity-sticky {
-      position: sticky;
-      top: 12px;
-      z-index: 30;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      background: #10151c;
-      border: 1px solid #21262d;
-      border-radius: 14px;
-      padding: 12px 18px;
-      margin: 0 0 24px;
-      box-shadow: 0 14px 28px -14px rgba(0, 0, 0, 0.6);
-    }
-
-    .identity-sticky .avatar {
-      margin: 0;
-    }
-
-    .identity-left {
+    .identity-hero {
       display: flex;
       align-items: center;
       gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .identity-hero-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
     }
 
     .identity-contact {
-      text-align: right;
       font-size: 12.5px;
       color: #8b949e;
-      white-space: nowrap;
-      flex-shrink: 0;
+      margin-top: 4px;
     }
 
     .identity-contact a {
@@ -231,13 +216,73 @@
       color: #e6edf3;
     }
 
-    .identity-contact div {
-      margin: 1px 0;
+    .identity-contact span {
+      color: #545d68;
+      margin: 0 4px;
+    }
+
+    .identity-sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: #10151c;
+      border-bottom: 1px solid #21262d;
+      padding: 7px 24px;
+      box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.6);
+      white-space: nowrap;
+      overflow: hidden;
+      box-sizing: border-box;
+      transform: translateY(-100%);
+      transition: transform 0.25s ease;
+    }
+
+    .identity-sticky.visible {
+      transform: translateY(0);
+    }
+
+    .identity-sticky .avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 5px;
+      flex-shrink: 0;
+      margin: 0;
+    }
+
+    .identity-sticky-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 0.875rem;
+      flex: 1;
+    }
+
+    .identity-sticky-contact {
+      font-size: 12px;
+      color: #8b949e;
+      flex-shrink: 0;
+    }
+
+    .identity-sticky-contact a {
+      color: #8b949e;
+      border-bottom: 1px dotted #545d68;
+    }
+
+    .identity-sticky-contact a:hover {
+      color: #e6edf3;
+    }
+
+    body.sticky-bar-active {
+      padding-top: 42px;
     }
 
     .avatar {
-      width: 64px;
-      height: 64px;
+      width: 80px;
+      height: 80px;
       border-radius: 12px;
       object-fit: cover;
       border: 1px solid #21262d;
@@ -251,11 +296,12 @@
       width: 40px;
       height: 40px;
       border-radius: 8px;
-      background: #fff;
+      background: #c8cdd4;
       vertical-align: -12px;
       margin-right: 10px;
       overflow: hidden;
       flex-shrink: 0;
+      opacity: 0.7;
     }
 
     .logo-box img {
@@ -726,11 +772,12 @@
       }
 
       .identity-sticky {
-        padding: 10px 12px;
+        padding: 5px 10px;
       }
 
-      .identity-contact {
-        font-size: 11px;
+      .identity-hero {
+        flex-wrap: wrap;
+        gap: 12px;
       }
     }
   </style>
@@ -746,25 +793,26 @@
         <div class="so-val-alt">| "EIR"</div>
       </div>
       <div class="so-divider"></div>
-      <span class="so-desc">Looking to partner with founders and startups that need product thinking <em>and</em> AI
+      <span class="so-desc">Looking to partner with entrepreneurs, founders and startups that need product thinking
+        <em>and</em> AI
         execution in the same person &mdash; from idea to shipped, without the queue.</span>
       <div class="so-divider"></div>
       <div class="so-key">open_to</div>
-      <span class="so-sub">advisory &middot; fractional &middot; full-time</span>
+      <span class="so-sub">EIR &middot;advisory &middot; fractional &middot; full-time</span>
     </div>
   </aside>
 
   <nav class="side-nav" id="sideNav" style="display:none;">
     <div class="side-nav-label">index</div>
     <ul>
-      <li><a href="#sec-identity" data-target="sec-identity">identity</a></li>
-      <li><a href="#sec-capabilities" data-target="sec-capabilities">capabilities</a></li>
-      <li><a href="#sec-tools" data-target="sec-tools">tools</a></li>
+      <li><a href="#sec-identity" data-target="sec-identity">whoami</a></li>
+      <li><a href="#sec-superpowers" data-target="sec-superpowers">superpowers</a></li>
+      <li><a href="#sec-stack" data-target="sec-stack">stack</a></li>
       <li><a href="#sec-active_processes" data-target="sec-active_processes">active_processes</a></li>
       <li><a href="#sec-memory" data-target="sec-memory">memory</a></li>
       <li><a href="#sec-changelog" data-target="sec-changelog">changelog</a></li>
-      <li><a href="#sec-education" data-target="sec-education">education</a></li>
-      <li><a href="#sec-constraints" data-target="sec-constraints">constraints</a></li>
+      <li><a href="#sec-training_data" data-target="sec-training_data">training_data</a></li>
+      <li><a href="#sec-guardrails" data-target="sec-guardrails">guardrails</a></li>
       <li><a href="#sec-background_processes" data-target="sec-background_processes">background_processes</a></li>
     </ul>
   </nav>
@@ -780,22 +828,34 @@
 
     <div id="content" style="display:none;">
 
-      <div class="identity-sticky">
-        <div class="identity-left">
-          <img class="avatar" src="img/profile.jpeg" alt="Dor Bar Shalom">
-          <div>
-            <span class="key">name</span>: <span class="string">Dor Bar Shalom</span><br>
-            <span class="key">role</span>: <span class="string">E2E AI Product Builder &amp; Leader</span>
+      <div class="identity-hero">
+        <img class="avatar" src="img/profile.jpeg" alt="Dor Bar Shalom">
+        <div class="identity-hero-info">
+          <div><span class="key">name</span>: <span class="string">Dor Bar Shalom</span></div>
+          <div><span class="key">role</span>: <span class="string">E2E AI Product Builder &amp; Leader</span></div>
+          <div class="identity-contact">
+            <a href="mailto:dorbarshalom@gmail.com">dorbarshalom@gmail.com</a><span>&middot;</span><a
+              href="tel:+972546800360">054.680.0360</a>
           </div>
         </div>
-        <div class="identity-contact">
-          <div><a href="mailto:dorbarshalom@gmail.com">dorbarshalom@gmail.com</a></div>
-          <div><a href="tel:+972546800360">054.680.0360</a></div>
+      </div>
+
+      <div class="identity-sticky">
+        <img class="avatar" src="img/profile.jpeg" alt="Dor Bar Shalom">
+        <div class="identity-sticky-text">
+          <span class="key">name</span>: <span class="string">Dor Bar Shalom</span>
+          &nbsp;&middot;&nbsp;
+          <span class="key">role</span>: <span class="string">E2E AI Product Builder &amp; Leader</span>
+        </div>
+        <div class="identity-sticky-contact">
+          <a href="mailto:dorbarshalom@gmail.com">dorbarshalom@gmail.com</a>
+          &nbsp;&middot;&nbsp;
+          <a href="tel:+972546800360">054.680.0360</a>
         </div>
       </div>
 
       <div class="block" id="sec-identity">
-        <div class="section-title">identity</div>
+        <div class="section-title">whoami</div>
         <div class="indent">
           <span class="key">location</span>: <span class="string">Petah-Tikva, Israel (aka the center of the solar
             system)</span><br>
@@ -805,19 +865,18 @@
         </div>
       </div>
 
-      <div class="block" id="sec-capabilities">
-        <div class="section-title">capabilities</div>
+      <div class="block" id="sec-superpowers">
+        <div class="section-title">superpowers</div>
         <div class="indent">
           <ul class="no-dash">
             <li><span class="key">product_strategy</span> own 0&rarr;1 and mature-product roadmaps end to end
             </li>
             <li><span class="key">ai_native_workflow</span> run discovery, data analysis and spec drafting solo
-              with AI; work that used to need an analyst and a week now takes an afternoon</li>
+              with AI</li>
             <li><span class="key">ux_ui_design</span> research, wireframes, high-fidelity &mdash; still doing it
               myself</li>
             <li><span class="key">rapid_prototyping</span> ship production grade code with Claude / Cursor /
-              Anti Gravity, no
-              dev queue required</li>
+              Anti Gravity</li>
             <li><span class="key">experimentation</span> AB tests, funnel analysis, session recordings, heatmaps
             </li>
             <li><span class="key">ai_product_shipping</span> led products built on LLM + RAG, live in production
@@ -826,15 +885,16 @@
         </div>
       </div>
 
-      <div class="block" id="sec-tools">
-        <div class="section-title">tools</div>
+      <div class="block" id="sec-stack">
+        <div class="section-title">stack</div>
         <div class="indent">
           <ul class="no-dash">
             <li><span class="key">Claude</span> (Code + Projects) daily build partner</li>
             <li><span class="key">Cursor / Anti Gravity</span> ship production grade products, no dev queue</li>
             <li><span class="key">Figma &amp; Google Stitch</span> hands-on, pixel-level design, AI-native when
               it's faster</li>
-            <li><span class="key">Mixpanel</span> master</li>
+            <li><span class="key">Mixpanel</span> Experienced in data mapping and designing clean analytics structures
+            </li>
             <li><span class="key">Hotjar &amp; session recordings</span> obsessive rewatcher</li>
             <li><span class="key">NotebookLM</span> research synthesis in minutes</li>
           </ul>
@@ -968,8 +1028,8 @@
         </div>
       </div>
 
-      <div class="block" id="sec-education">
-        <div class="section-title">education</div>
+      <div class="block" id="sec-training_data">
+        <div class="section-title">training_data</div>
         <div class="indent val">
           <ul>
             <li>UOL, University of Life &mdash; self-educated &mdash; <span class="muted">2004&ndash;present</span></li>
@@ -981,8 +1041,8 @@
         </div>
       </div>
 
-      <div class="block" id="sec-constraints">
-        <div class="section-title">constraints</div>
+      <div class="block" id="sec-guardrails">
+        <div class="section-title">guardrails</div>
         <div class="indent">
           <ul>
             <li>Trusts data, still listens to hunch</li>
@@ -1076,6 +1136,15 @@
       sideNav.style.display = 'block';
       sideObjective.style.display = 'block';
       initScrollSpy();
+      const heroEl = document.querySelector('.identity-hero');
+      const stickyBar = document.querySelector('.identity-sticky');
+      if (heroEl && stickyBar) {
+        new IntersectionObserver((entries) => {
+          const show = !entries[0].isIntersecting;
+          stickyBar.classList.toggle('visible', show);
+          document.body.classList.toggle('sticky-bar-active', show);
+        }, { threshold: 0 }).observe(heroEl);
+      }
     }
 
     function initScrollSpy() {
@@ -1139,7 +1208,7 @@
     // Fill this in after you deploy it; until then, chat uses the offline
     // fallback answers below. The Gemini API key itself lives only on the
     // Cloud Function side and is never present in this file.
-    const CHAT_PROXY_URL = ''; // e.g. 'https://us-central1-YOUR-PROJECT.cloudfunctions.net/chatProxy'
+    const CHAT_PROXY_URL = 'https://us-central1-gen-lang-client-0699834113.cloudfunctions.net/chatProxy';
 
     const responses = {
       "why ai": "I stopped treating AI as a tool I occasionally reach for and started treating it as a teammate that's always on shift. Discovery, data analysis, spec drafting, even UI prototyping — I run these myself now, end to end, in a fraction of the time they used to take.",

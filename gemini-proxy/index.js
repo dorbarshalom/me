@@ -14,7 +14,7 @@ const functions = require('@google-cloud/functions-framework');
 
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || '*';
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const MODEL = 'gemini-2.0-flash';
+const MODEL = 'gemini-3.5-flash';
 
 // Grounds Gemini's answers in facts about Dor, so it doesn't hallucinate.
 // Keep this in sync with the CV content.
@@ -64,13 +64,12 @@ functions.http('chatProxy', async (req, res) => {
 
   try {
     const geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          contents: [{ role: 'user', parts: [{ text: question }] }],
-          systemInstruction: { parts: [{ text: SYSTEM_CONTEXT }] },
+          contents: [{ role: 'user', parts: [{ text: `${SYSTEM_CONTEXT}\n\nQuestion: ${question}` }] }],
           generationConfig: { maxOutputTokens: 300, temperature: 0.6 }
         })
       }
