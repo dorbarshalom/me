@@ -628,6 +628,48 @@
       background: #0d1117;
       border-top: 1px solid #21262d;
       box-shadow: 0 -12px 24px -12px rgba(0, 0, 0, 0.4);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .chat-collapse-btn {
+      display: none;
+      background: none;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      color: #6e7681;
+      font-family: inherit;
+      font-size: 13px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 3px 7px;
+      flex-shrink: 0;
+      align-self: flex-start;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .chat-collapse-btn:hover {
+      color: #adb5bd;
+      border-color: #545d68;
+    }
+
+    .invoke-bar.expanded {
+      box-shadow: 0 -24px 48px -12px rgba(0, 0, 0, 0.6);
+    }
+
+    .invoke-bar.expanded .chat-collapse-btn {
+      display: block;
+    }
+
+    .response-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .response-row #response {
+      flex: 1;
+      margin-bottom: 0;
     }
 
     .invoke-inner {
@@ -648,9 +690,15 @@
       margin-bottom: 10px;
       color: #adb5bd;
       white-space: pre-wrap;
-      max-height: 120px;
+      max-height: 0;
       overflow-y: auto;
       font-size: 14px;
+      transition: max-height 0.35s ease;
+    }
+
+    .invoke-bar.expanded #response {
+      min-height: 110px;
+      max-height: 480px;
     }
 
     #response:empty {
@@ -1070,7 +1118,10 @@
   <div class="invoke-bar" id="invokeBar" style="display:none;">
     <div class="invoke-inner">
       <div class="prompt-box">
-        <div id="response"></div>
+        <div class="response-row">
+          <div id="response"></div>
+          <button class="chat-collapse-btn" id="chatCollapseBtn" aria-label="Collapse">✕</button>
+        </div>
         <div class="chat-box">
           <input id="askInput" type="text" placeholder="Ask me anything — e.g. why did you become a founder?"
             autocomplete="off">
@@ -1247,6 +1298,20 @@
       type();
     }
 
+    document.getElementById('chatCollapseBtn').addEventListener('click', () => {
+      invokeBar.classList.remove('expanded');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (invokeBar.classList.contains('expanded') && !invokeBar.contains(e.target)) {
+        invokeBar.classList.remove('expanded');
+      }
+    });
+
+    document.addEventListener('scroll', () => {
+      invokeBar.classList.remove('expanded');
+    }, { passive: true });
+
     async function respond(q) {
       if (!CHAT_PROXY_URL) {
         typeOut(localFallback(q));
@@ -1276,6 +1341,7 @@
         const q = askInput.value.trim();
         askInput.value = '';
         sendBtn.disabled = true;
+        invokeBar.classList.add('expanded');
         respond(q);
       }
     }

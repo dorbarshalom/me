@@ -10,6 +10,6 @@
     "start": "functions-framework --target=chatProxy"
   },
   "dependencies": {
-    "@google-cloud/functions-framework": "^3.4.0"
+    "@google-cloud/functions-framework": "^2.0.0"
   }
 }
