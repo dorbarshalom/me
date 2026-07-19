@@ -61,7 +61,7 @@ At Wisestamp, Dor worked closely with CEO and co-founder **Orly Itzhaki**, a tru
 
 ## 4. Flagship Products & Ventures
 
-### HiFred | Founder & Product Lead
+### HiFred | Co-Founder & CPO
 * **Overview:** An AI-powered product requirements and specification platform built explicitly to streamline the workflow of modern product managers.
 * **Key Achievements & Execution:**
   * Defined the foundational product vision, UI/UX parameters, and market positioning.
