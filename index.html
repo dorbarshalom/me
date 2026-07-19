@@ -1131,13 +1131,18 @@
 
   <script>
     // Initialize Mixpanel
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     mixpanel.init('74b397db0fd4b63f65402773557c70c5', {
-      debug: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1',
+      debug: isLocalhost,
       persistence: 'localStorage',
       ignore_dnt: true,
       api_host: "https://api-eu.mixpanel.com",
-      track_pageview: true
+      track_pageview: !isLocalhost
     });
+
+    if (isLocalhost) {
+      mixpanel.disable();
+    }
 
     // DEV TOGGLE: set to true to play the boot/typing intro animation,
     // false to skip straight to the content (handy while developing).
