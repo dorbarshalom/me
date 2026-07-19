@@ -1254,32 +1254,10 @@
     }
 
     // URL of the deployed Cloud Function proxy (see gemini-proxy/index.js).
-    // Fill this in after you deploy it; until then, chat uses the offline
-    // fallback answers below. The Gemini API key itself lives only on the
-    // Cloud Function side and is never present in this file.
+    // The Gemini API key itself lives only on the Cloud Function side and is never present in this file.
     const CHAT_PROXY_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-      ? null
+      ? 'http://localhost:8088'
       : 'https://us-central1-gen-lang-client-0699834113.cloudfunctions.net/chatProxy';
-
-    const responses = {
-      "why ai": "I stopped treating AI as a tool I occasionally reach for and started treating it as a teammate that's always on shift. Discovery, data analysis, spec drafting, even UI prototyping — I run these myself now, end to end, in a fraction of the time they used to take.",
-      "ai": "Same idea — ask me 'why ai' for the long version.",
-      "hifred": "hifred.ai — co-founded Jan 2026. We're building one coherent AI-native workflow for product teams, so PM work doesn't end up as a pile of disconnected prompts and half-built agents.",
-      "maintor": "maintor.systems — co-founded Oct 2025. A CMMS for factories and industrial orgs to manage breakdown and planned maintenance. 2 active B2B customers today.",
-      "d-id": "Director of Product Integrations at D-ID, Nov 2021–May 2025. Shipped LLM + RAG-powered digital agents — D-ID Agents, Video Translate, Creative Reality Studio Mobile App. Front-row seat to the AI wave from the very start.",
-      "storydoc": "VP of Products at Storydoc, May 2025–Jan 2026. Led product for their storytelling platform before moving to build my own thing full-time.",
-      "founder": "After a decade-plus of building other people's products, I'm now building my own — hifred.ai and maintor.systems, in parallel. Same skillset, no queue between the idea and the ship.",
-      "why did you become a founder": "After a decade-plus of building other people's products, I'm now building my own — hifred.ai and maintor.systems, in parallel. Same skillset, no queue between the idea and the ship.",
-      "contact": "dorbarshalom@gmail.com · 054.680.0360 — always happy to talk product, AI workflows, or both.",
-      "hire": "dorbarshalom@gmail.com · 054.680.0360 — always happy to talk product, AI workflows, or both.",
-      "hi": "Hi — I'm the CV. Try asking about d-id, hifred, maintor, or why ai.",
-      "hello": "Hi — I'm the CV. Try asking about d-id, hifred, maintor, or why ai."
-    };
-
-    function localFallback(q) {
-      const key = Object.keys(responses).find(k => q.toLowerCase().includes(k));
-      return key ? responses[key] : "Not in memory yet. Try: why ai, hifred, maintor, d-id, or contact.";
-    }
 
     let isTyping = false;
 
@@ -1313,12 +1291,7 @@
       }
     });
 
-
     async function respond(q) {
-      if (!CHAT_PROXY_URL) {
-        typeOut(localFallback(q));
-        return;
-      }
       const responseEl = document.getElementById('response');
       responseEl.innerHTML = '<span class="response-label">dor_bar_shalom</span><span class="muted">thinking…</span>';
       try {
@@ -1329,9 +1302,10 @@
         });
         if (!res.ok) throw new Error('proxy error');
         const data = await res.json();
-        typeOut(data.answer || localFallback(q));
+        typeOut(data.answer || "Sorry, I couldn't come up with an answer to that.");
       } catch (err) {
-        typeOut(localFallback(q));
+        console.error('Fetch error:', err);
+        typeOut("Sorry, I'm having trouble connecting to the assistant right now.");
       }
     }
 
