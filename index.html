@@ -179,9 +179,17 @@
       margin-top: 6px;
     }
 
+    .mobile-objective {
+      display: none;
+      margin-bottom: 30px;
+    }
+
     @media (max-width: 1280px) {
       .side-objective {
         display: none !important;
+      }
+      .mobile-objective {
+        display: block;
       }
     }
 
@@ -354,6 +362,11 @@
       align-items: center;
       gap: 8px;
       margin-bottom: 28px;
+    }
+
+    .dots-container {
+      display: flex;
+      gap: 8px;
     }
 
     .dot {
@@ -781,6 +794,20 @@
         flex-wrap: wrap;
         gap: 12px;
       }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .topbar .filename {
+        margin-left: 0;
+      }
+
+      .suggestions {
+        display: none !important;
+      }
     }
   </style>
 </head>
@@ -822,7 +849,9 @@
   <div class="wrap">
 
     <div class="topbar">
-      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <div class="dots-container">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      </div>
       <span class="filename">dor_bar_shalom.md — system_prompt — v5.2.0</span>
     </div>
 
@@ -853,6 +882,24 @@
           <a href="mailto:dorbarshalom@gmail.com">dorbarshalom@gmail.com</a>
           &nbsp;&middot;&nbsp;
           <a href="tel:+972546800360">054.680.0360</a>
+        </div>
+      </div>
+
+      <div class="block mobile-objective">
+        <div class="so-label">objective</div>
+        <div class="so-card">
+          <div class="so-key">target_role</div>
+          <div class="so-values">
+            <div class="so-val-main">"AI Product Builder"</div>
+            <div class="so-val-alt">| "EIR"</div>
+          </div>
+          <div class="so-divider"></div>
+          <span class="so-desc">Looking to partner with entrepreneurs, founders and startups that need product thinking
+            <em>and</em> AI
+            execution in the same person &mdash; from idea to shipped, without the queue.</span>
+          <div class="so-divider"></div>
+          <div class="so-key">open_to</div>
+          <span class="so-sub">EIR &middot; advisory &middot; fractional &middot; full-time</span>
         </div>
       </div>
 
