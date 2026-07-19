@@ -654,6 +654,7 @@
 
     .invoke-bar.expanded {
       box-shadow: 0 -24px 48px -12px rgba(0, 0, 0, 0.6);
+      z-index: 35;
     }
 
     .invoke-bar.expanded .chat-collapse-btn {
@@ -697,8 +698,8 @@
     }
 
     .invoke-bar.expanded #response {
-      min-height: 110px;
-      max-height: 480px;
+      min-height: 220px;
+      max-height: 960px;
     }
 
     #response:empty {
@@ -1134,11 +1135,8 @@
           </button>
         </div>
         <div class="suggestions">
-          <span class="sugg" data-q="why ai">why ai?</span>
-          <span class="sugg" data-q="hifred">hifred.ai</span>
-          <span class="sugg" data-q="maintor">maintor.systems</span>
-          <span class="sugg" data-q="d-id">d-id</span>
-          <span class="sugg" data-q="contact">contact</span>
+          <span class="sugg" data-q="hifred">what's hifred.ai</span>
+          <span class="sugg" data-q="maintor">tell me about maintor.systems</span>
         </div>
       </div>
 
@@ -1259,7 +1257,9 @@
     // Fill this in after you deploy it; until then, chat uses the offline
     // fallback answers below. The Gemini API key itself lives only on the
     // Cloud Function side and is never present in this file.
-    const CHAT_PROXY_URL = 'https://us-central1-gen-lang-client-0699834113.cloudfunctions.net/chatProxy';
+    const CHAT_PROXY_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? null
+      : 'https://us-central1-gen-lang-client-0699834113.cloudfunctions.net/chatProxy';
 
     const responses = {
       "why ai": "I stopped treating AI as a tool I occasionally reach for and started treating it as a teammate that's always on shift. Discovery, data analysis, spec drafting, even UI prototyping — I run these myself now, end to end, in a fraction of the time they used to take.",
@@ -1281,18 +1281,23 @@
       return key ? responses[key] : "Not in memory yet. Try: why ai, hifred, maintor, d-id, or contact.";
     }
 
+    let isTyping = false;
+
     function typeOut(text) {
       const responseEl = document.getElementById('response');
       responseEl.innerHTML = '<span class="response-label">dor_bar_shalom</span>';
       const span = document.createElement('span');
       responseEl.appendChild(span);
       let i = 0;
+      isTyping = true;
       function type() {
         if (i <= text.length) {
           span.textContent = text.slice(0, i);
           i++;
           responseEl.scrollTop = responseEl.scrollHeight;
           setTimeout(type, 8);
+        } else {
+          isTyping = false;
         }
       }
       type();
@@ -1308,9 +1313,6 @@
       }
     });
 
-    document.addEventListener('scroll', () => {
-      invokeBar.classList.remove('expanded');
-    }, { passive: true });
 
     async function respond(q) {
       if (!CHAT_PROXY_URL) {

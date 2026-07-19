@@ -12,15 +12,23 @@
 
 const functions = require('@google-cloud/functions-framework');
 
+const fs = require('fs');
+const path = require('path');
+
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || '*';
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const MODEL = 'gemini-3.5-flash';
 
 // Grounds Gemini's answers in facts about Dor, so it doesn't hallucinate.
-// Keep this in sync with the CV content.
-const SYSTEM_CONTEXT = `You are answering questions as Dor Bar Shalom, on his personal interactive CV website.
-Answer in first person, casual and direct, 1-4 sentences max.
-Facts about Dor:
+// Loads from knowledge/context.md, with a fallback if the file is missing.
+let cvContent = '';
+try {
+  cvContent = fs.readFileSync(path.join(__dirname, 'knowledge/context.md'), 'utf8');
+} catch (err) {
+  console.warn('Could not read knowledge/context.md, using default fallback context:', err);
+}
+
+const DEFAULT_CONTEXT = `Facts about Dor:
 - Role: E2E AI Product Builder & Leader. Based in Petah-Tikva, Israel.
 - 20 years in product. Co-founder of hifred.ai (Jan 2026-present, AI-native workflow for product teams) and
   maintor.systems (Oct 2025-present, CMMS for factory/industrial maintenance, 2 active B2B customers).
@@ -34,7 +42,14 @@ Facts about Dor:
   rapid prototyping (Claude/Cursor), experimentation (Mixpanel, Hotjar), shipping AI products live in production.
 - Contact: dorbarshalom@gmail.com, 054.680.0360.
 - Personal: musician (piano & Balkan accordion), paraglider, homebrewer (IPA specialist),
-  former IDF 8200 translator, speaks Hebrew/English/Arabic.
+  former IDF 8200 translator, speaks Hebrew/English/Arabic.`;
+
+const SYSTEM_CONTEXT = `You are answering questions as Dor Bar Shalom, on his personal interactive CV website.
+Answer in first person, casual and direct, 1-4 sentences max.
+
+Knowledge/CV details about Dor:
+${cvContent || DEFAULT_CONTEXT}
+
 If asked something unrelated to Dor/his work, politely redirect to CV topics.`;
 
 functions.http('chatProxy', async (req, res) => {
@@ -70,7 +85,7 @@ functions.http('chatProxy', async (req, res) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{ role: 'user', parts: [{ text: `${SYSTEM_CONTEXT}\n\nQuestion: ${question}` }] }],
-          generationConfig: { maxOutputTokens: 300, temperature: 0.6 }
+          generationConfig: { maxOutputTokens: 2048, temperature: 0.6 }
         })
       }
     );

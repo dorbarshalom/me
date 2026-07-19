@@ -7,7 +7,10 @@
     "node": ">=20"
   },
   "scripts": {
-    "start": "functions-framework --target=chatProxy"
+    "start": "functions-framework --target=chatProxy",
+    "copy-content": "mkdir -p knowledge && cp ../knowledge/context.md ./knowledge/context.md",
+    "deploy": "npm run copy-content && gcloud functions deploy chatProxy --gen2 --runtime nodejs20 --region us-central1 --trigger-http --allow-unauthenticated --set-secrets GEMINI_API_KEY=gemini-api-key:latest",
+    "dev": "npm run copy-content && functions-framework --target=chatProxy --port=8088"
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^2.0.0"
