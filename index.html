@@ -1167,8 +1167,6 @@
     }
 
     function revealContent() {
-      // Track page view event
-      mixpanel.track('page', { action: 'view' });
 
       bootEl.style.display = 'none';
       contentEl.style.display = 'block';
