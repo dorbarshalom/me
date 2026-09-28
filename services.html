@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>דור בר שלום · שירותי פיתוח ומוצרי AI</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Noto+Sans+Hebrew:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Mixpanel SDK Loader -->
+  <script type="text/javascript">
+    (function (f, b) { if (!b.__SV) { var e, g, i, h; window.mixpanel = b; b._i = []; b.init = function (e, f, c) { function g(a, d) { var b = d.split("."); 2 == b.length && ((a = a[b[0]]), (d = b[1])); a[d] = function () { a.push([d].concat(Array.prototype.slice.call(arguments, 0))); }; } var a = b; "undefined" !== typeof c ? (a = b[c] = []) : (c = "mixpanel"); a.people = a.people || []; a.toString = function (a) { var d = "mixpanel"; "mixpanel" !== c && (d += "." + c); a || (d += " (stub)"); return d; }; a.people.toString = function () { return a.toString(1) + ".people (stub)"; }; i = "disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" "); for (h = 0; h < i.length; h++) g(a, i[h]); var j = "set set_once union unset remove delete".split(" "); a.get_group = function () { function b(c) { d[c] = function () { call2_args = arguments; call2 = [c].concat(Array.prototype.slice.call(call2_args, 0)); a.push([e, call2]); }; } for (var d = {}, e = ["get_group"].concat(Array.prototype.slice.call(arguments, 0)), c = 0; c < j.length; c++) b(j[c]); return d; }; b._i.push([e, f, c]); }; b.__SV = 1.2; e = f.createElement("script"); e.type = "text/javascript"; e.async = !0; e.src = "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; g = f.getElementsByTagName("script")[0]; g.parentNode.insertBefore(e, g); } })(document, window.mixpanel || []);
+    mixpanel.init('74b397db0fd4b63f65402773557c70c5', {
+      api_host: "https://api-eu.mixpanel.com",
+      persistence: 'localStorage'
+    });
+    mixpanel.track('page', { action: 'view', page: 'services' });
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #FFFFFF;
+      font-family: 'Google Sans', 'Noto Sans Hebrew', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1C252E;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: #00A76F;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    a:hover {
+      color: #007867;
+    }
+    .persona-card {
+      cursor: pointer;
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .persona-card:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+    .persona-radio {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin-top: 3px;
+      box-sizing: border-box;
+      transition: border-color 0.15s ease;
+    }
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 6vw;
+      background: #FFFFFF;
+      border-bottom: 1px solid #F0F1F2;
+      transition: background-color 0.25s ease, box-shadow 0.25s ease, padding 0.25s ease, border-color 0.25s ease;
+    }
+    .top-nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      border-bottom: 1px solid rgba(240, 241, 242, 0.8);
+      padding: 16px 6vw;
+    }
+    .nav-btn {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1C252E;
+      background: transparent;
+      border: 1px solid #DFE3E6;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .nav-btn:hover {
+      background: #F7F8F9;
+      border-color: #C4CDD5;
+      color: #1C252E;
+    }
+    .top-nav.scrolled .nav-btn {
+      background: #1C252E;
+      color: #FFFFFF;
+      border-color: #1C252E;
+      box-shadow: 0 2px 8px rgba(28, 37, 46, 0.15);
+    }
+    .top-nav.scrolled .nav-btn:hover {
+      background: #333D47;
+      border-color: #333D47;
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+
+<div dir="rtl" style="font-family:'Google Sans','Noto Sans Hebrew',sans-serif;color:#1C252E;background:#FFFFFF;max-width:100%;overflow-x:clip;">
+
+  <!-- NAV -->
+  <header id="top-nav" class="top-nav">
+    <a href="/" style="display:block;">
+      <img src="img/dor-logo.svg" alt="דור בר שלום" style="height: 43px; width: auto; display: block">
+    </a>
+    <a href="mailto:dor@dorbarshalom.com?subject=%D7%91%D7%95%D7%90%D7%95%20%D7%A0%D7%91%D7%A0%D7%94%20%D7%9E%D7%A9%D7%94%D7%95%20%D7%90%D7%9E%D7%99%D7%AA%D7%99" class="contact-btn nav-btn" id="nav-contact-btn">לתיאום שיחה</a>
+  </header>
+
+  <!-- HERO -->
+  <div style="padding:2.5vw 6vw 0;display:grid;grid-template-columns:minmax(0,0.9fr) minmax(320px,1.3fr);gap:40px;align-items:end;">
+    <div style="align-self:center;padding-bottom:6vw;">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:0.02em;color:#637381;border:1px solid #E7E9EC;padding:6px 12px;border-radius:100px;margin-bottom:28px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#00A76F;display:inline-block;"></span>
+        בונה מוצרי AI
+      </div>
+      <h1 style="font-size:clamp(32px,5vw,54px);line-height:1.2;font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;">אני הופך רעיונות למוצרים אמיתיים, מבוססי AI</h1>
+      <p style="font-size:19px;line-height:1.7;color:#454F5B;max-width:560px;margin:0 0 36px;">אני מלווה אתכם מהצורך העסקי ועד למוצר חי שעובד אצלכם בפועל, מתוך הבנה מלאה של העסק, הלקוחות שלכם והדרך שבה הם עובדים. זה הרבה מעבר לפיתוח - זו חשיבה מוצרית מהרגע הראשון.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="mailto:dor@dorbarshalom.com?subject=%D7%91%D7%95%D7%90%D7%95%20%D7%A0%D7%91%D7%A0%D7%94%20%D7%9E%D7%A9%D7%94%D7%95%20%D7%90%D7%9E%D7%99%D7%AA%D7%99" class="contact-btn" style="background:#1C252E;color:#fff;padding:14px 26px;border-radius:8px;font-weight:600;font-size:15px;">בואו נדבר</a>
+        <a href="#services" style="color:#1C252E;padding:14px 10px;font-weight:600;font-size:15px;border-bottom:1px solid #1C252E;">לצפייה בשירותים ↓</a>
+      </div>
+    </div>
+
+    <img src="img/dor-hero.png" alt="דור בר שלום" style="width:100%;max-width:780px;height:auto;display:block;justify-self:center;align-self:end;">
+  </div>
+
+  <!-- WHO I AM -->
+  <div style="padding:5vw 6vw;background:#F7F8F9;border-top:1px solid #F0F1F2;border-bottom:1px solid #F0F1F2;">
+    <div style="margin-bottom:40px;">
+      <div style="font-size:12px;color:#00A76F;letter-spacing:0.02em;margin-bottom:12px;font-weight:600;">מי אני</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;">
+        <div style="color:#1C252E;font-size:clamp(22px,2.8vw,30px);font-weight:600;line-height:1.55;margin:0;text-wrap:pretty;">היי 👋 אני דור, Product Builder.<br><br>אני מחבר בין חשיבה מוצרית עסקית לפיתוח מעשי בעולמות ה-AI, כדי לעזור לחברות וליזמים להרים פתרונות עובדים במהירות ובלי סיבוכים מיותרים.</div>
+      </div>
+    </div>
+    <div style="font-size:13px;color:#637381;margin-bottom:14px;">מה מתאר אתכם? העמוד יתעדכן בהתאם.</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+      <div id="card-founders" class="persona-card" role="button" tabindex="0">
+        <div id="radio-founders" class="persona-radio"></div>
+        <div>
+          <div style="font-weight:700;font-size:17px;margin-bottom:10px;">ליזמים ומייסדים</div>
+          <p style="color:#454F5B;font-size:15px;line-height:1.7;margin:0;">אתם בונים מוצר, מפרוטוטייפ ועד פרודקשן. אני איתכם מהרעיון הראשון ועד ההשקה.</p>
+        </div>
+      </div>
+      <div id="card-companies" class="persona-card" role="button" tabindex="0">
+        <div id="radio-companies" class="persona-radio"></div>
+        <div>
+          <div style="font-weight:700;font-size:17px;margin-bottom:10px;">לחברות שרוצות לייעל תהליכים עם AI</div>
+          <p style="color:#454F5B;font-size:15px;line-height:1.7;margin:0;">אני בונה פתרון מקצה לקצה, שמותאם בדיוק לבעיה שלכם.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <div id="services" style="padding:6vw 6vw;background:#F7F8F9;border-top:1px solid #F0F1F2;border-bottom:1px solid #F0F1F2;">
+    <div style="max-width:640px;margin-bottom:44px;">
+      <div style="font-size:12px;color:#00A76F;letter-spacing:0.02em;margin-bottom:12px;font-weight:600;">שירותים</div>
+      <h2 style="font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-0.01em;margin:0;">איך אפשר לעבוד יחד</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;">
+
+      <div id="service-card-1" style="order:1;background:#fff;border:1px solid #E7E9EC;border-radius:16px;padding:30px;display:flex;flex-direction:column;">
+        <div dir="ltr" style="text-align:right;font-size:12px;color:#919EAB;margin-bottom:12px;">01</div>
+        <div style="font-weight:700;font-size:19px;margin-bottom:12px;">מוצר מוכן לפרודקשן</div>
+        <p style="color:#454F5B;font-size:15px;line-height:1.7;margin:0;flex:1;">אני לוקח את הרעיון שלכם והופך אותו למערכת חיה. גילוי צרכים וראיונות משתמשים, תכנון מסד נתונים וארכיטקטורה, פיתוח פול סטאק, מדידה ובדיקות A/B — כל אלה חלק מהתהליך, לא תוספת.</p>
+      </div>
+
+      <div id="service-card-2" style="order:2;background:#fff;border:1px solid #E7E9EC;border-radius:16px;padding:30px;display:flex;flex-direction:column;">
+        <div style="font-size:12px;color:#919EAB;margin-bottom:12px;">02</div>
+        <div style="font-weight:700;font-size:19px;margin-bottom:12px;">אוטומציה פנימית ותהליכי עבודה מבוססי AI</div>
+        <p style="color:#454F5B;font-size:15px;line-height:1.7;margin:0;flex:1;">אני בונה מערכות AI לשימוש פנימי: סוכנים ואוטומציות שעושים עבודה אמיתית בתוך התהליכים שלכם.</p>
+      </div>
+
+      <div id="service-card-3" style="order:3;background:#fff;border:1px solid #E7E9EC;border-radius:16px;padding:30px;display:flex;flex-direction:column;">
+        <div style="font-size:12px;color:#919EAB;margin-bottom:12px;">03</div>
+        <div style="font-weight:700;font-size:19px;margin-bottom:12px;">ליווי מתמשך</div>
+        <p style="color:#454F5B;font-size:15px;line-height:1.7;margin:0;flex:1;">העבודה ממשיכה גם אחרי ההשקה: אני משתלב בצוות שלכם, או משמש זרוע ביצוע טכנית לסוכנויות שצריכות יכולות פיתוח לפרויקטים של לקוחות.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- HOW I WORK -->
+  <div style="padding:6vw 6vw;">
+    <div style="max-width:640px;margin-bottom:48px;">
+      <div style="font-size:12px;color:#00A76F;letter-spacing:0.02em;margin-bottom:12px;font-weight:600;">איך אני עובד · <span id="persona-label">ליזמים</span></div>
+      <h2 id="steps-title" style="font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-0.01em;margin:0;">תהליך מלא, מרעיון ועד מוצר בפרודקשן</h2>
+    </div>
+    <div id="steps-container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;position:relative;">
+      <!-- Steps rendered via JS -->
+    </div>
+  </div>
+
+  <!-- SELECTED WORKS -->
+  <div style="padding:6vw 6vw;background:#F7F8F9;border-top:1px solid #F0F1F2;border-bottom:1px solid #F0F1F2;">
+    <div style="max-width:640px;margin-bottom:40px;">
+      <div style="font-size:12px;color:#00A76F;letter-spacing:0.02em;margin-bottom:12px;font-weight:600;">עבודות נבחרות</div>
+      <h2 style="font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-0.01em;margin:0;">פרוייקטים לדוגמא</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;">
+      <div style="background:#fff;border:1px solid #E7E9EC;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
+        <div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#F1F3F5 0 10px,#E9ECEF 10px 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid #E7E9EC;">
+          <span dir="ltr" style="font-family:'Google Sans','Noto Sans Hebrew',sans-serif;font-size:12px;color:#919EAB;background:#fff;padding:4px 10px;border-radius:4px;">maintor screenshot</span>
+        </div>
+        <div style="padding:22px 24px;display:flex;flex-direction:column;gap:12px;">
+          <div style="height:40px;display:flex;align-items:center;"><img src="img/logos/maintor.svg" alt="Maintor" style="height:22px;width:auto;"></div>
+          <div style="color:#454F5B;font-size:14.5px;line-height:1.6;">Maintor היא מערכת CMMS לניהול תחזוקה במפעלים.</div>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid #E7E9EC;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
+        <div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#F1F3F5 0 10px,#E9ECEF 10px 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid #E7E9EC;">
+          <span dir="ltr" style="font-family:'Google Sans','Noto Sans Hebrew',sans-serif;font-size:12px;color:#919EAB;background:#fff;padding:4px 10px;border-radius:4px;">hifred screenshot</span>
+        </div>
+        <div style="padding:22px 24px;display:flex;flex-direction:column;gap:12px;">
+          <div style="height:40px;display:flex;align-items:center;"><img src="img/logos/hifred.svg" alt="hiFred" style="height:24px;width:auto;"></div>
+          <div style="color:#454F5B;font-size:14.5px;line-height:1.6;">hiFred מביא תהליך עבודה מבוסס AI לצוותי מוצר.</div>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid #E7E9EC;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
+        <div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#F1F3F5 0 10px,#E9ECEF 10px 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid #E7E9EC;">
+          <span dir="ltr" style="font-family:'Google Sans','Noto Sans Hebrew',sans-serif;font-size:12px;color:#919EAB;background:#fff;padding:4px 10px;border-radius:4px;">bentz screenshot</span>
+        </div>
+        <div style="padding:22px 24px;display:flex;flex-direction:column;gap:12px;">
+          <div style="height:40px;display:flex;align-items:center;"><img src="img/logos/bentz.svg" alt="Bentz" style="height:40px;width:auto;"></div>
+          <div style="color:#454F5B;font-size:14.5px;line-height:1.6;">ב-Bentz אני מספק ליווי מתמשך ופיתוח שוטף.</div>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid #E7E9EC;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
+        <div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#F1F3F5 0 10px,#E9ECEF 10px 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid #E7E9EC;">
+          <span dir="ltr" style="font-family:'Google Sans','Noto Sans Hebrew',sans-serif;font-size:12px;color:#919EAB;background:#fff;padding:4px 10px;border-radius:4px;">loudly screenshot</span>
+        </div>
+        <div style="padding:22px 24px;display:flex;flex-direction:column;gap:12px;">
+          <div style="height:40px;display:flex;align-items:center;"><img src="img/logos/loudly.svg" alt="Loudly" style="height:18px;width:auto;"></div>
+          <div style="color:#454F5B;font-size:14.5px;line-height:1.6;">עבור Loudly אני משמש זרוע ביצוע טכנית לפרויקטים של לקוחות.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY NOT NO-CODE -->
+  <div style="padding:6vw 6vw;">
+    <div style="max-width:640px;margin-bottom:44px;">
+      <div style="font-size:12px;color:#00A76F;letter-spacing:0.02em;margin-bottom:12px;font-weight:600;">למה לא כלי נו-קוד · <span id="nocode-persona-label">ליזמים</span></div>
+      <h2 id="nocode-title" style="font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-0.01em;margin:0 0 16px;min-height:76px;max-width:600px;">מוצר ברמת Production grade, לא פרוטוטייפ</h2>
+      <p style="color:#454F5B;font-size:16px;line-height:1.7;margin:0;text-wrap:pretty;">כלי נו-קוד מצוינים להוכחת היתכנות מהירה, אבל כשהמוצר צריך לגדול הם הופכים למכשול: אתם תלויים לגמרי בפלטפורמה, לא יכולים להתאים מעבר לתבנית, ולרוב לא עוברים בדיקת אבטחה רצינית. כשאני בונה בשבילכם, אתם מקבלים בעלות מלאה על הקוד, מערכת שבנויה לגדול מהיום הראשון, והתאמה מלאה לצרכים שלכם.</p>
+    </div>
+    <div style="border:1px solid #E7E9EC;border-radius:16px;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;">
+        <div style="padding:18px 24px;font-weight:700;font-size:14px;color:#637381;background:#F7F8F9;border-bottom:1px solid #E7E9EC;border-left:1px solid #E7E9EC;">כלי פרוטוטייפינג נו-קוד</div>
+        <div style="padding:18px 24px;font-weight:700;font-size:14px;color:#1C252E;background:#F0FAF6;border-bottom:1px solid #E7E9EC;">פיתוח עם דור</div>
+      </div>
+      <div id="comparison-rows">
+        <!-- Comparison rows rendered via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div style="padding:6vw 6vw;background:#F7F8F9;border-top:1px solid #F0F1F2;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:start;">
+      <div style="max-width:640px;">
+        <div style="font-size:12px;color:#00A76F;letter-spacing:0.02em;margin-bottom:12px;font-weight:600;">עליי</div>
+        <h2 style="font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-0.01em;margin:0 0 24px;">אני בונה מוצרים כבר 20 שנה, מהצורך הראשוני של הלקוח ועד פרודקשן</h2>
+        <div style="display:flex;flex-direction:column;gap:18px;font-size:17px;line-height:1.8;color:#333D47;text-wrap:pretty;">
+          <p style="margin:0;">אני דור בר שלום, בונה מוצרי AI מקצה לקצה. התחלתי כמעצב וארט דיירקטור, המשכתי לתכנון חוויית משתמש ופרונט־אנד, ובעשור האחרון הובלתי מוצר — כראש מוצר ב-WiseStamp ו-vCita, כדירקטור אינטגרציות ב-D-ID, וכ-VP Product ב-Storydoc.</p>
+          <p style="margin:0;">אני חי בתוך הדאטה: Mixpanel, Funnels, הקלטות סשנים, אבל באותה מידה נמצא בשטח ומדבר עם משתמשים, B2C ו-B2B, כדי להבין מה לקוחות באמת צריכים ולא רק מה הדשבורד אומר.</p>
+          <p style="margin:0;">בשנה האחרונה אני עושה משהו אחר: בונה מוצרים ברמת פרודקשן לבד, בלי צוות פיתוח - רק אני וסטאק AI שסביבו בניתי מחדש את כל תהליך העבודה, מגילוי, ניתוח ועיצוב ועד השקה. כך נולדו hiFred ו-Maintor, ושניהם פעילים היום.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid #E7E9EC;">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 0;border-bottom:1px solid #E7E9EC;font-size:15px;"><span style="font-weight:600;">מייסד שותף · hiFred, Maintor</span><span dir="ltr" style="color:#919EAB;">2025 –</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 0;border-bottom:1px solid #E7E9EC;font-size:15px;"><span style="font-weight:600;">VP Product · Storydoc</span><span dir="ltr" style="color:#919EAB;">2025</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 0;border-bottom:1px solid #E7E9EC;font-size:15px;"><span style="font-weight:600;">Director of Product Integrations · D-ID</span><span dir="ltr" style="color:#919EAB;">2021 – 2025</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 0;border-bottom:1px solid #E7E9EC;font-size:15px;"><span style="font-weight:600;">Head of Product · vCita, WiseStamp</span><span dir="ltr" style="color:#919EAB;">2015 – 2021</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 0;border-bottom:1px solid #E7E9EC;font-size:15px;"><span style="font-weight:600;">עיצוב UX/UI · Samsung, כללית, שטראוס ועוד</span><span dir="ltr" style="color:#919EAB;">2005 – 2015</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="padding:7vw 6vw;background:#1C252E;color:#fff;text-align:center;">
+    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-0.01em;margin:0 0 28px;">בואו נבנה משהו יחד</h2>
+    <a href="mailto:dor@dorbarshalom.com?subject=%D7%91%D7%95%D7%90%D7%95%20%D7%A0%D7%91%D7%A0%D7%94%20%D7%9E%D7%A9%D7%94%D7%95%20%D7%90%D7%9E%D7%99%D7%AA%D7%99" class="contact-btn" style="display:inline-block;background:#00A76F;color:#0B0F14;padding:16px 32px;border-radius:8px;font-weight:700;font-size:16px;">בואו נדבר</a>
+  </div>
+
+  <div style="padding:26px 6vw;display:flex;justify-content:space-between;font-size:13px;color:#919EAB;">
+    <div>דור בר שלום</div>
+    <div>בונה מוצרי AI</div>
+  </div>
+
+</div>
+
+<!-- Persona Switcher Logic -->
+<script>
+  (function () {
+    const rows = {
+      vendor: { no_code: "אתם תלויים לגמרי בפלטפורמה", dor: "הקוד שייך לכם, לגמרי" },
+      scale: { no_code: "המערכת נתקעת כשמספר המשתמשים גדל", dor: "המערכת בנויה לגדול מהיום הראשון" },
+      custom: { no_code: "המערכת מוגבלת לתבניות מוכנות", dor: "המערכת מותאמת לגמרי לצרכים שלכם" },
+      security: { no_code: "המערכת לא עומדת בבדיקות אבטחה רציניות", dor: "ההרשאות, האבטחה והנתונים עומדים בסטנדרט של פרודקשן" },
+      eng: { no_code: "רק מי שמכיר את הפלטפורמה יכול לגעת בזה", dor: "כל מפתח יכול להמשיך מכאן" },
+    };
+
+    const foundersSteps = [
+      { n: 1, title: "דיסקאברי ומשתמשים", desc: "אנחנו מבינים לעומק את המשתמש, את הבעיה ואת האילוצים." },
+      { n: 2, title: "מסד נתונים וארכיטקטורה", desc: "אנחנו מניחים את תשתית הנתונים לפני השורה הראשונה של הקוד." },
+      { n: 3, title: "פיתוח", desc: "אנחנו מפתחים פול סטאק, על תשתית פרודקשן מהיום הראשון." },
+      { n: 4, title: "מדידה", desc: "אנחנו מגדירים אירועים, מדדי KPI ולוחות בקרה." },
+      { n: 5, title: "שיפור מתמיד", desc: "אנחנו בונים תשתית לבדיקות A/B, כדי שההחלטות יתבססו על נתונים ולא על ניחושים." },
+    ];
+
+    const companiesSteps = [
+      { n: 1, title: "מבינים את התהליך שלכם", desc: "אנחנו ממפים את התהליך, את נקודות הכאב ואת המערכות הקיימות." },
+      { n: 2, title: "בונים את הפתרון", desc: "אנחנו מפתחים את הפתרון, מחברים אותו למערכות שלכם ובודקים אותו מול משתמשים אמיתיים." },
+      { n: 3, title: "מוסרים לכם מערכת שעובדת", desc: "אנחנו מטמיעים את המערכת, מדריכים את הצוות שלכם ומלווים אתכם גם אחרי העלייה לאוויר." },
+    ];
+
+    const cardFounders = document.getElementById('card-founders');
+    const cardCompanies = document.getElementById('card-companies');
+    const radioFounders = document.getElementById('radio-founders');
+    const radioCompanies = document.getElementById('radio-companies');
+
+    const personaLabel = document.getElementById('persona-label');
+    const nocodePersonaLabel = document.getElementById('nocode-persona-label');
+    const nocodeTitle = document.getElementById('nocode-title');
+    const stepsTitle = document.getElementById('steps-title');
+    const stepsContainer = document.getElementById('steps-container');
+    const comparisonRows = document.getElementById('comparison-rows');
+
+    const s1 = document.getElementById('service-card-1');
+    const s2 = document.getElementById('service-card-2');
+
+    let currentPersona = 'founders';
+
+    function setPersona(persona) {
+      currentPersona = persona;
+      const isF = persona === 'founders';
+
+      // Update Cards
+      cardFounders.style.border = isF ? '1.5px solid #1C252E' : '1.5px solid #E7E9EC';
+      cardCompanies.style.border = isF ? '1.5px solid #E7E9EC' : '1.5px solid #1C252E';
+
+      radioFounders.style.border = isF ? '6px solid #1C252E' : '1.5px solid #C4CDD5';
+      radioCompanies.style.border = isF ? '1.5px solid #C4CDD5' : '6px solid #1C252E';
+
+      // Update Labels & Titles
+      const labelText = isF ? 'ליזמים' : 'לחברות';
+      personaLabel.textContent = labelText;
+      nocodePersonaLabel.textContent = labelText;
+
+      nocodeTitle.textContent = isF
+        ? 'מוצר ברמת Production grade, לא פרוטוטייפ'
+        : 'אתם מקבלים פתרון שמותאם בדיוק לאופן שבו אתם עובדים, ולא תבנית גנרית שתצטרכו להתאים את עצמכם אליה';
+
+      stepsTitle.textContent = isF
+        ? 'תהליך מלא, מרעיון ועד מוצר בפרודקשן'
+        : 'בשלושה שלבים, אתם מקבלים מערכת שעובדת';
+
+      // Update Service Cards Order
+      s1.style.order = isF ? '1' : '2';
+      s2.style.order = isF ? '2' : '1';
+
+      // Render Steps
+      const steps = isF ? foundersSteps : companiesSteps;
+      stepsContainer.innerHTML = steps.map(function (step) {
+        return '<div style="position:relative;z-index:1;">' +
+          '<div style="width:30px;height:30px;border-radius:50%;background:#1C252E;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-bottom:18px;">' + step.n + '</div>' +
+          '<div style="font-weight:700;font-size:15px;margin-bottom:8px;">' + step.title + '</div>' +
+          '<div style="color:#637381;font-size:13.5px;line-height:1.65;">' + step.desc + '</div>' +
+        '</div>';
+      }).join('');
+
+      // Render Comparison Rows
+      const rowOrder = isF
+        ? ['vendor', 'scale', 'security', 'custom', 'eng']
+        : ['custom', 'scale', 'security', 'eng', 'vendor'];
+
+      comparisonRows.innerHTML = rowOrder.map(function (key) {
+        const r = rows[key];
+        return '<div style="display:grid;grid-template-columns:1fr 1fr;">' +
+          '<div style="padding:20px 24px;font-size:15px;color:#637381;border-left:1px solid #E7E9EC;display:flex;align-items:flex-start;gap:10px;">' +
+            '<span style="color:#B71D18;font-weight:700;flex:0 0 auto;">✕</span>' + r.no_code +
+          '</div>' +
+          '<div style="padding:20px 24px;font-size:15px;color:#1C252E;font-weight:500;display:flex;align-items:flex-start;gap:10px;">' +
+            '<span style="color:#00A76F;font-weight:700;flex:0 0 auto;">✓</span>' + r.dor +
+          '</div>' +
+        '</div>';
+      }).join('');
+
+      if (window.mixpanel) {
+        mixpanel.track('suggestion', { action: 'click', question: 'persona_' + persona });
+      }
+    }
+
+    cardFounders.addEventListener('click', function () { setPersona('founders'); });
+    cardCompanies.addEventListener('click', function () { setPersona('companies'); });
+    cardFounders.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') setPersona('founders'); });
+    cardCompanies.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') setPersona('companies'); });
+
+    // Track contact clicks
+    document.querySelectorAll('.contact-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (window.mixpanel) {
+          mixpanel.track('contact', { action: 'click', type: 'email', value: 'dor@dorbarshalom.com' });
+        }
+      });
+    });
+
+    // Sticky header scroll listener
+    const topNav = document.getElementById('top-nav');
+    function updateNavScroll() {
+      if (window.scrollY > 20) {
+        topNav.classList.add('scrolled');
+      } else {
+        topNav.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateNavScroll, { passive: true });
+    updateNavScroll();
+
+    // Initialize
+    setPersona('founders');
+  })();
+</script>
+
+</body>
+</html>
