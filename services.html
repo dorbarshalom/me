@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>דור בר שלום · שירותי פיתוח ומוצרי AI</title>
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Noto+Sans+Hebrew:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Noto+Sans+Hebrew:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
 
   <!-- Mixpanel SDK Loader -->
   <script type="text/javascript">
@@ -20,426 +26,845 @@
     mixpanel.track('page', { action: 'view', page: 'services' });
   </script>
 
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: #FFFFFF;
-      font-family: 'Google Sans', 'Noto Sans Hebrew', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #1C252E;
-      -webkit-font-smoothing: antialiased;
-    }
-    a {
-      color: #00A76F;
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-    a:hover {
-      color: #007867;
-    }
-    .persona-card {
-      cursor: pointer;
-      background: #fff;
-      border-radius: 16px;
-      padding: 28px;
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-      gap: 16px;
-      align-items: start;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-    .persona-card:hover {
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-    }
-    .persona-radio {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      margin-top: 3px;
-      box-sizing: border-box;
-      transition: border-color 0.15s ease;
-    }
-    .top-nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 22px 6vw;
-      background: #FFFFFF;
-      border-bottom: 1px solid #F0F1F2;
-      transition: background-color 0.25s ease, box-shadow 0.25s ease, padding 0.25s ease, border-color 0.25s ease;
-    }
-    .top-nav.scrolled {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-      border-bottom: 1px solid rgba(240, 241, 242, 0.8);
-      padding: 16px 6vw;
-    }
-    .nav-btn {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1C252E;
-      background: transparent;
-      border: 1px solid #DFE3E6;
-      padding: 9px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .nav-btn:hover {
-      background: #F7F8F9;
-      border-color: #C4CDD5;
-      color: #1C252E;
-    }
-    .top-nav.scrolled .nav-btn {
-      background: #1C252E;
-      color: #FFFFFF;
-      border-color: #1C252E;
-      box-shadow: 0 2px 8px rgba(28, 37, 46, 0.15);
-    }
-    .top-nav.scrolled .nav-btn:hover {
-      background: #333D47;
-      border-color: #333D47;
-      color: #FFFFFF;
-    }
-  </style>
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style-services.css">
 </head>
+
 <body>
 
-<div dir="rtl" style="font-family:'Google Sans','Noto Sans Hebrew',sans-serif;color:#1C252E;background:#FFFFFF;max-width:100%;overflow-x:clip;">
+  <div dir="rtl" class="page-wrapper">
 
-  <!-- NAV -->
-  <header id="top-nav" class="top-nav">
-    <a href="/" style="display:block;">
-      <img src="img/dor-logo.svg" alt="דור בר שלום" style="height: 43px; width: auto; display: block">
-    </a>
-    <a href="mailto:dor@dorbarshalom.com?subject=%D7%91%D7%95%D7%90%D7%95%20%D7%A0%D7%91%D7%A0%D7%94%20%D7%9E%D7%A9%D7%94%D7%95%20%D7%90%D7%9E%D7%99%D7%AA%D7%99" class="contact-btn nav-btn" id="nav-contact-btn">לתיאום שיחה</a>
-  </header>
+    <!-- NAV -->
+    <header id="top-nav" class="top-nav">
+      <a href="/" class="top-nav-brand">
+        <img src="img/dor-logo.svg" alt="דור בר שלום" class="top-nav-logo">
+      </a>
+      <a href="mailto:dor@dorbarshalom.com?subject=%D7%91%D7%95%D7%90%D7%95%20%D7%A0%D7%91%D7%A0%D7%94%20%D7%9E%D7%A9%D7%94%D7%95%20%D7%90%D7%9E%D7%99%D7%AA%D7%99"
+        class="contact-btn nav-btn" id="nav-contact-btn">בואו נדבר</a>
+    </header>
 
-  <!-- HERO -->
-  <div style="padding:2.5vw 6vw 0;display:grid;grid-template-columns:minmax(0,0.9fr) minmax(320px,1.3fr);gap:40px;align-items:end;">
-    <div style="align-self:center;padding-bottom:6vw;">
-      <div style="display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:0.02em;color:#637381;border:1px solid #E7E9EC;padding:6px 12px;border-radius:100px;margin-bottom:28px;">
-        <span style="width:6px;height:6px;border-radius:50%;background:#00A76F;display:inline-block;"></span>
-        בונה מוצרי AI
+    <!-- HERO -->
+    <div class="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          בונה מוצרי AI
+        </div>
+        <h1 class="hero-title">
+          אני הופך רעיונות למוצרים, מבוססי AI</h1>
+
+        <div class="persona-selector">
+          <div class="persona-prompt">
+            אז מי אתם?
+          </div>
+          <div class="persona-cards">
+            <div id="card-founders" class="persona-card" role="button" tabindex="0">
+              <div id="radio-founders" class="persona-radio"></div>
+              <div>
+                <div class="persona-title">ליזמים ופאונדרים</div>
+                <p class="persona-desc">
+                  אני בונה מוצרים מקצה לקצה, מרעיון ופרוטוטייפ ועד מערכת production-grade יציבה בסקייל. אני לוקח בעלות
+                  מלאה
+                  על כל הסטאק: מחקר, אפיון (specs), דיזיין, ארכיטקטורת דאטה, אינטגרציות ופיתוח.
+                </p>
+              </div>
+              <span class="material-symbols-rounded persona-card-arrow" aria-hidden="true">arrow_back</span>
+            </div>
+            <div id="card-companies" class="persona-card" role="button" tabindex="0">
+              <div id="radio-companies" class="persona-radio"></div>
+              <div>
+                <div class="persona-title">לעסקים שרוצים לייעל תהליכים עם AI</div>
+                <p class="persona-desc">אני מלווה אתכם מהצורך
+                  העסקי ועד למוצר חי שעובד אצלכם בפועל, מתוך הבנה מלאה של העסק, הלקוחות שלכם והדרך שבה הם עובדים. זה
+                  הרבה מעבר
+                  לפיתוח - זו חשיבה מוצרית מהרגע הראשון.</p>
+              </div>
+              <span class="material-symbols-rounded persona-card-arrow" aria-hidden="true">arrow_back</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="mailto:dor@dorbarshalom.com?subject=%D7%91%D7%95%D7%90%D7%95%20%D7%A0%D7%91%D7%A0%D7%94%20%D7%9E%D7%A9%D7%94%D7%95%20%D7%90%D7%9E%D7%99%D7%AA%D7%99"
+            class="contact-btn hero-cta-btn">בואו
+            נדבר</a>
+        </div>
       </div>
-      <h1 style="font-size:clamp(32px,5vw,54px);line-height:1.2;font-weight:800;letter-spacing:-0.01em;margin:0 0 24px;">אני הופך רעיונות למוצרים אמיתיים, מבוססי AI</h1>
-      <p style="font-size:19px;line-height:1.7;color:#454F5B;max-width:560px;margin:0 0 36px;">אני מלווה אתכם מהצורך העסקי ועד למוצר חי שעובד אצלכם בפועל, מתוך הבנה מלאה של העסק, הלקוחות שלכם והדרך שבה הם עובדים. זה הרבה מעבר לפיתוח - זו חשיבה מוצרית מהרגע הראשון.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;">
-        <a href="mailto:dor@dorbarshalom.com?subject=%D7%91%D7%95%D7%90%D7%95%20%D7%A0%D7%91%D7%A0%D7%94%20%D7%9E%D7%A9%D7%94%D7%95%20%D7%90%D7%9E%D7%99%D7%AA%D7%99" class="contact-btn" style="background:#1C252E;color:#fff;padding:14px 26px;border-radius:8px;font-weight:600;font-size:15px;">בואו נדבר</a>
-        <a href="#services" style="color:#1C252E;padding:14px 10px;font-weight:600;font-size:15px;border-bottom:1px solid #1C252E;">לצפייה בשירותים ↓</a>
+
+      <img src="img/dor-hero.png" alt="דור בר שלום" class="hero-image">
+    </div>
+
+
+
+    <!-- HOW I WORK -->
+    <div id="how-i-work" class="section-standard">
+      <div class="process-header">
+        <div class="section-header-top">
+          <div class="section-badge">
+            <span class="hero-badge-dot"></span>
+            איך אני עובד
+          </div>
+          <div class="persona-chips-tabber" role="tablist" aria-label="קהל יעד">
+            <button type="button" class="persona-chip is-active" data-persona="founders" role="tab"
+              aria-selected="true">ליזמים</button>
+            <button type="button" class="persona-chip" data-persona="companies" role="tab"
+              aria-selected="false">לעסקים</button>
+          </div>
+        </div>
+        <h2 id="steps-title" class="section-title">
+          תהליך מלא, מרעיון ועד מוצר בפרודקשן</h2>
+      </div>
+      <div id="steps-container" class="steps-grid">
+        <!-- Steps rendered via JS -->
       </div>
     </div>
 
-    <img src="img/dor-hero.png" alt="דור בר שלום" style="width:100%;max-width:780px;height:auto;display:block;justify-self:center;align-self:end;">
+    <!-- SELECTED WORKS -->
+    <div class="section-alt">
+      <div class="works-header">
+        <div class="section-badge">
+          <span class="hero-badge-dot"></span>
+          עבודות נבחרות
+        </div>
+        <h2 class="section-title">פרוייקטים לדוגמא</h2>
+      </div>
+      <div class="works-grid">
+        <div class="work-card">
+          <a href="https://maintor.systems" target="_blank" rel="noopener noreferrer" class="work-card-media" tabindex="-1" aria-hidden="true">
+            <img src="img/works/screenshot-maintor.png" alt="צילום מסך מתוך Maintor" class="work-card-img"
+              loading="lazy">
+          </a>
+          <div class="work-card-body">
+            <div class="work-card-logo-container"><img src="img/logos/maintor.svg" alt="Maintor" class="work-card-logo">
+            </div>
+            <div class="work-card-desc">Maintor היא מערכת CMMS לניהול תחזוקה במפעלים. היא עוזרת לצוותי תחזוקה לתעד תקלות, לתזמן עבודות ולעקוב אחרי ציוד - הכל במקום אחד.</div>
+            <a href="https://maintor.systems" target="_blank" rel="noopener noreferrer" class="work-card-link" aria-label="מעבר לאתר Maintor">
+              <span>לאתר המוצר</span>
+              <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_outward</span>
+            </a>
+          </div>
+        </div>
+        <div class="work-card">
+          <a href="https://hifred.ai" target="_blank" rel="noopener noreferrer" class="work-card-media" tabindex="-1" aria-hidden="true">
+            <img src="img/works/screenshot-hifred.png" alt="צילום מסך מתוך hiFred" class="work-card-img" loading="lazy">
+          </a>
+          <div class="work-card-body">
+            <div class="work-card-logo-container"><img src="img/logos/hifred.svg" alt="hiFred" class="work-card-logo">
+            </div>
+            <div class="work-card-desc">hiFred מביאה תהליך עבודה מבוסס AI לצוותי מוצר. היא מייעלת את הדרך שבה הצוות עובר מרעיון גולמי למשימות מוגדרות ומוכנות לביצוע.</div>
+            <a href="https://hifred.ai" target="_blank" rel="noopener noreferrer" class="work-card-link" aria-label="מעבר לאתר hiFred">
+              <span>לאתר המוצר</span>
+              <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_outward</span>
+            </a>
+          </div>
+        </div>
+        <div class="work-card">
+          <a href="https://bentz.bot" target="_blank" rel="noopener noreferrer" class="work-card-media" tabindex="-1" aria-hidden="true">
+            <img src="img/works/screenshot-bentz.png" alt="צילום מסך מתוך Bentz" class="work-card-img" loading="lazy">
+          </a>
+          <div class="work-card-body">
+            <div class="work-card-logo-container"><img src="img/logos/bentz.svg" alt="Bentz" class="work-card-logo">
+            </div>
+            <div class="work-card-desc">Bentz הוא שירות שמנטר קבוצות וואטסאפ כיתתיות ומזהה תוכן פוגעני - בריונות, אלימות ותכנים לא הולמים. הורים וועדי כיתה מקבלים דוחות שבועיים והתראות בזמן אמת, תוך שמירה על פרטיות המשתתפים.</div>
+            <a href="https://bentz.bot" target="_blank" rel="noopener noreferrer" class="work-card-link" aria-label="מעבר לאתר Bentz">
+              <span>לאתר המוצר</span>
+              <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_outward</span>
+            </a>
+          </div>
+        </div>
+        <div class="work-card">
+          <a href="https://getloudly.app" target="_blank" rel="noopener noreferrer" class="work-card-media" tabindex="-1" aria-hidden="true">
+            <img src="img/works/screenshot-loudly.png" alt="צילום מסך מתוך Loudly" class="work-card-img" loading="lazy">
+          </a>
+          <div class="work-card-body">
+            <div class="work-card-logo-container"><img src="img/logos/loudly.svg" alt="Loudly" class="work-card-logo">
+            </div>
+            <div class="work-card-desc">Loudly הופכת תוכן כתוב - מאמרים ומסמכים - לפודקאסטים איכותיים בקול AI טבעי, כך שאפשר לצרוך אותו בהאזנה, בכל מקום ובכל זמן.</div>
+            <a href="https://getloudly.app" target="_blank" rel="noopener noreferrer" class="work-card-link" aria-label="מעבר לאתר Loudly">
+              <span>לאתר המוצר</span>
+              <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_outward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHY NOT NO-CODE -->
+    <div id="section-why-nocode" class="section-standard">
+      <div class="section-header">
+        <div class="section-header-top">
+          <div class="section-badge">
+            <span class="hero-badge-dot"></span>
+            למה לא כלי נו-קוד
+          </div>
+          <div class="persona-chips-tabber" role="tablist" aria-label="קהל יעד">
+            <button type="button" class="persona-chip is-active" data-persona="founders" role="tab"
+              aria-selected="true">ליזמים</button>
+            <button type="button" class="persona-chip" data-persona="companies" role="tab"
+              aria-selected="false">לעסקים</button>
+          </div>
+        </div>
+        <h2 id="nocode-title" class="nocode-title">
+          מוצר ברמת Production grade, לא פרוטוטייפ</h2>
+        <p class="nocode-desc">כלי נו-קוד מצוינים להוכחת
+          היתכנות מהירה, אבל כשהמוצר צריך לגדול הם הופכים למכשול: אתם תלויים לגמרי בפלטפורמה, לא יכולים להתאים מעבר
+          לתבנית, ולרוב לא עוברים בדיקת אבטחה רצינית. כשאני בונה בשבילכם, אתם מקבלים בעלות מלאה על הקוד, מערכת שבנויה
+          לגדול מהיום הראשון, והתאמה מלאה לצרכים שלכם.</p>
+      </div>
+      <div class="comparison-table">
+        <div class="comparison-row">
+          <div class="comparison-header-dor">פיתוח עם דור</div>
+          <div class="comparison-header-nocode">כלי פרוטוטייפינג נו-קוד</div>
+        </div>
+        <div id="comparison-rows">
+          <!-- Comparison rows rendered via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- AI AUTOMATION EXAMPLES (For Businesses) -->
+    <div id="section-automation-examples" class="section-standard" style="display: none;">
+      <div class="section-header">
+        <div class="section-header-top">
+          <div class="section-badge">
+            <span class="hero-badge-dot"></span>
+            פתרונות אוטומציה
+          </div>
+          <div class="persona-chips-tabber" role="tablist" aria-label="קהל יעד">
+            <button type="button" class="persona-chip" data-persona="founders" role="tab"
+              aria-selected="false">ליזמים</button>
+            <button type="button" class="persona-chip is-active" data-persona="companies" role="tab"
+              aria-selected="true">לעסקים</button>
+          </div>
+        </div>
+        <h2 class="section-title">פתרונות אוטומציה AI לדוגמא</h2>
+      </div>
+
+      <div class="automation-grid">
+        <!-- 1. שירות לקוחות ומכירות -->
+        <div class="automation-card">
+          <div class="automation-card-header">
+            <div class="automation-card-icon-wrap">
+              <span class="material-symbols-rounded automation-card-icon">support_agent</span>
+            </div>
+            <h3 class="automation-card-title">שירות לקוחות ומכירות</h3>
+          </div>
+          <div class="automation-items-list">
+            <div class="automation-item">
+              <div class="automation-item-title">
+                <span class="automation-item-bullet" aria-hidden="true"></span>
+                טיפול אוטומטי בפניות לקוחות
+              </div>
+              <p class="automation-item-desc">מיון ומענה אוטומטי לפניות נפוצות, והעברה לאדם רק כשצריך</p>
+            </div>
+            <div class="automation-item">
+              <div class="automation-item-title">
+                <span class="automation-item-bullet" aria-hidden="true"></span>
+                ניהול לידים חכם
+              </div>
+              <p class="automation-item-desc">דירוג, ניתוב והתאמה אישית של המענה הראשוני ללידים חדשים</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. תפעול ומסמכים -->
+        <div class="automation-card">
+          <div class="automation-card-header">
+            <div class="automation-card-icon-wrap">
+              <span class="material-symbols-rounded automation-card-icon">description</span>
+            </div>
+            <h3 class="automation-card-title">תפעול ומסמכים</h3>
+          </div>
+          <div class="automation-items-list">
+            <div class="automation-item">
+              <div class="automation-item-title">
+                <span class="automation-item-bullet" aria-hidden="true"></span>
+                עיבוד מסמכים אוטומטי
+              </div>
+              <p class="automation-item-desc">חשבוניות, חוזים וטפסים נקראים ומוזנים למערכת בלי הקלדה ידנית</p>
+            </div>
+            <div class="automation-item">
+              <div class="automation-item-title">
+                <span class="automation-item-bullet" aria-hidden="true"></span>
+                עוזר ידע פנימי
+              </div>
+              <p class="automation-item-desc">עובדים מקבלים תשובות מתוך המסמכים והנהלים של החברה, בלי לפנות לאדם בכל
+                שאלה</p>
+            </div>
+            <div class="automation-item">
+              <div class="automation-item-title">
+                <span class="automation-item-bullet" aria-hidden="true"></span>
+                תהליכי onboarding
+              </div>
+              <p class="automation-item-desc">הקמת חשבונות, שליחת מסמכים ומעקב אחרי לקוח או עובד חדש - הכל אוטומטי</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. דוחות וגיוס -->
+        <div class="automation-card">
+          <div class="automation-card-header">
+            <div class="automation-card-icon-wrap">
+              <span class="material-symbols-rounded automation-card-icon">insights</span>
+            </div>
+            <h3 class="automation-card-title">דוחות וגיוס</h3>
+          </div>
+          <div class="automation-items-list">
+            <div class="automation-item">
+              <div class="automation-item-title">
+                <span class="automation-item-bullet" aria-hidden="true"></span>
+                דוחות אוטומטיים
+              </div>
+              <p class="automation-item-desc">נתונים מהכלים השונים שלכם מתאגדים לדוח שבועי אחד עם התובנות החשובות</p>
+            </div>
+            <div class="automation-item">
+              <div class="automation-item-title">
+                <span class="automation-item-bullet" aria-hidden="true"></span>
+                סינון מועמדים
+              </div>
+              <p class="automation-item-desc">קורות חיים מדורגים אוטומטית מול הקריטריונים של התפקיד</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. פגישות ולוח זמנים -->
+        <div class="automation-card">
+          <div class="automation-card-header">
+            <div class="automation-card-icon-wrap">
+              <span class="material-symbols-rounded automation-card-icon">calendar_today</span>
+            </div>
+            <h3 class="automation-card-title">פגישות ולוח זמנים</h3>
+          </div>
+          <div class="automation-items-list">
+            <div class="automation-item">
+              <div class="automation-item-title">
+                <span class="automation-item-bullet" aria-hidden="true"></span>
+                תיאום פגישות אוטומטי
+              </div>
+              <p class="automation-item-desc">מציאת זמן פנוי, שליחת הזמנות ותיאום מחדש - בלי התכתבויות אינסופיות</p>
+            </div>
+            <div class="automation-item">
+              <div class="automation-item-title">
+                <span class="automation-item-bullet" aria-hidden="true"></span>
+                סיכום פגישות ומשימות
+              </div>
+              <p class="automation-item-desc">כל שיחה מתומצתת אוטומטית, והמשימות מגיעות ישר לכלי הניהול עם בעל אחריות
+              </p>
+            </div>
+            <div class="automation-item">
+              <div class="automation-item-title">
+                <span class="automation-item-bullet" aria-hidden="true"></span>
+                תדריך לפני פגישה
+              </div>
+              <p class="automation-item-desc">סיכום אוטומטי של ההיסטוריה עם הלקוח לפני כל שיחה, כדי שתגיעו מוכנים</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. מלאי ורכש -->
+        <div class="automation-card">
+          <div class="automation-card-header">
+            <div class="automation-card-icon-wrap">
+              <span class="material-symbols-rounded automation-card-icon">inventory_2</span>
+            </div>
+            <h3 class="automation-card-title">מלאי ורכש</h3>
+          </div>
+          <div class="automation-items-list">
+            <div class="automation-item">
+              <div class="automation-item-title">
+                <span class="automation-item-bullet" aria-hidden="true"></span>
+                מעקב מלאי בזמן אמת
+              </div>
+              <p class="automation-item-desc">רמות המלאי מנוטרות באופן שוטף, עם התראה אוטומטית לפני שנגמר המלאי</p>
+            </div>
+            <div class="automation-item">
+              <div class="automation-item-title">
+                <span class="automation-item-bullet" aria-hidden="true"></span>
+                הזמנה חוזרת אוטומטית
+              </div>
+              <p class="automation-item-desc">כשהמלאי יורד מסף מסוים, הזמנה חדשה יוצאת לבד</p>
+            </div>
+            <div class="automation-item">
+              <div class="automation-item-title">
+                <span class="automation-item-bullet" aria-hidden="true"></span>
+                סנכרון מלאי בין ערוצים
+              </div>
+              <p class="automation-item-desc">המלאי מסונכרן בין החנות, הסניף והמרקטפלייסים - בלי למכור פעמיים את אותו
+                פריט</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="about-section">
+      <div class="about-header">
+        <div class="section-badge">
+          <span class="hero-badge-dot"></span>
+          עליי
+        </div>
+        <h2 class="about-title">אני בונה מוצרים כבר 20 שנה, מהצורך הראשוני של הלקוח ועד פרודקשן</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>אני דור בר שלום, בונה מוצרי AI מקצה לקצה. התחלתי כמעצב וארט דיירקטור, המשכתי לתכנון
+            חוויית משתמש ופרונט־אנד, ובעשור האחרון הובלתי מוצר — כראש מוצר ב-WiseStamp ו-vCita, כדירקטור אינטגרציות
+            ב-D-ID, וכ-VP Product ב-Storydoc.</p>
+          <p>אני חי בתוך הדאטה: Mixpanel, Funnels, הקלטות סשנים, אבל באותה מידה נמצא בשטח ומדבר עם
+            משתמשים, B2C ו-B2B, כדי להבין מה לקוחות באמת צריכים ולא רק מה הדשבורד אומר.</p>
+          <p>בשנה האחרונה אני עושה משהו אחר: בונה מוצרים ברמת פרודקשן לבד, בלי צוות פיתוח - רק אני
+            וסטאק AI שסביבו בניתי מחדש את כל תהליך העבודה, מגילוי, ניתוח ועיצוב ועד השקה. כך נולדו hiFred ו-Maintor,
+            ושניהם פעילים היום.</p>
+        </div>
+        <div class="timeline-list">
+          <div class="timeline-item">
+            <span class="timeline-role">מייסד שותף · hiFred, Maintor</span><span dir="ltr" class="timeline-period">2026
+              – היום</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-role">VP Product · Storydoc</span><span dir="ltr" class="timeline-period">2025</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-role">Director of Product Integrations · D-ID</span><span dir="ltr"
+              class="timeline-period">2021 – 2025</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-role">Head of Product · vCita, WiseStamp</span><span dir="ltr"
+              class="timeline-period">2015 – 2021</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-role">עיצוב UX/UI · Samsung, כללית, שטראוס ועוד</span><span dir="ltr"
+              class="timeline-period">2005 – 2015</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-action">
+        <a href="mailto:dor@dorbarshalom.com?subject=%D7%91%D7%95%D7%90%D7%95%20%D7%A0%D7%91%D7%A0%D7%94%20%D7%9E%D7%A9%D7%94%D7%95%20%D7%90%D7%9E%D7%99%D7%AA%D7%99"
+          class="contact-btn hero-cta-btn about-cta-btn">בואו נדבר</a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <div class="footer-content">
+        <a href="mailto:dorbarshalom@gmail.com" class="footer-email">dorbarshalom@gmail.com</a>
+        <span class="footer-divider" aria-hidden="true">|</span>
+        <span class="footer-text">דור בר שלום, Product builder</span>
+      </div>
+    </div>
+
   </div>
 
-  <!-- WHO I AM -->
-  <div style="padding:5vw 6vw;background:#F7F8F9;border-top:1px solid #F0F1F2;border-bottom:1px solid #F0F1F2;">
-    <div style="margin-bottom:40px;">
-      <div style="font-size:12px;color:#00A76F;letter-spacing:0.02em;margin-bottom:12px;font-weight:600;">מי אני</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;">
-        <div style="color:#1C252E;font-size:clamp(22px,2.8vw,30px);font-weight:600;line-height:1.55;margin:0;text-wrap:pretty;">היי 👋 אני דור, Product Builder.<br><br>אני מחבר בין חשיבה מוצרית עסקית לפיתוח מעשי בעולמות ה-AI, כדי לעזור לחברות וליזמים להרים פתרונות עובדים במהירות ובלי סיבוכים מיותרים.</div>
-      </div>
-    </div>
-    <div style="font-size:13px;color:#637381;margin-bottom:14px;">מה מתאר אתכם? העמוד יתעדכן בהתאם.</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
-      <div id="card-founders" class="persona-card" role="button" tabindex="0">
-        <div id="radio-founders" class="persona-radio"></div>
-        <div>
-          <div style="font-weight:700;font-size:17px;margin-bottom:10px;">ליזמים ומייסדים</div>
-          <p style="color:#454F5B;font-size:15px;line-height:1.7;margin:0;">אתם בונים מוצר, מפרוטוטייפ ועד פרודקשן. אני איתכם מהרעיון הראשון ועד ההשקה.</p>
-        </div>
-      </div>
-      <div id="card-companies" class="persona-card" role="button" tabindex="0">
-        <div id="radio-companies" class="persona-radio"></div>
-        <div>
-          <div style="font-weight:700;font-size:17px;margin-bottom:10px;">לחברות שרוצות לייעל תהליכים עם AI</div>
-          <p style="color:#454F5B;font-size:15px;line-height:1.7;margin:0;">אני בונה פתרון מקצה לקצה, שמותאם בדיוק לבעיה שלכם.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Contact Modal -->
+  <div id="contact-modal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="modal-title">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="סגור">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
 
-  <!-- SERVICES -->
-  <div id="services" style="padding:6vw 6vw;background:#F7F8F9;border-top:1px solid #F0F1F2;border-bottom:1px solid #F0F1F2;">
-    <div style="max-width:640px;margin-bottom:44px;">
-      <div style="font-size:12px;color:#00A76F;letter-spacing:0.02em;margin-bottom:12px;font-weight:600;">שירותים</div>
-      <h2 style="font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-0.01em;margin:0;">איך אפשר לעבוד יחד</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;">
+      <!-- Form View -->
+      <div id="modal-form-view">
+        <h3 id="modal-title" class="modal-title">תשאירו פרטים ואני אצור קשר</h3>
 
-      <div id="service-card-1" style="order:1;background:#fff;border:1px solid #E7E9EC;border-radius:16px;padding:30px;display:flex;flex-direction:column;">
-        <div dir="ltr" style="text-align:right;font-size:12px;color:#919EAB;margin-bottom:12px;">01</div>
-        <div style="font-weight:700;font-size:19px;margin-bottom:12px;">מוצר מוכן לפרודקשן</div>
-        <p style="color:#454F5B;font-size:15px;line-height:1.7;margin:0;flex:1;">אני לוקח את הרעיון שלכם והופך אותו למערכת חיה. גילוי צרכים וראיונות משתמשים, תכנון מסד נתונים וארכיטקטורה, פיתוח פול סטאק, מדידה ובדיקות A/B — כל אלה חלק מהתהליך, לא תוספת.</p>
-      </div>
+        <form id="contact-form" class="modal-form" novalidate>
+          <div class="form-group">
+            <label for="lead-name" class="form-label">שם <span class="required-star">*</span></label>
+            <input type="text" id="lead-name" name="name" class="form-input" required placeholder="השם שלכם"
+              autocomplete="name">
+            <span class="field-error" id="name-error">נא להזין שם</span>
+          </div>
 
-      <div id="service-card-2" style="order:2;background:#fff;border:1px solid #E7E9EC;border-radius:16px;padding:30px;display:flex;flex-direction:column;">
-        <div style="font-size:12px;color:#919EAB;margin-bottom:12px;">02</div>
-        <div style="font-weight:700;font-size:19px;margin-bottom:12px;">אוטומציה פנימית ותהליכי עבודה מבוססי AI</div>
-        <p style="color:#454F5B;font-size:15px;line-height:1.7;margin:0;flex:1;">אני בונה מערכות AI לשימוש פנימי: סוכנים ואוטומציות שעושים עבודה אמיתית בתוך התהליכים שלכם.</p>
+          <div class="form-group">
+            <label for="lead-email" class="form-label">אימייל <span class="required-star">*</span></label>
+            <input type="email" id="lead-email" name="email" class="form-input" required placeholder="name@company.com"
+              autocomplete="email" dir="ltr">
+            <span class="field-error" id="email-error">נא להזין כתובת אימייל תקינה</span>
+          </div>
+
+          <div class="form-group">
+            <label for="lead-mobile" class="form-label">נייד <span class="optional-label">(אופציונלי)</span></label>
+            <input type="tel" id="lead-mobile" name="mobile" class="form-input" placeholder="050-0000000"
+              autocomplete="tel" dir="ltr">
+          </div>
+
+          <div id="form-error-msg" class="form-general-error" style="display: none;"></div>
+
+          <button type="submit" class="modal-submit-btn" id="modal-submit-btn">
+            <span class="btn-text">שלחו</span>
+          </button>
+        </form>
       </div>
 
-      <div id="service-card-3" style="order:3;background:#fff;border:1px solid #E7E9EC;border-radius:16px;padding:30px;display:flex;flex-direction:column;">
-        <div style="font-size:12px;color:#919EAB;margin-bottom:12px;">03</div>
-        <div style="font-weight:700;font-size:19px;margin-bottom:12px;">ליווי מתמשך</div>
-        <p style="color:#454F5B;font-size:15px;line-height:1.7;margin:0;flex:1;">העבודה ממשיכה גם אחרי ההשקה: אני משתלב בצוות שלכם, או משמש זרוע ביצוע טכנית לסוכנויות שצריכות יכולות פיתוח לפרויקטים של לקוחות.</p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- HOW I WORK -->
-  <div style="padding:6vw 6vw;">
-    <div style="max-width:640px;margin-bottom:48px;">
-      <div style="font-size:12px;color:#00A76F;letter-spacing:0.02em;margin-bottom:12px;font-weight:600;">איך אני עובד · <span id="persona-label">ליזמים</span></div>
-      <h2 id="steps-title" style="font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-0.01em;margin:0;">תהליך מלא, מרעיון ועד מוצר בפרודקשן</h2>
-    </div>
-    <div id="steps-container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;position:relative;">
-      <!-- Steps rendered via JS -->
-    </div>
-  </div>
-
-  <!-- SELECTED WORKS -->
-  <div style="padding:6vw 6vw;background:#F7F8F9;border-top:1px solid #F0F1F2;border-bottom:1px solid #F0F1F2;">
-    <div style="max-width:640px;margin-bottom:40px;">
-      <div style="font-size:12px;color:#00A76F;letter-spacing:0.02em;margin-bottom:12px;font-weight:600;">עבודות נבחרות</div>
-      <h2 style="font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-0.01em;margin:0;">פרוייקטים לדוגמא</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;">
-      <div style="background:#fff;border:1px solid #E7E9EC;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
-        <div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#F1F3F5 0 10px,#E9ECEF 10px 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid #E7E9EC;">
-          <span dir="ltr" style="font-family:'Google Sans','Noto Sans Hebrew',sans-serif;font-size:12px;color:#919EAB;background:#fff;padding:4px 10px;border-radius:4px;">maintor screenshot</span>
-        </div>
-        <div style="padding:22px 24px;display:flex;flex-direction:column;gap:12px;">
-          <div style="height:40px;display:flex;align-items:center;"><img src="img/logos/maintor.svg" alt="Maintor" style="height:22px;width:auto;"></div>
-          <div style="color:#454F5B;font-size:14.5px;line-height:1.6;">Maintor היא מערכת CMMS לניהול תחזוקה במפעלים.</div>
-        </div>
-      </div>
-      <div style="background:#fff;border:1px solid #E7E9EC;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
-        <div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#F1F3F5 0 10px,#E9ECEF 10px 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid #E7E9EC;">
-          <span dir="ltr" style="font-family:'Google Sans','Noto Sans Hebrew',sans-serif;font-size:12px;color:#919EAB;background:#fff;padding:4px 10px;border-radius:4px;">hifred screenshot</span>
-        </div>
-        <div style="padding:22px 24px;display:flex;flex-direction:column;gap:12px;">
-          <div style="height:40px;display:flex;align-items:center;"><img src="img/logos/hifred.svg" alt="hiFred" style="height:24px;width:auto;"></div>
-          <div style="color:#454F5B;font-size:14.5px;line-height:1.6;">hiFred מביא תהליך עבודה מבוסס AI לצוותי מוצר.</div>
-        </div>
-      </div>
-      <div style="background:#fff;border:1px solid #E7E9EC;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
-        <div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#F1F3F5 0 10px,#E9ECEF 10px 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid #E7E9EC;">
-          <span dir="ltr" style="font-family:'Google Sans','Noto Sans Hebrew',sans-serif;font-size:12px;color:#919EAB;background:#fff;padding:4px 10px;border-radius:4px;">bentz screenshot</span>
-        </div>
-        <div style="padding:22px 24px;display:flex;flex-direction:column;gap:12px;">
-          <div style="height:40px;display:flex;align-items:center;"><img src="img/logos/bentz.svg" alt="Bentz" style="height:40px;width:auto;"></div>
-          <div style="color:#454F5B;font-size:14.5px;line-height:1.6;">ב-Bentz אני מספק ליווי מתמשך ופיתוח שוטף.</div>
-        </div>
-      </div>
-      <div style="background:#fff;border:1px solid #E7E9EC;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
-        <div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#F1F3F5 0 10px,#E9ECEF 10px 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid #E7E9EC;">
-          <span dir="ltr" style="font-family:'Google Sans','Noto Sans Hebrew',sans-serif;font-size:12px;color:#919EAB;background:#fff;padding:4px 10px;border-radius:4px;">loudly screenshot</span>
-        </div>
-        <div style="padding:22px 24px;display:flex;flex-direction:column;gap:12px;">
-          <div style="height:40px;display:flex;align-items:center;"><img src="img/logos/loudly.svg" alt="Loudly" style="height:18px;width:auto;"></div>
-          <div style="color:#454F5B;font-size:14.5px;line-height:1.6;">עבור Loudly אני משמש זרוע ביצוע טכנית לפרויקטים של לקוחות.</div>
-        </div>
+      <!-- Success View (Replaces form when done) -->
+      <div id="modal-success-view" class="modal-success-view" style="display: none;">
+        <span class="success-tada-icon" aria-hidden="true">🎉</span>
+        <h3 class="modal-title">תודה רבה!</h3>
+        <p class="modal-subtitle">הפרטים נשלחו בהצלחה, אני אצור איתכם קשר בהקדם.</p>
+        <button type="button" class="modal-submit-btn modal-done-btn" id="modal-done-btn">סגירה</button>
       </div>
     </div>
   </div>
 
-  <!-- WHY NOT NO-CODE -->
-  <div style="padding:6vw 6vw;">
-    <div style="max-width:640px;margin-bottom:44px;">
-      <div style="font-size:12px;color:#00A76F;letter-spacing:0.02em;margin-bottom:12px;font-weight:600;">למה לא כלי נו-קוד · <span id="nocode-persona-label">ליזמים</span></div>
-      <h2 id="nocode-title" style="font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-0.01em;margin:0 0 16px;min-height:76px;max-width:600px;">מוצר ברמת Production grade, לא פרוטוטייפ</h2>
-      <p style="color:#454F5B;font-size:16px;line-height:1.7;margin:0;text-wrap:pretty;">כלי נו-קוד מצוינים להוכחת היתכנות מהירה, אבל כשהמוצר צריך לגדול הם הופכים למכשול: אתם תלויים לגמרי בפלטפורמה, לא יכולים להתאים מעבר לתבנית, ולרוב לא עוברים בדיקת אבטחה רצינית. כשאני בונה בשבילכם, אתם מקבלים בעלות מלאה על הקוד, מערכת שבנויה לגדול מהיום הראשון, והתאמה מלאה לצרכים שלכם.</p>
-    </div>
-    <div style="border:1px solid #E7E9EC;border-radius:16px;overflow:hidden;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;">
-        <div style="padding:18px 24px;font-weight:700;font-size:14px;color:#637381;background:#F7F8F9;border-bottom:1px solid #E7E9EC;border-left:1px solid #E7E9EC;">כלי פרוטוטייפינג נו-קוד</div>
-        <div style="padding:18px 24px;font-weight:700;font-size:14px;color:#1C252E;background:#F0FAF6;border-bottom:1px solid #E7E9EC;">פיתוח עם דור</div>
-      </div>
-      <div id="comparison-rows">
-        <!-- Comparison rows rendered via JS -->
-      </div>
-    </div>
-  </div>
+  <!-- Persona Switcher Logic -->
+  <script>
+    (function () {
+      const rows = {
+        vendor: { no_code: "אתם תלויים לגמרי בפלטפורמה", dor: "הקוד שייך לכם, לגמרי" },
+        scale: { no_code: "המערכת נתקעת כשמספר המשתמשים גדל", dor: "המערכת בנויה לגדול מהיום הראשון" },
+        custom: { no_code: "המערכת מוגבלת לתבניות מוכנות", dor: "המערכת מותאמת לגמרי לצרכים שלכם" },
+        security: { no_code: "המערכת לא עומדת בבדיקות אבטחה רציניות", dor: "ההרשאות, האבטחה והנתונים עומדים בסטנדרט של פרודקשן" },
+        eng: { no_code: "רק מי שמכיר את הפלטפורמה יכול לגעת בזה", dor: "כל מפתח יכול להמשיך מכאן" },
+      };
 
-  <!-- ABOUT -->
-  <div style="padding:6vw 6vw;background:#F7F8F9;border-top:1px solid #F0F1F2;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:start;">
-      <div style="max-width:640px;">
-        <div style="font-size:12px;color:#00A76F;letter-spacing:0.02em;margin-bottom:12px;font-weight:600;">עליי</div>
-        <h2 style="font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-0.01em;margin:0 0 24px;">אני בונה מוצרים כבר 20 שנה, מהצורך הראשוני של הלקוח ועד פרודקשן</h2>
-        <div style="display:flex;flex-direction:column;gap:18px;font-size:17px;line-height:1.8;color:#333D47;text-wrap:pretty;">
-          <p style="margin:0;">אני דור בר שלום, בונה מוצרי AI מקצה לקצה. התחלתי כמעצב וארט דיירקטור, המשכתי לתכנון חוויית משתמש ופרונט־אנד, ובעשור האחרון הובלתי מוצר — כראש מוצר ב-WiseStamp ו-vCita, כדירקטור אינטגרציות ב-D-ID, וכ-VP Product ב-Storydoc.</p>
-          <p style="margin:0;">אני חי בתוך הדאטה: Mixpanel, Funnels, הקלטות סשנים, אבל באותה מידה נמצא בשטח ומדבר עם משתמשים, B2C ו-B2B, כדי להבין מה לקוחות באמת צריכים ולא רק מה הדשבורד אומר.</p>
-          <p style="margin:0;">בשנה האחרונה אני עושה משהו אחר: בונה מוצרים ברמת פרודקשן לבד, בלי צוות פיתוח - רק אני וסטאק AI שסביבו בניתי מחדש את כל תהליך העבודה, מגילוי, ניתוח ועיצוב ועד השקה. כך נולדו hiFred ו-Maintor, ושניהם פעילים היום.</p>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;border-top:1px solid #E7E9EC;">
-        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 0;border-bottom:1px solid #E7E9EC;font-size:15px;"><span style="font-weight:600;">מייסד שותף · hiFred, Maintor</span><span dir="ltr" style="color:#919EAB;">2025 –</span></div>
-        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 0;border-bottom:1px solid #E7E9EC;font-size:15px;"><span style="font-weight:600;">VP Product · Storydoc</span><span dir="ltr" style="color:#919EAB;">2025</span></div>
-        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 0;border-bottom:1px solid #E7E9EC;font-size:15px;"><span style="font-weight:600;">Director of Product Integrations · D-ID</span><span dir="ltr" style="color:#919EAB;">2021 – 2025</span></div>
-        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 0;border-bottom:1px solid #E7E9EC;font-size:15px;"><span style="font-weight:600;">Head of Product · vCita, WiseStamp</span><span dir="ltr" style="color:#919EAB;">2015 – 2021</span></div>
-        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 0;border-bottom:1px solid #E7E9EC;font-size:15px;"><span style="font-weight:600;">עיצוב UX/UI · Samsung, כללית, שטראוס ועוד</span><span dir="ltr" style="color:#919EAB;">2005 – 2015</span></div>
-      </div>
-    </div>
-  </div>
+      const foundersSteps = [
+        {
+          icon: "troubleshoot",
+          title: "דיסקאברי ומשתמשים",
+          desc: "אנחנו מבינים לעומק את המשתמש, את הכאב והאילוצים - כולל ראיונות עם לקוחות קיימים כשיש כאלה, ניתוח מתחרים, ובחינת דאטה קיים (אם יש), כדי לקבל את התמונה המלאה עוד לפני שמתחילים."
+        },
+        {
+          icon: "schema",
+          title: "ארכיטקטורה",
+          desc: "אנחנו מניחים את תשתית הנתונים לפני השורה הראשונה של הקוד - בוחרים את התשתית והכלים הנכונים למוצר שלכם, בהתאם לדרישות ולסקייל שאתם מכוונים אליו."
+        },
+        {
+          icon: "deployed_code",
+          title: "פיתוח",
+          desc: "אנחנו מפתחים פול סטאק, על תשתית פרודקשן מהרגע הראשון, בעבודה שקופה מול פרויקט GitHub משותף איתכם, עם הקפדה על איכות קוד גבוהה, טסטים אוטומטיים והתייחסות רצינית להיבטי אבטחה לאורך כל הדרך."
+        },
+        {
+          icon: "query_stats",
+          title: "מדידה",
+          desc: "אנחנו מגדירים את מדדי ה-KPI שחשובים לכם, בונים את סכמת הנתונים (data schema), מטמיעים כלים כמו Mixpanel למעקב אחר התנהגות משתמשים כולל session recording, ומקימים דשבורדים שנותנים לנו תמונה מלאה בזמן אמת."
+        },
+        {
+          icon: "experiment",
+          title: "שיפור מתמיד",
+          desc: "אנחנו בונים תשתית לבדיקות A/B ואיסוף פידבק ממשתמשים כדי לשפר את המוצר ולקבל החלטות מבוססות נתונים ולא ניחושים."
+        },
+      ];
 
-  <!-- CTA -->
-  <div style="padding:7vw 6vw;background:#1C252E;color:#fff;text-align:center;">
-    <h2 style="font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-0.01em;margin:0 0 28px;">בואו נבנה משהו יחד</h2>
-    <a href="mailto:dor@dorbarshalom.com?subject=%D7%91%D7%95%D7%90%D7%95%20%D7%A0%D7%91%D7%A0%D7%94%20%D7%9E%D7%A9%D7%94%D7%95%20%D7%90%D7%9E%D7%99%D7%AA%D7%99" class="contact-btn" style="display:inline-block;background:#00A76F;color:#0B0F14;padding:16px 32px;border-radius:8px;font-weight:700;font-size:16px;">בואו נדבר</a>
-  </div>
+      const companiesSteps = [
+        {
+          icon: "account_tree",
+          title: "מה האתגר שלכם?",
+          desc: "אני לומד את העסק שלכם לעומק, כדי להבין את התמונה הרחבה ולא רק את הבעיה הנקודתית. אם הפתרון פונה למשתמשים, אני מדבר גם איתם כדי להבין את הצרכים האמיתיים שלהם. יחד אנחנו ממפים את האפשרויות והפתרונות הרלוונטיים, ובוחרים את הדרך הנכונה להתקדם."
+        },
+        {
+          icon: "hub",
+          title: "נמשיך לבנייה של הפיתרון",
+          desc: "אני מניח את התשתית ומחבר אותה בצורה מאובטחת למערכות הקיימות שלכם. לאורך כל הדרך אני בודק ובוחן את הפתרון יחד אתכם, כדי לוודא שאני בונה בדיוק את הדבר הנכון - לא רק פתרון שעובד, אלא פתרון שמתאים לכם."
+        },
+        {
+          icon: "task_alt",
+          title: "עד מערכת מלאה, עובדת בשטח",
+          desc: "אני מוסר לכם מערכת שלמה ומוכנה, מדריך את הצוות שלכם בשימוש בה, וממשיך ללוות אתכם גם אחרי ההשקה - כדי לוודא שהיא עובדת מצוין גם בשטח."
+        },
+      ];
 
-  <div style="padding:26px 6vw;display:flex;justify-content:space-between;font-size:13px;color:#919EAB;">
-    <div>דור בר שלום</div>
-    <div>בונה מוצרי AI</div>
-  </div>
+      const cardFounders = document.getElementById('card-founders');
+      const cardCompanies = document.getElementById('card-companies');
 
-</div>
+      const personaLabel = document.getElementById('persona-label');
+      const nocodePersonaLabel = document.getElementById('nocode-persona-label');
+      const nocodeTitle = document.getElementById('nocode-title');
+      const stepsTitle = document.getElementById('steps-title');
+      const stepsContainer = document.getElementById('steps-container');
+      const comparisonRows = document.getElementById('comparison-rows');
+      const sectionWhyNocode = document.getElementById('section-why-nocode');
+      const sectionAutomationExamples = document.getElementById('section-automation-examples');
 
-<!-- Persona Switcher Logic -->
-<script>
-  (function () {
-    const rows = {
-      vendor: { no_code: "אתם תלויים לגמרי בפלטפורמה", dor: "הקוד שייך לכם, לגמרי" },
-      scale: { no_code: "המערכת נתקעת כשמספר המשתמשים גדל", dor: "המערכת בנויה לגדול מהיום הראשון" },
-      custom: { no_code: "המערכת מוגבלת לתבניות מוכנות", dor: "המערכת מותאמת לגמרי לצרכים שלכם" },
-      security: { no_code: "המערכת לא עומדת בבדיקות אבטחה רציניות", dor: "ההרשאות, האבטחה והנתונים עומדים בסטנדרט של פרודקשן" },
-      eng: { no_code: "רק מי שמכיר את הפלטפורמה יכול לגעת בזה", dor: "כל מפתח יכול להמשיך מכאן" },
-    };
+      let currentPersona = 'founders';
 
-    const foundersSteps = [
-      { n: 1, title: "דיסקאברי ומשתמשים", desc: "אנחנו מבינים לעומק את המשתמש, את הבעיה ואת האילוצים." },
-      { n: 2, title: "מסד נתונים וארכיטקטורה", desc: "אנחנו מניחים את תשתית הנתונים לפני השורה הראשונה של הקוד." },
-      { n: 3, title: "פיתוח", desc: "אנחנו מפתחים פול סטאק, על תשתית פרודקשן מהיום הראשון." },
-      { n: 4, title: "מדידה", desc: "אנחנו מגדירים אירועים, מדדי KPI ולוחות בקרה." },
-      { n: 5, title: "שיפור מתמיד", desc: "אנחנו בונים תשתית לבדיקות A/B, כדי שההחלטות יתבססו על נתונים ולא על ניחושים." },
-    ];
+      function setPersona(persona) {
+        currentPersona = persona;
+        const isF = persona === 'founders';
 
-    const companiesSteps = [
-      { n: 1, title: "מבינים את התהליך שלכם", desc: "אנחנו ממפים את התהליך, את נקודות הכאב ואת המערכות הקיימות." },
-      { n: 2, title: "בונים את הפתרון", desc: "אנחנו מפתחים את הפתרון, מחברים אותו למערכות שלכם ובודקים אותו מול משתמשים אמיתיים." },
-      { n: 3, title: "מוסרים לכם מערכת שעובדת", desc: "אנחנו מטמיעים את המערכת, מדריכים את הצוות שלכם ומלווים אתכם גם אחרי העלייה לאוויר." },
-    ];
+        // Update Cards Active State
+        cardFounders.classList.toggle('is-active', isF);
+        cardCompanies.classList.toggle('is-active', !isF);
 
-    const cardFounders = document.getElementById('card-founders');
-    const cardCompanies = document.getElementById('card-companies');
-    const radioFounders = document.getElementById('radio-founders');
-    const radioCompanies = document.getElementById('radio-companies');
+        // Update Persona Chip Buttons
+        document.querySelectorAll('.persona-chip').forEach(function (chip) {
+          const isActive = chip.dataset.persona === persona;
+          chip.classList.toggle('is-active', isActive);
+          chip.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
 
-    const personaLabel = document.getElementById('persona-label');
-    const nocodePersonaLabel = document.getElementById('nocode-persona-label');
-    const nocodeTitle = document.getElementById('nocode-title');
-    const stepsTitle = document.getElementById('steps-title');
-    const stepsContainer = document.getElementById('steps-container');
-    const comparisonRows = document.getElementById('comparison-rows');
+        // Toggle Why No-Code vs Automation Examples sections
+        if (sectionWhyNocode) sectionWhyNocode.style.display = isF ? '' : 'none';
+        if (sectionAutomationExamples) sectionAutomationExamples.style.display = isF ? 'none' : '';
 
-    const s1 = document.getElementById('service-card-1');
-    const s2 = document.getElementById('service-card-2');
+        // Update Labels & Titles
+        const labelText = isF ? 'ליזמים' : 'לעסקים';
+        if (personaLabel) personaLabel.textContent = labelText;
+        if (nocodePersonaLabel) nocodePersonaLabel.textContent = labelText;
 
-    let currentPersona = 'founders';
+        if (nocodeTitle) {
+          nocodeTitle.textContent = 'מוצר ברמת Production grade, לא פרוטוטייפ';
+        }
 
-    function setPersona(persona) {
-      currentPersona = persona;
-      const isF = persona === 'founders';
+        stepsTitle.textContent = isF
+          ? 'תהליך מלא, מרעיון ועד מוצר בפרודקשן'
+          : 'בשלושה שלבים, אתם מקבלים מערכת שעובדת';
 
-      // Update Cards
-      cardFounders.style.border = isF ? '1.5px solid #1C252E' : '1.5px solid #E7E9EC';
-      cardCompanies.style.border = isF ? '1.5px solid #E7E9EC' : '1.5px solid #1C252E';
+        // Render Steps
+        const steps = isF ? foundersSteps : companiesSteps;
+        stepsContainer.innerHTML = steps.map(function (step) {
+          return '<div class="step-item">' +
+            '<div class="step-top">' +
+            '<div class="step-icon-wrap">' +
+            '<span class="material-symbols-rounded step-icon">' + step.icon + '</span>' +
+            '</div>' +
+            '</div>' +
+            '<div class="step-title">' + step.title + '</div>' +
+            '<div class="step-desc">' + step.desc + '</div>' +
+            '</div>';
+        }).join('');
 
-      radioFounders.style.border = isF ? '6px solid #1C252E' : '1.5px solid #C4CDD5';
-      radioCompanies.style.border = isF ? '1.5px solid #C4CDD5' : '6px solid #1C252E';
+        // Render Comparison Rows (for founders)
+        if (isF && comparisonRows) {
+          const rowOrder = ['vendor', 'scale', 'security', 'custom', 'eng'];
+          comparisonRows.innerHTML = rowOrder.map(function (key) {
+            const r = rows[key];
+            return '<div class="comparison-row">' +
+              '<div class="comparison-cell-dor">' +
+              '<span class="comparison-icon-check">✓</span>' + r.dor +
+              '</div>' +
+              '<div class="comparison-cell-nocode">' +
+              '<span class="comparison-icon-cross">✕</span>' + r.no_code +
+              '</div>' +
+              '</div>';
+          }).join('');
+        }
 
-      // Update Labels & Titles
-      const labelText = isF ? 'ליזמים' : 'לחברות';
-      personaLabel.textContent = labelText;
-      nocodePersonaLabel.textContent = labelText;
-
-      nocodeTitle.textContent = isF
-        ? 'מוצר ברמת Production grade, לא פרוטוטייפ'
-        : 'אתם מקבלים פתרון שמותאם בדיוק לאופן שבו אתם עובדים, ולא תבנית גנרית שתצטרכו להתאים את עצמכם אליה';
-
-      stepsTitle.textContent = isF
-        ? 'תהליך מלא, מרעיון ועד מוצר בפרודקשן'
-        : 'בשלושה שלבים, אתם מקבלים מערכת שעובדת';
-
-      // Update Service Cards Order
-      s1.style.order = isF ? '1' : '2';
-      s2.style.order = isF ? '2' : '1';
-
-      // Render Steps
-      const steps = isF ? foundersSteps : companiesSteps;
-      stepsContainer.innerHTML = steps.map(function (step) {
-        return '<div style="position:relative;z-index:1;">' +
-          '<div style="width:30px;height:30px;border-radius:50%;background:#1C252E;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-bottom:18px;">' + step.n + '</div>' +
-          '<div style="font-weight:700;font-size:15px;margin-bottom:8px;">' + step.title + '</div>' +
-          '<div style="color:#637381;font-size:13.5px;line-height:1.65;">' + step.desc + '</div>' +
-        '</div>';
-      }).join('');
-
-      // Render Comparison Rows
-      const rowOrder = isF
-        ? ['vendor', 'scale', 'security', 'custom', 'eng']
-        : ['custom', 'scale', 'security', 'eng', 'vendor'];
-
-      comparisonRows.innerHTML = rowOrder.map(function (key) {
-        const r = rows[key];
-        return '<div style="display:grid;grid-template-columns:1fr 1fr;">' +
-          '<div style="padding:20px 24px;font-size:15px;color:#637381;border-left:1px solid #E7E9EC;display:flex;align-items:flex-start;gap:10px;">' +
-            '<span style="color:#B71D18;font-weight:700;flex:0 0 auto;">✕</span>' + r.no_code +
-          '</div>' +
-          '<div style="padding:20px 24px;font-size:15px;color:#1C252E;font-weight:500;display:flex;align-items:flex-start;gap:10px;">' +
-            '<span style="color:#00A76F;font-weight:700;flex:0 0 auto;">✓</span>' + r.dor +
-          '</div>' +
-        '</div>';
-      }).join('');
-
-      if (window.mixpanel) {
-        mixpanel.track('suggestion', { action: 'click', question: 'persona_' + persona });
-      }
-    }
-
-    cardFounders.addEventListener('click', function () { setPersona('founders'); });
-    cardCompanies.addEventListener('click', function () { setPersona('companies'); });
-    cardFounders.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') setPersona('founders'); });
-    cardCompanies.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') setPersona('companies'); });
-
-    // Track contact clicks
-    document.querySelectorAll('.contact-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
         if (window.mixpanel) {
-          mixpanel.track('contact', { action: 'click', type: 'email', value: 'dor@dorbarshalom.com' });
+          mixpanel.track('suggestion', { action: 'click', question: 'persona_' + persona });
+        }
+      }
+
+      function scrollToHowIWork() {
+        const howIWork = document.getElementById('how-i-work');
+        if (howIWork) {
+          howIWork.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      cardFounders.addEventListener('click', function () {
+        setPersona('founders');
+        scrollToHowIWork();
+      });
+      cardCompanies.addEventListener('click', function () {
+        setPersona('companies');
+        scrollToHowIWork();
+      });
+      cardFounders.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setPersona('founders');
+          scrollToHowIWork();
         }
       });
-    });
+      cardCompanies.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setPersona('companies');
+          scrollToHowIWork();
+        }
+      });
 
-    // Sticky header scroll listener
-    const topNav = document.getElementById('top-nav');
-    function updateNavScroll() {
-      if (window.scrollY > 20) {
-        topNav.classList.add('scrolled');
-      } else {
-        topNav.classList.remove('scrolled');
+      document.querySelectorAll('.persona-chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          setPersona(chip.dataset.persona);
+        });
+      });
+
+      // Contact Modal & Tracking
+      const contactModal = document.getElementById('contact-modal');
+      const modalCloseBtn = document.getElementById('modal-close-btn');
+      const modalDoneBtn = document.getElementById('modal-done-btn');
+      const modalFormView = document.getElementById('modal-form-view');
+      const modalSuccessView = document.getElementById('modal-success-view');
+      const contactForm = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('modal-submit-btn');
+      const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+      const formErrorMsg = document.getElementById('form-error-msg');
+      const nameInput = document.getElementById('lead-name');
+      const emailInput = document.getElementById('lead-email');
+      const mobileInput = document.getElementById('lead-mobile');
+      const nameError = document.getElementById('name-error');
+      const emailError = document.getElementById('email-error');
+
+      function openModal() {
+        if (!contactModal) return;
+        // Reset modal state
+        modalFormView.style.display = 'block';
+        modalSuccessView.style.display = 'none';
+        if (formErrorMsg) formErrorMsg.style.display = 'none';
+        if (nameError) nameError.style.display = 'none';
+        if (emailError) emailError.style.display = 'none';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          if (btnText) btnText.textContent = 'שליחה';
+        }
+        contactModal.classList.add('is-open');
+        contactModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (nameInput) setTimeout(function () { nameInput.focus(); }, 120);
       }
-    }
-    window.addEventListener('scroll', updateNavScroll, { passive: true });
-    updateNavScroll();
 
-    // Initialize
-    setPersona('founders');
-  })();
-</script>
+      function closeModal() {
+        if (!contactModal) return;
+        contactModal.classList.remove('is-open');
+        contactModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.contact-btn').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          openModal();
+          if (window.mixpanel) {
+            mixpanel.track('contact', { action: 'click', type: 'open_modal', value: 'services_lead_modal' });
+          }
+        });
+      });
+
+      if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+      if (modalDoneBtn) modalDoneBtn.addEventListener('click', closeModal);
+
+      if (contactModal) {
+        contactModal.addEventListener('click', function (e) {
+          if (e.target === contactModal) {
+            closeModal();
+          }
+        });
+      }
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && contactModal && contactModal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          if (formErrorMsg) formErrorMsg.style.display = 'none';
+
+          const nameVal = nameInput ? nameInput.value.trim() : '';
+          const emailVal = emailInput ? emailInput.value.trim() : '';
+          const mobileVal = mobileInput ? mobileInput.value.trim() : '';
+
+          let hasError = false;
+          if (!nameVal) {
+            if (nameError) nameError.style.display = 'block';
+            hasError = true;
+          } else {
+            if (nameError) nameError.style.display = 'none';
+          }
+
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailVal || !emailRegex.test(emailVal)) {
+            if (emailError) emailError.style.display = 'block';
+            hasError = true;
+          } else {
+            if (emailError) emailError.style.display = 'none';
+          }
+
+          if (hasError) return;
+
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            if (btnText) btnText.textContent = 'שולח...';
+          }
+
+          try {
+            // Post payload to form-data endpoint
+            const payload = {
+              name: nameVal,
+              email: emailVal,
+              mobile: mobileVal
+            };
+
+            let res = await fetch('https://api.form-data.com/f/IZfRJgUIxa7H2g', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify(payload)
+            });
+
+            if (!res.ok) {
+              // Try form-encoded fallback
+              const formData = new FormData();
+              formData.append('name', nameVal);
+              formData.append('email', emailVal);
+              if (mobileVal) formData.append('mobile', mobileVal);
+              res = await fetch('https://api.form-data.com/f/IZfRJgUIxa7H2g', {
+                method: 'POST',
+                body: formData
+              });
+              if (!res.ok) throw new Error('Request failed');
+            }
+
+            if (window.mixpanel) {
+              mixpanel.track('contact', { action: 'submit', type: 'lead_form' });
+            }
+
+            // Replace form with success view
+            modalFormView.style.display = 'none';
+            modalSuccessView.style.display = 'block';
+            contactForm.reset();
+
+          } catch (err) {
+            console.error('Lead submission error:', err);
+            if (formErrorMsg) {
+              formErrorMsg.textContent = 'חלה שגיאה בעת שליחת הטופס. ניתן ליצור קשר גם ב-dor@dorbarshalom.com';
+              formErrorMsg.style.display = 'block';
+            }
+          } finally {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              if (btnText) btnText.textContent = 'שליחה';
+            }
+          }
+        });
+      }
+
+      // Sticky header scroll listener
+      const topNav = document.getElementById('top-nav');
+      function updateNavScroll() {
+        if (window.scrollY > 20) {
+          topNav.classList.add('scrolled');
+        } else {
+          topNav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', updateNavScroll, { passive: true });
+      updateNavScroll();
+
+      // Track selected works product links
+      document.querySelectorAll('.work-card-link, .work-card-media').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (window.mixpanel) {
+            mixpanel.track('nav_link', {
+              action: 'click',
+              target: link.getAttribute('href')
+            });
+          }
+        });
+      });
+
+      // Initialize
+      setPersona('founders');
+    })();
+  </script>
 
 </body>
+
 </html>

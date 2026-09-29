@@ -1,3 +1,19 @@
+# Communication Guidelines
+
+- **Language**: All chat communication and responses must remain in **English (EN)** at all times.
+- **Multilingual Context**: Even when working on materials, content, source code, or UI text in Hebrew (HE) or any other language, keep all chat conversations, explanations, reviews, and messages strictly in English.
+
+---
+
+# Development Workflow & Performance Guidelines
+
+- **No Unsolicited Browser Subagents**: Do NOT launch browser subagents for visual inspection, taking screenshots unless the user explicitly requests visual verification or testing. The user runs `live-server` locally and sees the page live.
+- **No Unsolicited Git Commands**: Do NOT run `git status`, `git diff`, or git commands unless the user explicitly requests a git operation (commit, review diff, etc.).
+- **Inspect Code in Source**: When checking styles, classes, or tokens, read the source files (`view_file`, `grep_search`) directly rather than checking the browser.
+- **Direct & Lightweight Execution**: For straightforward copy, layout, or style changes, execute the edits directly without over-deliberation or unnecessary roundtrips.
+
+---
+
 # Analytics Tracking — Mixpanel
 
 This project uses **Mixpanel** for all product analytics. Mixpanel is the single source of truth for event tracking, user identification, and behavioral data. Do not introduce any other analytics tools, SDKs, or tracking libraries without explicit instruction from a user.
@@ -78,7 +94,7 @@ These are the Mixpanel events currently tracked in this project. **All new Mixpa
 | `chat_message` | When a user submits a question to the chatbot | `action: 'send'`, `question` | [index.html](file:///Users/dorbarshalom/Claude/Projects/me/index.html) |
 | `suggestion` | When a user clicks a predefined suggestion chip | `action: 'click'`, `question` | [index.html](file:///Users/dorbarshalom/Claude/Projects/me/index.html) |
 | `nav_link` | When a user clicks a sidebar navigation link | `action: 'click'`, `target` | [index.html](file:///Users/dorbarshalom/Claude/Projects/me/index.html) |
-| `contact` | When a user clicks email or phone links | `action: 'click'`, `type`, `value` | [index.html](file:///Users/dorbarshalom/Claude/Projects/me/index.html) |
+| `contact` | When a user clicks email/phone links or submits modal lead form | `action: 'click'` or `'submit'`, `type`, `value` | [index.html](file:///Users/dorbarshalom/Claude/Projects/me/index.html), [services.html](file:///Users/dorbarshalom/Dev/me/services.html) |
 
 ---
 
