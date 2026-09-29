@@ -1207,20 +1207,45 @@ a:hover {
     display: flex;
     flex-direction: column;
     padding: 24px 20px 0;
-    gap: 28px;
+    gap: 0;
     align-items: stretch;
   }
 
   .hero-content {
-    padding-bottom: 0;
-    width: 100%;
+    display: contents;
+  }
+
+  .hero-badge {
+    order: 1;
+    align-self: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    order: 2;
+    margin: 0 0 20px;
   }
 
   .hero-image {
+    order: 3;
     width: 100%;
-    max-width: 420px;
-    margin: 0 auto;
+    max-width: 440px;
+    margin: 0 auto 28px;
     align-self: center;
+    border-radius: 16px;
+    border: 1px solid #E7E9EC;
+    background: #FFFFFF;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .persona-selector {
+    order: 4;
+    margin-bottom: 24px;
+  }
+
+  .hero-actions {
+    order: 5;
+    margin-top: 0;
   }
 }
 
@@ -1259,26 +1284,28 @@ a:hover {
     margin-bottom: 24px;
   }
 
-  /* Hero Section Mobile: H1 at top, then 2 boxes stacked, then CTA, then hero image */
+  /* Hero Section Mobile: H1 at top, hero image with light border under H1, then persona cards, then CTA */
   .hero-section {
     display: flex;
     flex-direction: column;
     padding: 20px 20px 24px;
-    gap: 24px;
+    gap: 0;
     align-items: stretch;
   }
 
   .hero-content {
-    padding-bottom: 0;
-    width: 100%;
+    display: contents;
   }
 
   .hero-badge {
-    margin-bottom: 24px;
+    order: 1;
+    align-self: flex-start;
+    margin-bottom: 20px;
   }
 
   .hero-actions {
-    margin-top: 20px;
+    order: 5;
+    margin-top: 0;
   }
 
   .hero-cta-btn {
@@ -1289,11 +1316,20 @@ a:hover {
   }
 
   .hero-image {
+    order: 3;
     width: 100%;
-    max-width: 360px;
+    max-width: 100%;
     margin: 0 auto 24px;
     align-self: center;
     border-radius: 16px;
+    border: 1px solid #E7E9EC;
+    background: #FFFFFF;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .persona-selector {
+    order: 4;
+    margin-bottom: 24px;
   }
 
   /* Works Section Mobile Spacing */
@@ -1304,7 +1340,8 @@ a:hover {
   /* Headings Typography on Mobile (Increased H1-H4) */
   h1,
   .hero-title {
-    font-size: clamp(34px, 8.5vw, 42px);
+    order: 2;
+    font-size: clamp(38px, 9.5vw, 46px);
     line-height: 1.15;
     letter-spacing: -0.02em;
     margin: 0 0 20px;
@@ -1314,7 +1351,7 @@ a:hover {
   .section-title,
   .nocode-title,
   .about-title {
-    font-size: clamp(26px, 6.5vw, 32px);
+    font-size: clamp(30px, 7.5vw, 36px);
     line-height: 1.22;
     letter-spacing: -0.01em;
     width: 100%;
@@ -1333,19 +1370,19 @@ a:hover {
   h3,
   .automation-card-title,
   .modal-title {
-    font-size: 20px;
+    font-size: 23px;
     line-height: 1.3;
   }
 
   h4,
   .persona-title,
   .step-title {
-    font-size: 18px;
+    font-size: 21px;
     line-height: 1.35;
   }
 
   .automation-item-title {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .persona-card {
