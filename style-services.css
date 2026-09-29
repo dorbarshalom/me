@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 15px;
+}
+
 body {
   margin: 0;
   background: #FFFFFF;
@@ -1232,14 +1236,24 @@ a:hover {
   .section-standard,
   .section-alt,
   .about-section {
-    padding: 44px 20px;
+    padding: 68px 20px;
+  }
+
+  /* Section Header & Badge Spacing */
+  .section-header-top {
+    margin-bottom: 24px;
+    gap: 14px 16px;
+  }
+
+  .section-badge {
+    margin-bottom: 24px;
   }
 
   /* Hero Section Mobile: H1 at top, then 2 boxes stacked, then CTA, then hero image */
   .hero-section {
     display: flex;
     flex-direction: column;
-    padding: 20px 20px 0;
+    padding: 20px 20px 24px;
     gap: 24px;
     align-items: stretch;
   }
@@ -1250,7 +1264,7 @@ a:hover {
   }
 
   .hero-badge {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
 
   .hero-actions {
@@ -1267,8 +1281,14 @@ a:hover {
   .hero-image {
     width: 100%;
     max-width: 360px;
-    margin: 0 auto;
+    margin: 0 auto 24px;
     align-self: center;
+    border-radius: 16px;
+  }
+
+  /* Works Section Mobile Spacing */
+  .works-grid {
+    gap: 32px;
   }
 
   /* Headings Typography on Mobile (Increased H1-H4) */
@@ -1322,9 +1342,50 @@ a:hover {
     padding: 16px 16px 18px;
   }
 
+  /* Plain text typography on mobile (1rem = 15px) */
+  p,
+  .persona-desc,
+  .persona-prompt,
+  .step-desc,
+  .work-card-desc,
+  .nocode-desc,
+  .automation-item-desc,
+  .about-text,
+  .about-text p,
+  .timeline-item,
+  .comparison-cell-dor,
+  .comparison-cell-nocode,
+  .footer-section,
+  .footer-text,
+  .footer-email,
+  .modal-subtitle {
+    font-size: 1rem;
+  }
+
   .persona-desc {
-    font-size: 14.5px;
     line-height: 1.55;
+  }
+
+  .step-desc {
+    line-height: 1.6;
+  }
+
+  .work-card-desc {
+    line-height: 1.6;
+  }
+
+  .nocode-desc {
+    line-height: 1.65;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .automation-item-desc {
+    line-height: 1.55;
+  }
+
+  .about-text {
+    line-height: 1.7;
   }
 
   .modal-dialog {
