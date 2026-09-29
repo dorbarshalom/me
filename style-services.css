@@ -437,6 +437,16 @@ a:hover {
   margin-bottom: 48px;
 }
 
+.process-desc {
+  color: #454F5B;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 16px 0 0;
+  text-wrap: pretty;
+  width: 50%;
+  max-width: 50%;
+}
+
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -631,7 +641,7 @@ a:hover {
 
 .work-card-link:hover .work-card-link-icon,
 .work-card:hover .work-card-link-icon {
-  transform: translate(2px, -2px);
+  transform: translateX(-3px);
 }
 
 /* Why Not No-Code Section */
@@ -1349,6 +1359,7 @@ a:hover {
   .step-desc,
   .work-card-desc,
   .nocode-desc,
+  .process-desc,
   .automation-item-desc,
   .about-text,
   .about-text p,
@@ -1374,7 +1385,8 @@ a:hover {
     line-height: 1.6;
   }
 
-  .nocode-desc {
+  .nocode-desc,
+  .process-desc {
     line-height: 1.65;
     width: 100%;
     max-width: 100%;
