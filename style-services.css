@@ -1,5 +1,5 @@
 /* ==========================================================================
-   style-services.css - Styles for solutions.html (/solutions)
+   style-services.css - Styles for index.html (/)
    ========================================================================== */
 
 /* Base & Reset */
@@ -432,6 +432,71 @@ a:hover {
 }
 
 /* Process Section (How I Work) */
+#how-i-work {
+  background-color: #1C252E;
+  color: #FFFFFF;
+}
+
+#how-i-work .section-badge {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #DFE3E8;
+}
+
+#how-i-work .persona-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #919EAB;
+}
+
+#how-i-work .persona-chip:hover:not(.is-active) {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+}
+
+#how-i-work .persona-chip.is-active {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #1C252E;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
+}
+
+#how-i-work .section-title {
+  color: #FFFFFF;
+}
+
+#how-i-work .process-desc {
+  color: #919EAB;
+}
+
+#how-i-work .step-icon-wrap {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+}
+
+#how-i-work .step-item:hover .step-icon-wrap {
+  transform: translateY(-2px);
+  border-color: #00A76F;
+  color: #00D28E;
+  background: rgba(0, 167, 111, 0.16);
+}
+
+#how-i-work .step-title {
+  color: #FFFFFF;
+}
+
+#how-i-work .step-desc {
+  color: #919EAB;
+}
+
+#how-i-work .step-number {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #DFE3E8;
+}
+
 .process-header {
   width: 100%;
   margin-bottom: 48px;
