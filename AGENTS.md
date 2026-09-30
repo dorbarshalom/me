@@ -90,11 +90,11 @@ These are the Mixpanel events currently tracked in this project. **All new Mixpa
 
 | Mixpanel Event | Trigger | Key Properties | File |
 |---|---|---|---|
-| `page` | When the page view is rendered and content is revealed | `action: 'view'` | [index.html](file:///Users/dorbarshalom/Claude/Projects/me/index.html) |
-| `chat_message` | When a user submits a question to the chatbot | `action: 'send'`, `question` | [index.html](file:///Users/dorbarshalom/Claude/Projects/me/index.html) |
-| `suggestion` | When a user clicks a predefined suggestion chip | `action: 'click'`, `question` | [index.html](file:///Users/dorbarshalom/Claude/Projects/me/index.html) |
-| `nav_link` | When a user clicks a sidebar navigation link | `action: 'click'`, `target` | [index.html](file:///Users/dorbarshalom/Claude/Projects/me/index.html) |
-| `contact` | When a user clicks email/phone links or submits modal lead form | `action: 'click'` or `'submit'`, `type`, `value` | [index.html](file:///Users/dorbarshalom/Claude/Projects/me/index.html), [services.html](file:///Users/dorbarshalom/Dev/me/services.html) |
+| `page` | When the page view is rendered and content is revealed | `action: 'view'` | [index.html](file:///Users/dorbarshalom/Dev/me/index.html), [solutions.html](file:///Users/dorbarshalom/Dev/me/solutions.html) |
+| `chat_message` | When a user submits a question to the chatbot | `action: 'send'`, `question` | [index.html](file:///Users/dorbarshalom/Dev/me/index.html) |
+| `suggestion` | When a user clicks a predefined suggestion chip | `action: 'click'`, `question` | [index.html](file:///Users/dorbarshalom/Dev/me/index.html) |
+| `nav_link` | When a user clicks a sidebar navigation link | `action: 'click'`, `target` | [index.html](file:///Users/dorbarshalom/Dev/me/index.html) |
+| `contact` | When a user clicks email/phone links or submits modal lead form | `action: 'click'` or `'submit'`, `type`, `value` | [index.html](file:///Users/dorbarshalom/Dev/me/index.html), [solutions.html](file:///Users/dorbarshalom/Dev/me/solutions.html) |
 
 ---
 
