@@ -812,37 +812,11 @@ a:hover {
 
 .automation-card-header {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
   margin-bottom: 16px;
   padding-bottom: 14px;
   border-bottom: 1px solid #E7E9EC;
-  min-height: 56px;
-}
-
-.automation-card-icon-wrap {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: #F8F9FA;
-  border: 1px solid #E7E9EC;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1C252E;
-  flex-shrink: 0;
-  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-}
-
-.automation-card:hover .automation-card-icon-wrap {
-  transform: translateY(-2px);
-  border-color: #00A76F;
-  color: #00A76F;
-  background: #E8F8F2;
-}
-
-.automation-card-icon {
-  font-size: 22px;
+  min-height: 52px;
 }
 
 .automation-card-title {
@@ -883,17 +857,21 @@ a:hover {
   color: #1C252E;
   display: flex;
   align-items: flex-start;
-  gap: 7px;
+  gap: 8px;
   line-height: 1.4;
 }
 
-.automation-item-bullet {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #00A76F;
+.automation-item-icon {
+  font-size: 18px;
+  color: #00A76F;
   flex-shrink: 0;
-  margin-top: 7px;
+  line-height: 1.2;
+  margin-top: 1px;
+  transition: transform 0.2s ease;
+}
+
+.automation-item:hover .automation-item-icon {
+  transform: scale(1.15);
 }
 
 .automation-item-desc {
@@ -901,7 +879,7 @@ a:hover {
   color: #637381;
   line-height: 1.5;
   margin: 0;
-  padding-inline-start: 12px;
+  padding-inline-start: 26px;
 }
 
 @media (max-width: 1024px) {
@@ -1450,6 +1428,11 @@ a:hover {
     font-size: 17px;
   }
 
+  .automation-item-icon {
+    font-size: 20px;
+    margin-top: 2px;
+  }
+
   .persona-card {
     padding: 16px 16px 18px;
   }
@@ -1496,6 +1479,7 @@ a:hover {
 
   .automation-item-desc {
     line-height: 1.55;
+    padding-inline-start: 28px;
   }
 
   .about-text {
