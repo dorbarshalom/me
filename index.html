@@ -18,6 +18,12 @@
 
   <link rel="canonical" href="https://dorbarshalom.me/">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
   <!-- Clean URL normalizer -->
   <script>
     if (window.location.pathname.endsWith('.html')) {
@@ -621,7 +627,7 @@
 
       let currentPersona = 'founders';
 
-      function setPersona(persona) {
+      function setPersona(persona, isUserAction = false) {
         currentPersona = persona;
         const isF = persona === 'founders';
 
@@ -693,8 +699,9 @@
           }).join('');
         }
 
-        if (window.mixpanel) {
-          mixpanel.track('suggestion', { action: 'click', question: 'persona_' + persona });
+        if (isUserAction && window.mixpanel) {
+          const intentType = (persona === 'companies' || persona === 'businesses') ? 'businesses' : 'founders';
+          mixpanel.track('intent', { type: intentType });
         }
       }
 
@@ -706,31 +713,31 @@
       }
 
       cardFounders.addEventListener('click', function () {
-        setPersona('founders');
+        setPersona('founders', true);
         scrollToHowIWork();
       });
       cardCompanies.addEventListener('click', function () {
-        setPersona('companies');
+        setPersona('companies', true);
         scrollToHowIWork();
       });
       cardFounders.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          setPersona('founders');
+          setPersona('founders', true);
           scrollToHowIWork();
         }
       });
       cardCompanies.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          setPersona('companies');
+          setPersona('companies', true);
           scrollToHowIWork();
         }
       });
 
       document.querySelectorAll('.persona-chip').forEach(function (chip) {
         chip.addEventListener('click', function () {
-          setPersona(chip.dataset.persona);
+          setPersona(chip.dataset.persona, true);
         });
       });
 
@@ -768,8 +775,14 @@
         if (nameInput) setTimeout(function () { nameInput.focus(); }, 120);
       }
 
-      function closeModal() {
+      function closeModal(source) {
         if (!contactModal) return;
+        const isSuccess = modalSuccessView && modalSuccessView.style.display !== 'none';
+        if (isSuccess && (source === 'close_btn' || source === 'done_btn')) {
+          if (window.mixpanel) {
+            mixpanel.track('contact', { action: 'close', step: 'success' });
+          }
+        }
         contactModal.classList.remove('is-open');
         contactModal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
@@ -785,26 +798,42 @@
         });
       });
 
-      if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
-      if (modalDoneBtn) modalDoneBtn.addEventListener('click', closeModal);
+      if (modalCloseBtn) modalCloseBtn.addEventListener('click', function () { closeModal('close_btn'); });
+      if (modalDoneBtn) modalDoneBtn.addEventListener('click', function () { closeModal('done_btn'); });
 
       if (contactModal) {
         contactModal.addEventListener('click', function (e) {
           if (e.target === contactModal) {
-            closeModal();
+            closeModal('backdrop');
           }
         });
       }
 
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && contactModal && contactModal.classList.contains('is-open')) {
-          closeModal();
+          closeModal('escape');
         }
       });
+
+      let sendTracked = false;
+      function trackSendClick() {
+        if (!sendTracked && window.mixpanel) {
+          sendTracked = true;
+          mixpanel.track('contact', { action: 'send' });
+          setTimeout(function () { sendTracked = false; }, 500);
+        }
+      }
+
+      if (submitBtn) {
+        submitBtn.addEventListener('click', function () {
+          trackSendClick();
+        });
+      }
 
       if (contactForm) {
         contactForm.addEventListener('submit', async function (e) {
           e.preventDefault();
+          trackSendClick();
           if (formErrorMsg) formErrorMsg.style.display = 'none';
 
           const nameVal = nameInput ? nameInput.value.trim() : '';
@@ -904,9 +933,8 @@
       document.querySelectorAll('.work-card-link, .work-card-media').forEach(function (link) {
         link.addEventListener('click', function () {
           if (window.mixpanel) {
-            mixpanel.track('nav_link', {
-              action: 'click',
-              target: link.getAttribute('href')
+            mixpanel.track('works', {
+              action: 'click'
             });
           }
         });
