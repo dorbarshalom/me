@@ -19,7 +19,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   color: #1C252E;
   margin: 0;
   font-family: inherit;
@@ -78,7 +81,7 @@ a:hover {
   padding: 6vw 6vw;
   background: #F7F8F9;
   border-top: 1px solid #F0F1F2;
-  border-bottom: 1px solid #F0F1F2;
+  border-bottom: none;
 }
 
 .section-header {
@@ -709,6 +712,126 @@ a:hover {
   transform: translateX(-3px);
 }
 
+/* Led Products Section */
+.led-products-section {
+  margin-top: 56px;
+  padding-top: 0;
+  border-top: none;
+}
+
+.led-products-header {
+  margin-bottom: 24px;
+}
+
+.led-products-title {
+  font-size: clamp(22px, 2.4vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #1C252E;
+  margin: 0;
+}
+
+.led-products-subtitle {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 6px 0 0;
+}
+
+.led-products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px 30px;
+}
+
+.led-product-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.led-product-thumb {
+  width: 215px;
+  min-width: 215px;
+  aspect-ratio: 512 / 258;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #F4F6F8;
+  border: 1px solid #E7E9EC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.led-product-card:hover .led-product-thumb {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  border-color: #D0D5DD;
+}
+
+.led-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.led-product-card:hover .led-product-img {
+  transform: scale(1.04);
+}
+
+.led-product-card:hover .work-card-link {
+  color: #00A76F;
+}
+
+.led-product-card:hover .work-card-link-icon {
+  transform: translateX(-3px);
+}
+
+.led-product-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.led-product-name {
+  font-size: 17.5px;
+  font-weight: 700;
+  color: #1C252E;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.led-product-sep {
+  color: #C4CDD5;
+  font-weight: 400;
+  user-select: none;
+}
+
+.led-product-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #454F5B;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.led-product-desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #637381;
+  margin: 0;
+}
+
 /* Why Not No-Code Section */
 .nocode-title {
   font-size: clamp(28px, 3.5vw, 36px);
@@ -900,7 +1023,7 @@ a:hover {
 .about-section {
   padding: 6vw 6vw;
   background: #F7F8F9;
-  border-top: 1px solid #F0F1F2;
+  border-top: none;
 }
 
 .about-header {
@@ -1222,9 +1345,19 @@ a:hover {
 }
 
 @keyframes tada-pop {
-  0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
-  60% { transform: scale(1.15) rotate(5deg); }
-  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  0% {
+    transform: scale(0.5) rotate(-10deg);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(1.15) rotate(5deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 .modal-success-view .modal-title {
@@ -1293,6 +1426,7 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+
   /* Top Nav Mobile */
   .top-nav {
     padding: 16px 20px;
@@ -1378,6 +1512,39 @@ a:hover {
   /* Works Section Mobile Spacing */
   .works-grid {
     gap: 32px;
+  }
+
+  .led-products-section {
+    margin-top: 44px;
+    padding-top: 0;
+  }
+
+  .led-products-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .led-product-card {
+    padding: 0;
+    gap: 16px;
+  }
+
+  .led-product-thumb {
+    width: 170px;
+    min-width: 170px;
+  }
+
+  .led-product-name {
+    font-size: 16.5px;
+  }
+
+  .led-product-subtitle {
+    font-size: 13.5px;
+  }
+
+  .led-product-desc {
+    font-size: 13.5px;
+    line-height: 1.5;
   }
 
   /* Headings Typography on Mobile (Increased H1-H4) */
@@ -1488,5 +1655,40 @@ a:hover {
 
   .modal-dialog {
     padding: 28px 20px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .led-products-subtitle {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .led-products-grid {
+    gap: 22px;
+  }
+
+  .led-product-card {
+    padding: 0;
+    gap: 14px;
+  }
+
+  .led-product-thumb {
+    width: 125px;
+    min-width: 125px;
+    border-radius: 6px;
+  }
+
+  .led-product-name {
+    font-size: 15px;
+  }
+
+  .led-product-subtitle {
+    font-size: 12.5px;
+  }
+
+  .led-product-desc {
+    font-size: 12.5px;
+    line-height: 1.45;
   }
 }
