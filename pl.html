@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="pl" dir="ltr">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>
-    דור בר שלום, AI Product builder
-  </title>
+  <title>Dor Bar Shalom · AI Product Builder</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +16,7 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     rel="stylesheet">
 
-  <link rel="canonical" href="https://dorbarshalom.me/">
+  <link rel="canonical" href="https://dorbarshalom.me/pl">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -30,6 +28,7 @@
   <script>
     if (window.location.pathname.endsWith('.html')) {
       var cleanPath = window.location.pathname.replace(/\.html$/, '');
+      if (cleanPath === '/pl/index') cleanPath = '/pl';
       if (cleanPath === '/index') cleanPath = '/';
       window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
     }
@@ -42,36 +41,36 @@
       api_host: "https://api-eu.mixpanel.com",
       persistence: 'localStorage'
     });
-    mixpanel.track('page', { action: 'view', page: 'home' });
+    mixpanel.track('page', { action: 'view', page: 'home', lang: 'pl' });
   </script>
 
   <!-- External Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
-  <div dir="rtl" class="page-wrapper">
+  <div dir="ltr" class="page-wrapper">
 
     <!-- NAV -->
     <header id="top-nav" class="top-nav">
-      <a href="/" class="top-nav-brand">
-        <img src="img/dor-logo.svg" alt="דור בר שלום" class="top-nav-logo">
+      <a href="/pl" class="top-nav-brand">
+        <img src="/img/dor-logo.svg" alt="Dor Bar Shalom" class="top-nav-logo">
       </a>
       <div class="top-nav-actions">
-        <div class="lang-switch-flags" role="navigation" aria-label="בחירת שפה">
-          <a href="/" class="lang-flag-btn is-active" aria-label="עברית" title="עברית">
+        <div class="lang-switch-flags" role="navigation" aria-label="Wybierz język">
+          <a href="/" class="lang-flag-btn" aria-label="עברית" title="עברית">
             <img src="/img/flags/il.svg" alt="עברית" width="21" height="14">
           </a>
           <a href="/en" class="lang-flag-btn" aria-label="English" title="English">
             <img src="/img/flags/gb.svg" alt="English" width="21" height="14">
           </a>
-          <a href="/pl" class="lang-flag-btn" aria-label="Polski" title="Polski">
+          <a href="/pl" class="lang-flag-btn is-active" aria-label="Polski" title="Polski">
             <img src="/img/flags/pl.svg" alt="Polski" width="21" height="14">
           </a>
         </div>
-        <a href="mailto:dor@dorbarshalom.com?subject=%D7%91%D7%95%D7%90%D7%95%20%D7%A0%D7%91%D7%A0%D7%94%20%D7%9E%D7%A9%D7%94%D7%95%20%D7%90%D7%9E%D7%99%D7%AA%D7%99"
-          class="contact-btn nav-btn" id="nav-contact-btn">בואו נדבר</a>
+        <a href="mailto:dor@dorbarshalom.com?subject=Zbudujmy%20co%C5%9B%20prawdziwego"
+          class="contact-btn nav-btn" id="nav-contact-btn">Porozmawiajmy</a>
       </div>
     </header>
 
@@ -81,54 +80,49 @@
 
         <div class="hero-badge">
           <span class="hero-badge-dot"></span>
-          דור בר שלום, Product builder
+          Dor Bar Shalom · AI Product Builder
         </div>
 
         <h1 class="hero-title">
-          אני הופך רעיונות למוצרים, מבוססי AI</h1>
+          Zamieniam pomysły w produkty AI.
+        </h1>
 
         <div class="persona-selector">
           <div class="persona-prompt">
-            אז מי אתם?
+            Dla kogo pracuję?
           </div>
           <div class="persona-cards">
             <div id="card-founders" class="persona-card" role="button" tabindex="0">
               <div id="radio-founders" class="persona-radio"></div>
               <div>
-                <div class="persona-title">ליזמים ופאונדרים</div>
+                <div class="persona-title">Dla Founderów i Startupów</div>
                 <p class="persona-desc">
-                  אני בונה מוצרים מקצה לקצה, מרעיון ופרוטוטייפ ועד מערכת production-grade יציבה בסקייל. אני לוקח בעלות
-                  מלאה
-                  על כל הסטאק: מחקר, אפיון (specs), דיזיין, ארכיטקטורת דאטה, אינטגרציות ופיתוח.
+                  Tworzę produkty kompleksowo (end-to-end) — od koncepcji i prototypu po skalowalny system klasy produkcyjnej. Biorę pełną odpowiedzialność za cały proces: discovery, specyfikację, design UX/UI, architekturę danych, integracje i engineering.
                 </p>
               </div>
-              <span class="material-symbols-rounded persona-card-arrow" aria-hidden="true">arrow_back</span>
+              <span class="material-symbols-rounded persona-card-arrow" aria-hidden="true">arrow_forward</span>
             </div>
             <div id="card-companies" class="persona-card" role="button" tabindex="0">
               <div id="radio-companies" class="persona-radio"></div>
               <div>
-                <div class="persona-title">לעסקים שרוצים לייעל תהליכים עם AI</div>
-                <p class="persona-desc">אני מלווה אתכם מהצורך
-                  העסקי ועד למוצר חי שעובד אצלכם בפועל, מתוך הבנה מלאה של העסק, הלקוחות שלכם והדרך שבה הם עובדים. זה
-                  הרבה מעבר
-                  לפיתוח - זו חשיבה מוצרית מהרגע הראשון.</p>
+                <div class="persona-title">Dla Firm Wdrażających AI</div>
+                <p class="persona-desc">
+                  Wspólnie przechodzimy drogę od realnej potrzeby biznesowej do działającego wdrożenia dopasowanego do Twojego zespołu i klientów. To znacznie więcej niż samo programowanie — to myślenie produktowe od pierwszego dnia.
+                </p>
               </div>
-              <span class="material-symbols-rounded persona-card-arrow" aria-hidden="true">arrow_back</span>
+              <span class="material-symbols-rounded persona-card-arrow" aria-hidden="true">arrow_forward</span>
             </div>
           </div>
         </div>
 
         <div class="hero-actions">
-          <a href="mailto:dor@dorbarshalom.com?subject=%D7%91%D7%95%D7%90%D7%95%20%D7%A0%D7%91%D7%A0%D7%94%20%D7%9E%D7%A9%D7%94%D7%95%20%D7%90%D7%9E%D7%99%D7%AA%D7%99"
-            class="contact-btn hero-cta-btn">בואו
-            נדבר</a>
+          <a href="mailto:dor@dorbarshalom.com?subject=Zbudujmy%20co%C5%9B%20prawdziwego"
+            class="contact-btn hero-cta-btn">Porozmawiajmy</a>
         </div>
       </div>
 
-      <img src="img/dor-hero.png" alt="דור בר שלום" class="hero-image">
+      <img src="/img/dor-hero.png" alt="Dor Bar Shalom" class="hero-image">
     </div>
-
-
 
     <!-- HOW I WORK -->
     <div id="how-i-work" class="section-standard">
@@ -136,17 +130,18 @@
         <div class="section-header-top">
           <div class="section-badge">
             <span class="hero-badge-dot"></span>
-            איך אני עובד
+            Jak pracuję
           </div>
-          <div class="persona-chips-tabber" role="tablist" aria-label="קהל יעד">
+          <div class="persona-chips-tabber" role="tablist" aria-label="Grupa docelowa">
             <button type="button" class="persona-chip is-active" data-persona="founders" role="tab"
-              aria-selected="true">ליזמים</button>
+              aria-selected="true">Dla Founderów</button>
             <button type="button" class="persona-chip" data-persona="companies" role="tab"
-              aria-selected="false">לעסקים</button>
+              aria-selected="false">Dla Firm</button>
           </div>
         </div>
         <h2 id="steps-title" class="section-title">
-          תהליך מלא, מרעיון ועד מוצר בפרודקשן</h2>
+          Kompletny proces end-to-end: od pomysłu do produkcji
+        </h2>
         <p id="steps-subtitle" class="process-desc" style="display: none;"></p>
       </div>
       <div id="steps-container" class="steps-grid">
@@ -160,26 +155,26 @@
         <div class="section-header-top">
           <div class="section-badge">
             <span class="hero-badge-dot"></span>
-            למה לא כלי נו-קוד
+            Dlaczego nie no-code
           </div>
-          <div class="persona-chips-tabber" role="tablist" aria-label="קהל יעד">
+          <div class="persona-chips-tabber" role="tablist" aria-label="Grupa docelowa">
             <button type="button" class="persona-chip is-active" data-persona="founders" role="tab"
-              aria-selected="true">ליזמים</button>
+              aria-selected="true">Dla Founderów</button>
             <button type="button" class="persona-chip" data-persona="companies" role="tab"
-              aria-selected="false">לעסקים</button>
+              aria-selected="false">Dla Firm</button>
           </div>
         </div>
         <h2 id="nocode-title" class="nocode-title">
-          מוצר ברמת Production grade, לא פרוטוטייפ</h2>
-        <p class="nocode-desc">כלי נו-קוד מצוינים להוכחת
-          היתכנות מהירה, אבל כשהמוצר צריך לגדול הם הופכים למכשול: אתם תלויים לגמרי בפלטפורמה, לא יכולים להתאים מעבר
-          לתבנית, ולרוב לא עוברים בדיקת אבטחה רצינית. כשאני בונה בשבילכם, אתם מקבלים בעלות מלאה על הקוד, מערכת שבנויה
-          לגדול מהיום הראשון, והתאמה מלאה לצרכים שלכם.</p>
+          Produkt klasy produkcyjnej, a nie jednorazowy prototyp
+        </h2>
+        <p class="nocode-desc">
+          Platformy no-code świetnie sprawdzają się do szybkich demonstracji pomysłu (PoC). Jednak przy próbie skalowania zderzają się ze ścianą: uzależnienie od dostawcy, sztywne ramy szablonów oraz brak zgodności z rygorystycznymi wymogami bezpieczeństwa. Gdy buduję dla Ciebie, masz 100% własności kodu, na architekturze stworzonej z myślą o wzroście od pierwszego dnia, w pełni dopasowanej do Twoich potrzeb bez żadnych ograniczeń.
+        </p>
       </div>
       <div class="comparison-table">
         <div class="comparison-row">
-          <div class="comparison-header-dor">פיתוח עם דור</div>
-          <div class="comparison-header-nocode">כלי פרוטוטייפינג נו-קוד</div>
+          <div class="comparison-header-dor">Tworzone z Dorem</div>
+          <div class="comparison-header-nocode">Narzędzia No-Code do Prototypów</div>
         </div>
         <div id="comparison-rows">
           <!-- Comparison rows rendered via JS -->
@@ -193,175 +188,168 @@
         <div class="section-header-top">
           <div class="section-badge">
             <span class="hero-badge-dot"></span>
-            פתרונות אוטומציה
+            Rozwiązania Automatyzacji
           </div>
-          <div class="persona-chips-tabber" role="tablist" aria-label="קהל יעד">
+          <div class="persona-chips-tabber" role="tablist" aria-label="Grupa docelowa">
             <button type="button" class="persona-chip" data-persona="founders" role="tab"
-              aria-selected="false">ליזמים</button>
+              aria-selected="false">Dla Founderów</button>
             <button type="button" class="persona-chip is-active" data-persona="companies" role="tab"
-              aria-selected="true">לעסקים</button>
+              aria-selected="true">Dla Firm</button>
           </div>
         </div>
-        <h2 class="section-title">דוגמאות לפתרונות AI לעסקים</h2>
+        <h2 class="section-title">Praktyczne Rozwiązania AI dla Firm</h2>
       </div>
 
       <div class="automation-grid">
-        <!-- 1. מוצרים לעסק -->
+        <!-- 1. Business Products -->
         <div class="automation-card">
           <div class="automation-card-header">
-            <h3 class="automation-card-title">מוצרים לעסק</h3>
+            <h3 class="automation-card-title">Produkty Biznesowe</h3>
           </div>
           <div class="automation-items-list">
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon" aria-hidden="true">smartphone</span>
-                אפליקציה ייעודית לעסק
+                Dedykowana Aplikacja Biznesowa
               </div>
-              <p class="automation-item-desc">אפליקציית מובייל ללקוחות או לעובדים בשטח - הזמנות, תורים, דיווחים
-                ועדכונים, עם המיתוג שלכם</p>
+              <p class="automation-item-desc">Aplikacja mobilna dla klientów lub przedstawicieli handlowych — zamówienia, rezerwacje, raporty i statusy na żywo, w barwach Twojej marki</p>
             </div>
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon" aria-hidden="true">dashboard</span>
-                פורטל לקוחות
+                Portal Klienta
               </div>
-              <p class="automation-item-desc">מקום אחד שבו הלקוחות רואים הזמנות, מסמכים וסטטוס עדכני, בלי להרים טלפון
-              </p>
+              <p class="automation-item-desc">Zintegrowany panel samoobsługowy, w którym klienci śledzą zamówienia, pliki i status w czasie rzeczywistym bez angażowania działu wsparcia</p>
             </div>
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon"
                   aria-hidden="true">admin_panel_settings</span>
-                מערכת ניהול פנימית
+                Wewnętrzny System Administracyjny
               </div>
-              <p class="automation-item-desc">מערכת שנבנית סביב תהליכי העבודה שלכם, במקום להתאים את העסק לתוכנת מדף</p>
+              <p class="automation-item-desc">Oprogramowanie zaprojektowane dokładnie wokół Twojego unikalnego przepływu pracy, zamiast dopasowywania się na siłę do gotowych narzędzi</p>
             </div>
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon" aria-hidden="true">sync_alt</span>
-                חיבור בין מערכות
+                Integracje Międzysystemowe
               </div>
-              <p class="automation-item-desc">ה-CRM, הנהלת החשבונות, החנות והוואטסאפ מדברים זה עם זה, והמידע זורם בלי
-                העתק-הדבק</p>
+              <p class="automation-item-desc">Twój CRM, księgowość, sklep i komunikatory współpracują ze sobą płynnie bez konieczności ręcznego kopiowania danych</p>
             </div>
           </div>
         </div>
 
-        <!-- 2. שירות לקוחות ומכירות -->
+        <!-- 2. Customer Service & Sales -->
         <div class="automation-card">
           <div class="automation-card-header">
-            <h3 class="automation-card-title">שירות לקוחות ומכירות</h3>
+            <h3 class="automation-card-title">Obsługa Klienta i Sprzedaż</h3>
           </div>
           <div class="automation-items-list">
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon" aria-hidden="true">support_agent</span>
-                טיפול אוטומטי בפניות לקוחות
+                Automatyczna Obsługa Zgłoszeń
               </div>
-              <p class="automation-item-desc">מיון ומענה אוטומטי לפניות נפוצות, והעברה לאדם רק כשצריך</p>
+              <p class="automation-item-desc">Kategoryzacja, priorytetyzacja i odpowiadanie na rutynowe zapytania klientów 24/7, przekazując sprawę człowiekowi tylko wtedy, gdy to konieczne</p>
             </div>
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon" aria-hidden="true">filter_alt</span>
-                ניהול לידים חכם
+                Inteligentne Zarządzanie Leadami
               </div>
-              <p class="automation-item-desc">דירוג, ניתוב והתאמה אישית של המענה הראשוני ללידים חדשים</p>
+              <p class="automation-item-desc">Automatyczna kwalifikacja, kierowanie do odpowiednich osób i spersonalizowany pierwszy kontakt dla każdego nowego leada</p>
             </div>
           </div>
         </div>
 
-        <!-- 3. תפעול ומסמכים -->
+        <!-- 3. Operations & Documents -->
         <div class="automation-card">
           <div class="automation-card-header">
-            <h3 class="automation-card-title">תפעול ומסמכים</h3>
+            <h3 class="automation-card-title">Operacje i Dokumenty</h3>
           </div>
           <div class="automation-items-list">
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon" aria-hidden="true">document_scanner</span>
-                עיבוד מסמכים אוטומטי
+                Automatyczne Przetwarzanie Dokumentów
               </div>
-              <p class="automation-item-desc">חשבוניות, חוזים וטפסים נקראים ומוזנים למערכת בלי הקלדה ידנית</p>
+              <p class="automation-item-desc">Faktury, umowy i formularze są automatycznie odczytywane i zapisywane w bazie danych bez konieczności ręcznego wprowadzania danych</p>
             </div>
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon" aria-hidden="true">menu_book</span>
-                עוזר ידע פנימי
+                Wewnętrzny Asystent Wiedzy
               </div>
-              <p class="automation-item-desc">עובדים מקבלים תשובות מתוך המסמכים והנהלים של החברה, בלי לפנות לאדם בכל
-                שאלה</p>
+              <p class="automation-item-desc">Pracownicy otrzymują natychmiastowe, wiarygodne odpowiedzi oparte na wewnętrznych procedurach i dokumentach firmy, bez odrywania kolegów od pracy</p>
             </div>
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon" aria-hidden="true">how_to_reg</span>
-                תהליכי onboarding
+                Procesy Onboardingu
               </div>
-              <p class="automation-item-desc">הקמת חשבונות, שליחת מסמכים ומעקב אחרי לקוח או עובד חדש - הכל אוטומטי</p>
+              <p class="automation-item-desc">Tworzenie kont, dystrybucja umów i śledzenie kolejnych etapów dla nowych klientów i pracowników — w pełni na autopilocie</p>
             </div>
           </div>
         </div>
 
-        <!-- 4. פגישות ולוח זמנים -->
+        <!-- 4. Meetings & Scheduling -->
         <div class="automation-card">
           <div class="automation-card-header">
-            <h3 class="automation-card-title">פגישות ולוח זמנים</h3>
+            <h3 class="automation-card-title">Spotkania i Harmonogramy</h3>
           </div>
           <div class="automation-items-list">
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon" aria-hidden="true">event_available</span>
-                תיאום פגישות אוטומטי
+                Automatyczne Umawianie Spotkań
               </div>
-              <p class="automation-item-desc">מציאת זמן פנוי, שליחת הזמנות ותיאום מחדש - בלי התכתבויות אינסופיות</p>
+              <p class="automation-item-desc">Koordynacja dostępności, wysyłanie zaproszeń i zarządzanie zmianami terminów bez niekończącej się wymiany maili</p>
             </div>
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon" aria-hidden="true">summarize</span>
-                סיכום פגישות ומשימות
+                Podsumowania Zadań ze Spotkań
               </div>
-              <p class="automation-item-desc">כל שיחה מתומצתת אוטומטית, והמשימות מגיעות ישר לכלי הניהול עם בעל אחריות
-              </p>
+              <p class="automation-item-desc">Każda rozmowa jest zwięźle syntezowana w konkretne zadania z przypisanymi osobami i trafia bezpośrednio do systemów zarządzania projektami</p>
             </div>
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon" aria-hidden="true">contact_page</span>
-                תדריך לפני פגישה
+                Briefing Przed Spotkaniem
               </div>
-              <p class="automation-item-desc">סיכום אוטומטי של ההיסטוריה עם הלקוח לפני כל שיחה, כדי שתגיעו מוכנים</p>
+              <p class="automation-item-desc">Automatyczne zestawienia podsumowujące historię klienta, wcześniejsze zgłoszenia i otwarte szanse sprzedaży przed każdą rozmową</p>
             </div>
           </div>
         </div>
 
-        <!-- 5. מלאי ורכש -->
+        <!-- 5. Inventory & Supply Chain -->
         <div class="automation-card">
           <div class="automation-card-header">
-            <h3 class="automation-card-title">מלאי ורכש</h3>
+            <h3 class="automation-card-title">Magazyn i Łańcuch Dostaw</h3>
           </div>
           <div class="automation-items-list">
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon" aria-hidden="true">inventory_2</span>
-                מעקב מלאי בזמן אמת
+                Monitorowanie Stanów w Czasie Rzeczywistym
               </div>
-              <p class="automation-item-desc">רמות המלאי מנוטרות באופן שוטף, עם התראה אוטומטית לפני שנגמר המלאי</p>
+              <p class="automation-item-desc">Ciągła kontrola stanów magazynowych z proaktywnymi alertami na długo przed wyczerpaniem zapasów</p>
             </div>
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon"
                   aria-hidden="true">shopping_cart_checkout</span>
-                הזמנה חוזרת אוטומטית
+                Automatyczne Zamówienia Zakupowe
               </div>
-              <p class="automation-item-desc">כשהמלאי יורד מסף מסוים, הזמנה חדשה יוצאת לבד</p>
+              <p class="automation-item-desc">Gdy stan magazynowy spadnie poniżej określonego minimum, zapotrzebowanie zakupowe jest generowane i wysyłane automatycznie</p>
             </div>
             <div class="automation-item">
               <div class="automation-item-title">
                 <span class="material-symbols-rounded automation-item-icon" aria-hidden="true">sync</span>
-                סנכרון מלאי בין ערוצים
+                Synchronizacja Omnichannel
               </div>
-              <p class="automation-item-desc">המלאי מסונכרן בין החנות, הסניף והמרקטפלייסים - בלי למכור פעמיים את אותו
-                פריט</p>
+              <p class="automation-item-desc">Zsynchronizowane stany magazynowe między sklepem internetowym, magazynem stacjonarnym i platformami marketplace, zapobiegające sprzedaży niedostępnych produktów</p>
             </div>
-
           </div>
         </div>
       </div>
@@ -372,153 +360,148 @@
       <div class="works-header">
         <div class="section-badge">
           <span class="hero-badge-dot"></span>
-          עבודות נבחרות
+          Wybrane Projekty
         </div>
-        <h2 class="section-title">פרוייקטים לדוגמא</h2>
+        <h2 class="section-title">Wyróżnione Realizacje</h2>
       </div>
       <div class="works-grid">
         <div class="work-card">
           <a href="https://maintor.systems" target="_blank" rel="noopener noreferrer" class="work-card-media"
             tabindex="-1" aria-hidden="true">
-            <img src="img/works/screenshot-maintor.png" alt="צילום מסך מתוך Maintor" class="work-card-img"
+            <img src="/img/works/screenshot-maintor.png" alt="Maintor screenshot" class="work-card-img"
               loading="lazy">
           </a>
           <div class="work-card-body">
-            <div class="work-card-logo-container"><img src="img/logos/maintor.svg" alt="Maintor" class="work-card-logo">
+            <div class="work-card-logo-container"><img src="/img/logos/maintor.svg" alt="Maintor" class="work-card-logo">
             </div>
-            <div class="work-card-desc">Maintor היא מערכת CMMS לניהול תחזוקה במפעלים. היא עוזרת לצוותי תחזוקה לתעד
-              תקלות, לתזמן עבודות ולעקוב אחרי ציוד - הכל במקום אחד.</div>
+            <div class="work-card-desc">Maintor to nowoczesna platforma CMMS do zarządzania utrzymaniem ruchu w fabrykach. Umożliwia zespołom technicznym zgłaszanie awarii, planowanie przeglądów prewencyjnych i zarządzanie zasobami — wszystko w jednym centralnym miejscu.</div>
             <a href="https://maintor.systems" target="_blank" rel="noopener noreferrer" class="work-card-link"
-              aria-label="מעבר לאתר Maintor">
-              <span>למוצר</span>
-              <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_back</span>
+              aria-label="Odwiedź stronę Maintor">
+              <span>Zobacz Produkt</span>
+              <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_forward</span>
             </a>
           </div>
         </div>
         <div class="work-card">
           <a href="https://hifred.ai" target="_blank" rel="noopener noreferrer" class="work-card-media" tabindex="-1"
             aria-hidden="true">
-            <img src="img/works/screenshot-hifred.png" alt="צילום מסך מתוך hiFred" class="work-card-img" loading="lazy">
+            <img src="/img/works/screenshot-hifred.png" alt="hiFred screenshot" class="work-card-img" loading="lazy">
           </a>
           <div class="work-card-body">
-            <div class="work-card-logo-container"><img src="img/logos/hifred.svg" alt="hiFred" class="work-card-logo">
+            <div class="work-card-logo-container"><img src="/img/logos/hifred.svg" alt="hiFred" class="work-card-logo">
             </div>
-            <div class="work-card-desc">hiFred מביאה תהליך עבודה מבוסס AI לצוותי מוצר. היא מייעלת את הדרך שבה הצוות עובר
-              מרעיון גולמי למשימות מוגדרות ומוכנות לביצוע.</div>
+            <div class="work-card-desc">hiFred wprowadza natywny dla AI workflow do zespołów produktowych. Usprawnia drogę od surowych pomysłów do precyzyjnych, przejrzystych specyfikacji gotowych do wdrożenia.</div>
             <a href="https://hifred.ai" target="_blank" rel="noopener noreferrer" class="work-card-link"
-              aria-label="מעבר לאתר hiFred">
-              <span>למוצר</span>
-              <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_back</span>
+              aria-label="Odwiedź stronę hiFred">
+              <span>Zobacz Produkt</span>
+              <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_forward</span>
             </a>
           </div>
         </div>
         <div class="work-card">
           <a href="https://bentz.bot" target="_blank" rel="noopener noreferrer" class="work-card-media" tabindex="-1"
             aria-hidden="true">
-            <img src="img/works/screenshot-bentz.png" alt="צילום מסך מתוך Bentz" class="work-card-img" loading="lazy">
+            <img src="/img/works/screenshot-bentz.png" alt="Bentz screenshot" class="work-card-img" loading="lazy">
           </a>
           <div class="work-card-body">
-            <div class="work-card-logo-container"><img src="img/logos/bentz.svg" alt="Bentz" class="work-card-logo">
+            <div class="work-card-logo-container"><img src="/img/logos/bentz.svg" alt="Bentz" class="work-card-logo">
             </div>
-            <div class="work-card-desc">Bentz הוא שירות שמנטר קבוצות וואטסאפ כיתתיות ומזהה תוכן פוגעני - בריונות, אלימות
-              ותכנים לא הולמים. הורים וועדי כיתה מקבלים דוחות שבועיים והתראות בזמן אמת, תוך שמירה על פרטיות המשתתפים.
-            </div>
+            <div class="work-card-desc">Bentz monitoruje szkolne i klasowe grupy na WhatsAppie w celu wykrywania toksycznych treści — cyberprzemocy, hejtu i agresji. Rodzice otrzymują cotygodniowe podsumowania bezpieczeństwa i alerty w czasie rzeczywistym przy pełnym poszanowaniu prywatności uczniów.</div>
             <a href="https://bentz.bot" target="_blank" rel="noopener noreferrer" class="work-card-link"
-              aria-label="מעבר לאתר Bentz">
-              <span>למוצר</span>
-              <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_back</span>
+              aria-label="Odwiedź stronę Bentz">
+              <span>Zobacz Produkt</span>
+              <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_forward</span>
             </a>
           </div>
         </div>
         <div class="work-card">
           <a href="https://getloudly.app" target="_blank" rel="noopener noreferrer" class="work-card-media"
             tabindex="-1" aria-hidden="true">
-            <img src="img/works/screenshot-loudly.png" alt="צילום מסך מתוך Loudly" class="work-card-img" loading="lazy">
+            <img src="/img/works/screenshot-loudly.png" alt="Loudly screenshot" class="work-card-img" loading="lazy">
           </a>
           <div class="work-card-body">
-            <div class="work-card-logo-container"><img src="img/logos/loudly.svg" alt="Loudly" class="work-card-logo">
+            <div class="work-card-logo-container"><img src="/img/logos/loudly.svg" alt="Loudly" class="work-card-logo">
             </div>
-            <div class="work-card-desc">Loudly הופכת תוכן כתוב - מאמרים ומסמכים - לפודקאסטים איכותיים בקול AI טבעי, כך
-              שאפשר לצרוך אותו בהאזנה, בכל מקום ובכל זמן.</div>
+            <div class="work-card-desc">Loudly zamienia artykuły i dokumenty w podcasty o studyjnej jakości dźwięku przy użyciu ekspresyjnych głosów AI, pozwalając na wygodne słuchanie treści w dowolnym miejscu i czasie.</div>
             <a href="https://getloudly.app" target="_blank" rel="noopener noreferrer" class="work-card-link"
-              aria-label="מעבר לאתר Loudly">
-              <span>למוצר</span>
-              <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_back</span>
+              aria-label="Odwiedź stronę Loudly">
+              <span>Zobacz Produkt</span>
+              <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_forward</span>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- INNER SECTION: מוצרים שהובלתי בחברות -->
+      <!-- INNER SECTION: Products I've Led -->
       <div class="led-products-section">
         <div class="led-products-header">
-          <h3 class="led-products-title">מוצרים שבניתי והובלתי</h3>
-          <p class="led-products-subtitle">מוצרי B2B ו-B2C גלובליים, עם מיליוני משתמשים ועשרות אלפי לקוחות משלמים</p>
+          <h3 class="led-products-title">Produkty, które budowałem i którymi kierowałem</h3>
+          <p class="led-products-subtitle">Globalne produkty B2B i B2C docierające do milionów użytkowników i dziesiątek tysięcy płacących klientów</p>
         </div>
         <div class="led-products-grid">
           <div class="led-product-card">
             <div class="led-product-thumb">
-              <img src="img/works/works-wisestamp.png" alt="WiseStamp signature editor" class="led-product-img"
+              <img src="/img/works/works-wisestamp.png" alt="Edytor podpisów WiseStamp" class="led-product-img"
                 loading="lazy">
             </div>
             <div class="led-product-body">
               <h4 class="led-product-name">WiseStamp <span class="led-product-sep" aria-hidden="true">|</span> Head of Product</h4>
-              <div class="led-product-subtitle">עורך חתימות מייל</div>
-              <p class="led-product-desc">WiseStamp מאפשרת ליצור ולנהל באופן מרכזי, חתימות מייל מקצועיות ומעוצבות לעסקים ולאנשי מקצוע, תוך שילוב קישורים, אלמנטים מיתוגיים וקריאות לפעולה שיווקיות בכל מייל.</p>
+              <div class="led-product-subtitle">Platforma Zarządzania Podpisami Email</div>
+              <p class="led-product-desc">WiseStamp umożliwia firmom i profesjonalistom centralne tworzenie i wdrażanie spójnych wizualnie podpisów e-mail z wbudowanymi elementami marketingowymi call-to-action w każdej wysyłanej wiadomości.</p>
               <a href="https://www.wisestamp.com" target="_blank" rel="noopener noreferrer" class="work-card-link"
-                aria-label="מעבר לאתר WiseStamp">
-                <span>למוצר</span>
-                <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_back</span>
+                aria-label="Odwiedź stronę WiseStamp">
+                <span>Zobacz Produkt</span>
+                <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_forward</span>
               </a>
             </div>
           </div>
 
           <div class="led-product-card">
             <div class="led-product-thumb">
-              <img src="img/works/works-d-id-mobileapp.png" alt="D-iD mobile app" class="led-product-img"
+              <img src="/img/works/works-d-id-mobileapp.png" alt="Aplikacja mobilna D-ID" class="led-product-img"
                 loading="lazy">
             </div>
             <div class="led-product-body">
               <h4 class="led-product-name">D-ID <span class="led-product-sep" aria-hidden="true">|</span> Director of Product Integrations</h4>
-              <div class="led-product-subtitle">אפליקציית מובייל</div>
-              <p class="led-product-desc">אפליקציית המובייל D-ID: AI Video Generator מאפשרת לייצר AI Avatars גם במובייל. הובלתי את המוצר מאפיון ופיתוח ועד מעל מיליון הורדות תוך פחות משנה.</p>
+              <div class="led-product-subtitle">Aplikacja Mobilna</div>
+              <p class="led-product-desc">Aplikacja mobilna D-ID: AI Video Generator udostępniła fotorealistyczne awatary AI użytkownikom smartfonów na całym świecie. Prowadziłem produkt od specyfikacji i budowy do ponad 1 miliona pobrań w niecały rok.</p>
               <a href="https://play.google.com/store/apps/details?id=com.deidentification.studio&hl=en" target="_blank"
-                rel="noopener noreferrer" class="work-card-link" aria-label="מעבר לאפליקציית D-ID">
-                <span>לאפליקציית המוצר</span>
-                <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_back</span>
+                rel="noopener noreferrer" class="work-card-link" aria-label="Zobacz aplikację D-ID w Google Play">
+                <span>Zobacz Aplikację Mobilną</span>
+                <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_forward</span>
               </a>
             </div>
           </div>
 
           <div class="led-product-card">
             <div class="led-product-thumb">
-              <img src="img/works/works-canva.png" alt="D-iD Canva app" class="led-product-img" loading="lazy">
+              <img src="/img/works/works-canva.png" alt="Aplikacja D-ID dla Canva" class="led-product-img" loading="lazy">
             </div>
             <div class="led-product-body">
               <h4 class="led-product-name">D-ID <span class="led-product-sep" aria-hidden="true">|</span> Director of Product Integrations</h4>
-              <div class="led-product-subtitle">תוסף וידאו AI</div>
-              <p class="led-product-desc">אחת האפליקציות הראשונות בחנות התוספים של Canva, D-iD AI Avatars מאפשרת להוסיף דמויות AI ישירות לעיצובים. יצרנו שותפות אסטרטגית עם Canva ששילבה את התוסף בתוכנית Canva Pro.</p>
+              <div class="led-product-subtitle">Aplikacja Wideo AI dla Canva</div>
+              <p class="led-product-desc">Jedna z pierwszych flagowych aplikacji w ekosystemie Canva App Marketplace — D-ID AI Avatars pozwala twórcom generować mówiące awatary bezpośrednio wewnątrz platformy Canva. Zbudowałem strategiczne partnerstwo i integrację z Canva Pro.</p>
               <a href="https://www.canva.com/your-apps/AAFapKzFFus/d-id-ai-avatars?q=D-ID+AI+Avatars" target="_blank"
-                rel="noopener noreferrer" class="work-card-link" aria-label="מעבר לעמוד התוסף של D-ID ב-Canva">
-                <span>לתוסף ב-Canva</span>
-                <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_back</span>
+                rel="noopener noreferrer" class="work-card-link" aria-label="Zobacz aplikację D-ID w Canva">
+                <span>Zobacz w Canva</span>
+                <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_forward</span>
               </a>
             </div>
           </div>
 
           <div class="led-product-card">
             <div class="led-product-thumb">
-              <img src="img/works/works-storydoc.png" alt="Storydoc AI presentation editor" class="led-product-img"
+              <img src="/img/works/works-storydoc.png" alt="Edytor prezentacji Storydoc" class="led-product-img"
                 loading="lazy">
             </div>
             <div class="led-product-body">
               <h4 class="led-product-name">Storydoc <span class="led-product-sep" aria-hidden="true">|</span> VP Product</h4>
-              <div class="led-product-subtitle">עורך מצגות מבוסס AI</div>
-              <p class="led-product-desc">Storydoc מאפשרת לעסקים להפוך מסמכים ומצגות לחוויות אינטראקטיביות. יצרתי בידול משמעותי מהמתחרים דרך השקעה בפיצ׳רים שנותנים תובנות עסקיות ודאטה בזמן אמת, המאפשרים לעסקים לקבל החלטות עסקיות חכמות לקידום עסקאות.</p>
+              <div class="led-product-subtitle">Kreator Prezentacji AI</div>
+              <p class="led-product-desc">Storydoc pomaga firmom przekształcać statyczne prezentacje i oferty w interaktywne formaty internetowe. Zbudowałem przewagę produktową poprzez analitykę zaangażowania czytelników w czasie rzeczywistym, pomagającą zespołom sprzedaży skuteczniej zamykać transakcje.</p>
               <a href="https://storydoc.com" target="_blank" rel="noopener noreferrer" class="work-card-link"
-                aria-label="מעבר לאתר Storydoc">
-                <span>למוצר</span>
-                <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_back</span>
+                aria-label="Odwiedź stronę Storydoc">
+                <span>Zobacz Produkt</span>
+                <span class="material-symbols-rounded work-card-link-icon" aria-hidden="true">arrow_forward</span>
               </a>
             </div>
           </div>
@@ -531,47 +514,38 @@
       <div class="about-header">
         <div class="section-badge">
           <span class="hero-badge-dot"></span>
-          עליי
+          O mnie
         </div>
-        <h2 class="about-title">אני בונה מוצרים כבר 20 שנה, מהצורך הראשוני של הלקוח ועד פרודקשן</h2>
+        <h2 class="about-title">20 lat tworzenia produktów — od pierwszej obserwacji potrzeb użytkownika po produkcję</h2>
       </div>
       <div class="about-grid">
         <div class="about-text">
-          <p>אני דור בר שלום, בונה מוצרי AI מקצה לקצה. התחלתי כמעצב וארט דיירקטור, המשכתי לתכנון
-            חוויית משתמש ופרונט־אנד, ובעשור האחרון הובלתי מוצר — כראש מוצר ב-WiseStamp ו-vCita, כדירקטור אינטגרציות
-            ב-D-ID, וכ-VP Product ב-Storydoc.</p>
-          <p>אני חי בתוך הדאטה: Mixpanel, Funnels, הקלטות סשנים, אבל באותה מידה נמצא בשטח ומדבר עם
-            משתמשים, B2C ו-B2B, כדי להבין מה לקוחות באמת צריכים ולא רק מה הדשבורד אומר.</p>
-          <p>בשנה האחרונה אני עושה משהו אחר: בונה מוצרים ברמת פרודקשן לבד, בלי צוות פיתוח - רק אני
-            וסטאק AI שסביבו בניתי מחדש את כל תהליך העבודה, מגילוי, ניתוח ועיצוב ועד השקה. כך נולדו hiFred ו-Maintor,
-            ושניהם פעילים היום.</p>
+          <p>Nazywam się Dor Bar Shalom i jestem twórcą produktów AI działającym w pełnym cyklu (end-to-end). Zaczynałem jako projektant i dyrektor artystyczny, rozwijałem się w stronę architektury UX i inżynierii front-end, a ostatnią dekadę spędziłem kierując zespołami produktowymi — jako Head of Product w WiseStamp i vCita, Director of Product Integrations w D-ID oraz VP Product w Storydoc.</p>
+          <p>Pracuję w oparciu o twarde dane: Mixpanel, lejki konwersji, analizę sesji — ale równie intensywnie rozmawiam z użytkownikami, zarówno w segmencie B2B, jak i B2C, aby zrozumieć rzeczywiste potrzeby ludzi, a nie tylko to, co pokazują wykresy.</p>
+          <p>W ciągu ostatniego roku całkowicie przedefiniowałem sposób pracy: samodzielnie buduję zaawansowane systemy produkcyjne w oparciu o stos natywny dla AI — obejmujący discovery, analitykę, design i deployment. W ten sposób powstały hiFred oraz Maintor — oba z powodzeniem działające na produkcji.</p>
         </div>
         <div class="timeline-list">
           <div class="timeline-item">
-            <span class="timeline-role">מייסד שותף · hiFred, Maintor</span><span dir="ltr" class="timeline-period">2026
-              – היום</span>
+            <span class="timeline-role">Współzałożyciel · hiFred, Maintor</span><span class="timeline-period">2026 – obecnie</span>
           </div>
           <div class="timeline-item">
-            <span class="timeline-role">VP Product · Storydoc</span><span dir="ltr" class="timeline-period">2025</span>
+            <span class="timeline-role">VP Product · Storydoc</span><span class="timeline-period">2025</span>
           </div>
           <div class="timeline-item">
-            <span class="timeline-role">Director of Product Integrations · D-ID</span><span dir="ltr"
-              class="timeline-period">2021 – 2025</span>
+            <span class="timeline-role">Director of Product Integrations · D-ID</span><span class="timeline-period">2021 – 2025</span>
           </div>
           <div class="timeline-item">
-            <span class="timeline-role">Head of Product · vCita, WiseStamp</span><span dir="ltr"
-              class="timeline-period">2015 – 2021</span>
+            <span class="timeline-role">Head of Product · vCita, WiseStamp</span><span class="timeline-period">2015 – 2021</span>
           </div>
           <div class="timeline-item">
-            <span class="timeline-role">עיצוב UX/UI · Samsung, כללית, שטראוס ועוד</span><span dir="ltr"
-              class="timeline-period">2005 – 2015</span>
+            <span class="timeline-role">Projektant UX/UI · Samsung, Clalit, Strauss i inni</span><span class="timeline-period">2005 – 2015</span>
           </div>
         </div>
       </div>
 
       <div class="about-action">
-        <a href="mailto:dor@dorbarshalom.com?subject=%D7%91%D7%95%D7%90%D7%95%20%D7%A0%D7%91%D7%A0%D7%94%20%D7%9E%D7%A9%D7%94%D7%95%20%D7%90%D7%9E%D7%99%D7%AA%D7%99"
-          class="contact-btn hero-cta-btn about-cta-btn">בואו נדבר</a>
+        <a href="mailto:dor@dorbarshalom.com?subject=Zbudujmy%20co%C5%9B%20prawdziwego"
+          class="contact-btn hero-cta-btn about-cta-btn">Porozmawiajmy</a>
       </div>
     </div>
 
@@ -579,7 +553,7 @@
       <div class="footer-content">
         <a href="mailto:dorbarshalom@gmail.com" class="footer-email">dorbarshalom@gmail.com</a>
         <span class="footer-divider" aria-hidden="true">|</span>
-        <span class="footer-text">דור בר שלום, Product builder</span>
+        <span class="footer-text">Dor Bar Shalom · AI Product Builder</span>
       </div>
     </div>
 
@@ -589,39 +563,39 @@
   <div id="contact-modal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true"
     aria-labelledby="modal-title">
     <div class="modal-dialog">
-      <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="סגור">
+      <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Zamknij">
         <span class="material-symbols-rounded" aria-hidden="true">close</span>
       </button>
 
       <!-- Form View -->
       <div id="modal-form-view">
-        <h3 id="modal-title" class="modal-title">תשאירו פרטים ואני אצור קשר</h3>
+        <h3 id="modal-title" class="modal-title">Skontaktuj się ze mną</h3>
 
         <form id="contact-form" class="modal-form" novalidate>
           <div class="form-group">
-            <label for="lead-name" class="form-label">שם <span class="required-star">*</span></label>
-            <input type="text" id="lead-name" name="name" class="form-input" required placeholder="השם שלכם"
+            <label for="lead-name" class="form-label">Imię i nazwisko <span class="required-star">*</span></label>
+            <input type="text" id="lead-name" name="name" class="form-input" required placeholder="Twoje imię"
               autocomplete="name">
-            <span class="field-error" id="name-error">נא להזין שם</span>
+            <span class="field-error" id="name-error">Proszę podać imię i nazwisko</span>
           </div>
 
           <div class="form-group">
-            <label for="lead-email" class="form-label">אימייל <span class="required-star">*</span></label>
-            <input type="email" id="lead-email" name="email" class="form-input" required placeholder="name@company.com"
-              autocomplete="email" dir="ltr">
-            <span class="field-error" id="email-error">נא להזין כתובת אימייל תקינה</span>
+            <label for="lead-email" class="form-label">Email <span class="required-star">*</span></label>
+            <input type="email" id="lead-email" name="email" class="form-input" required placeholder="nazwisko@firma.pl"
+              autocomplete="email">
+            <span class="field-error" id="email-error">Proszę podać poprawny adres email</span>
           </div>
 
           <div class="form-group">
-            <label for="lead-mobile" class="form-label">נייד <span class="optional-label">(אופציונלי)</span></label>
-            <input type="tel" id="lead-mobile" name="mobile" class="form-input" placeholder="050-0000000"
-              autocomplete="tel" dir="ltr">
+            <label for="lead-mobile" class="form-label">Telefon <span class="optional-label">(Opcjonalnie)</span></label>
+            <input type="tel" id="lead-mobile" name="mobile" class="form-input" placeholder="+48 123 456 789"
+              autocomplete="tel">
           </div>
 
           <div id="form-error-msg" class="form-general-error" style="display: none;"></div>
 
           <button type="submit" class="modal-submit-btn" id="modal-submit-btn">
-            <span class="btn-text">שלחו</span>
+            <span class="btn-text">Wyślij</span>
           </button>
         </form>
       </div>
@@ -629,9 +603,9 @@
       <!-- Success View (Replaces form when done) -->
       <div id="modal-success-view" class="modal-success-view" style="display: none;">
         <span class="success-tada-icon" aria-hidden="true">🎉</span>
-        <h3 class="modal-title">תודה רבה!</h3>
-        <p class="modal-subtitle">הפרטים נשלחו בהצלחה, אני אצור איתכם קשר בהקדם.</p>
-        <button type="button" class="modal-submit-btn modal-done-btn" id="modal-done-btn">סגירה</button>
+        <h3 class="modal-title">Dziękuję!</h3>
+        <p class="modal-subtitle">Twoja wiadomość została pomyślnie wysłana. Odezwę się wkrótce.</p>
+        <button type="button" class="modal-submit-btn modal-done-btn" id="modal-done-btn">Zamknij</button>
       </div>
     </div>
   </div>
@@ -640,56 +614,56 @@
   <script>
     (function () {
       const rows = {
-        vendor: { no_code: "אתם תלויים לגמרי בפלטפורמה", dor: "הקוד שייך לכם, לגמרי" },
-        scale: { no_code: "המערכת נתקעת כשמספר המשתמשים גדל", dor: "המערכת בנויה לגדול מהיום הראשון" },
-        custom: { no_code: "המערכת מוגבלת לתבניות מוכנות", dor: "המערכת מותאמת לגמרי לצרכים שלכם" },
-        security: { no_code: "המערכת לא עומדת בבדיקות אבטחה רציניות", dor: "ההרשאות, האבטחה והנתונים עומדים בסטנדרט של פרודקשן" },
-        eng: { no_code: "רק מי שמכיר את הפלטפורמה יכול לגעת בזה", dor: "כל מפתח יכול להמשיך מכאן" },
+        vendor: { no_code: "Całkowite uzależnienie od zewnętrznych platform", dor: "Pełna własność kodu — w 100% należy do Ciebie" },
+        scale: { no_code: "Zwalnia i stwarza błędy wraz ze wzrostem liczby użytkowników", dor: "Zaprojektowane do skalowania od pierwszego dnia" },
+        custom: { no_code: "Ograniczone przez sztywne gotowe szablony i widgety", dor: "W 100% szyte na miarę według Twoich dokładnych wymagań" },
+        security: { no_code: "Nie przechodzi audytów bezpieczeństwa korporacyjnego i compliance", dor: "Bezpieczeństwo produkcyjne, ochrona danych i uprawnienia" },
+        eng: { no_code: "Wymaga wąskiej wiedzy o konkretnej zamkniętej platformie", dor: "Dowolny programista może przejąć kod i kontynuować rozwój" },
       };
 
       const foundersSteps = [
         {
           icon: "troubleshoot",
-          title: "דיסקאברי ומשתמשים",
-          desc: "אנחנו מבינים לעומק את המשתמש, את הכאב והאילוצים - כולל ראיונות עם לקוחות קיימים כשיש כאלה, ניתוח מתחרים, ובחינת דאטה קיים (אם יש), כדי לקבל את התמונה המלאה עוד לפני שמתחילים."
+          title: "Discovery i Badania Użytkowników",
+          desc: "Głębokie zrozumienie potrzeb użytkowników, problemów i ograniczeń — wywiady z użytkownikami, analiza konkurencji i analiza istniejących danych zanim powstanie jakakolwiek linijka kodu czy specyfikacja."
         },
         {
           icon: "schema",
-          title: "ארכיטקטורה",
-          desc: "אנחנו מניחים את תשתית הנתונים לפני השורה הראשונה של הקוד - בוחרים את התשתית והכלים הנכונים למוצר שלכם, בהתאם לדרישות ולסקייל שאתם מכוונים אליו."
+          title: "Architektura i Dane",
+          desc: "Projektowanie solidnej architektury danych i systemów przed startem prac programistycznych — dobór właściwego stosu technologicznego i infrastruktury dopasowanej do celów produktu i planowanej skali."
         },
         {
           icon: "deployed_code",
-          title: "פיתוח",
-          desc: "אנחנו מפתחים פול סטאק, על תשתית פרודקשן מהרגע הראשון, בעבודה שקופה מול פרויקט GitHub משותף איתכם, עם הקפדה על איכות קוד גבוהה, טסטים אוטומטיים והתייחסות רצינית להיבטי אבטחה לאורך כל הדרך."
+          title: "Engineering i Wdrożenie",
+          desc: "Programowanie full-stack od pierwszego dnia na infrastrukturze produkcyjnej. Pełna transparentność we wspólnym repozytorium GitHub, wysoka jakość kodu, automatyczne testy i priorytetowe bezpieczeństwo."
         },
         {
           icon: "query_stats",
-          title: "מדידה",
-          desc: "אנחנו מגדירים את מדדי ה-KPI שחשובים לכם, בונים את סכמת הנתונים (data schema), מטמיעים כלים כמו Mixpanel למעקב אחר התנהגות משתמשים כולל session recording, ומקימים דשבורדים שנותנים לנו תמונה מלאה בזמן אמת."
+          title: "Pomiary i Analityka",
+          desc: "Definiowanie kluczowych wskaźników KPI, projekt schematu zdarzeń, wdrożenie analityki Mixpanel wraz z nagraniami sesji i stworzenie czytelnych dashboardów dających pełny wgląd w czasie rzeczywistym."
         },
         {
           icon: "experiment",
-          title: "שיפור מתמיד",
-          desc: "אנחנו בונים תשתית לבדיקות A/B ואיסוף פידבק ממשתמשים כדי לשפר את המוצר ולקבל החלטות מבוססות נתונים ולא ניחושים."
+          title: "Ciągła Iteracja",
+          desc: "Uruchomienie ciągłych pętli informacji zwrotnej i fundamentów pod testy A/B, aby rozwijać produkt na podstawie twardych danych i zachowań użytkowników, a nie domysłów."
         },
       ];
 
       const companiesSteps = [
         {
           icon: "account_tree",
-          title: "מה האתגר שלכם?",
-          desc: "אני לומד את העסק שלכם לעומק, כדי להבין את התמונה הרחבה ולא רק את הבעיה הנקודתית. אם הפתרון פונה למשתמשים, אני מדבר גם איתם כדי להבין את הצרכים האמיתיים שלהם. יחד אנחנו ממפים את האפשרויות והפתרונות הרלוונטיים, ובוחרים את הדרך הנכונה להתקדם."
+          title: "Jakie jest Twoje wyzwanie?",
+          desc: "Zagłębiam się w operacje Twojej firmy, aby zrozumieć pełny obraz sytuacji, a nie tylko pojedyncze objawy. Jeśli rozwiązanie służy użytkownikom końcowym, rozmawiam bezpośrednio z nimi. Razem mapujemy możliwości i wybieramy rozwiązanie o największym wpływie na biznes."
         },
         {
           icon: "hub",
-          title: "נמשיך לבנייה של הפיתרון",
-          desc: "אני מניח את התשתית ומחבר אותה בצורה מאובטחת למערכות הקיימות שלכם. לאורך כל הדרך אני בודק ובוחן את הפתרון יחד אתכם, כדי לוודא שאני בונה בדיוק את הדבר הנכון - לא רק פתרון שעובד, אלא פתרון שמתאים לכם."
+          title: "Budowa Rozwiązania",
+          desc: "Tworzę fundamenty i bezpiecznie integruję się z Twoimi istniejącymi systemami. W trakcie całego procesu testujemy i weryfikujemy rozwiązania iteracyjnie, upewniając się, że idealnie wpisują się w codzienną pracę Twojego zespołu."
         },
         {
           icon: "task_alt",
-          title: "עד מערכת מלאה, עובדת בשטח",
-          desc: "אני מוסר לכם מערכת שלמה ומוכנה, מדריך את הצוות שלכם בשימוש בה, וממשיך ללוות אתכם גם אחרי ההשקה - כדי לוודא שהיא עובדת מצוין גם בשטח."
+          title: "Działający, Żywy System",
+          desc: "Dostarczenie kompletnego, dopracowanego systemu, wdrożenie i przeszkolenie zespołu oraz bezpośrednie wsparcie po starcie, gwarantujące płynne i bezproblemowe działanie w praktyce."
         },
       ];
 
@@ -728,17 +702,17 @@
         if (sectionAutomationExamples) sectionAutomationExamples.style.display = isF ? 'none' : '';
 
         // Update Labels & Titles
-        const labelText = isF ? 'ליזמים' : 'לעסקים';
+        const labelText = isF ? 'Dla Founderów' : 'Dla Firm';
         if (personaLabel) personaLabel.textContent = labelText;
         if (nocodePersonaLabel) nocodePersonaLabel.textContent = labelText;
 
         if (nocodeTitle) {
-          nocodeTitle.textContent = 'מוצר ברמת Production grade, לא פרוטוטייפ';
+          nocodeTitle.textContent = 'Produkt klasy produkcyjnej, a nie jednorazowy prototyp';
         }
 
         stepsTitle.textContent = isF
-          ? 'תהליך מלא, מרעיון ועד מוצר בפרודקשן'
-          : 'בשלושה שלבים, אתם מקבלים מערכת שעובדת';
+          ? 'Kompletny proces end-to-end: od pomysłu do produkcji'
+          : 'W trzech prostych krokach otrzymujesz działający system';
 
         if (stepsSubtitle) {
           if (isF) {
@@ -746,7 +720,7 @@
             stepsSubtitle.textContent = '';
           } else {
             stepsSubtitle.style.display = '';
-            stepsSubtitle.textContent = 'העולם השתנה, ומהר. עבודה שדרשה פעם שעות של עבודה ידנית, אנשים ותקציב, נעשית היום עם AI בקצב ובעלות אחרים לגמרי. חלק מהעסקים כבר שם, חלק עוד מתלבטים. הפער ביניהם רק ילך ויגדל. אני אעזור לכם להיות בצד הנכון שלו.';
+            stepsSubtitle.textContent = 'Świat technologii zmienił się diametralnie. Zadania, które kiedyś wymagały miesięcy pracy, rozbudowanych zespołów i ogromnych budżetów, dziś dzięki AI można zrealizować z niespotykaną dotąd szybkością i efektywnością. Niektóre firmy już z tego korzystają, inne wciąż się wahają. Ten dystans będzie tylko rósł — pomogę Ci znaleźć się po właściwej stronie.';
           }
         }
 
@@ -848,7 +822,7 @@
         if (emailError) emailError.style.display = 'none';
         if (submitBtn) {
           submitBtn.disabled = false;
-          if (btnText) btnText.textContent = 'שליחה';
+          if (btnText) btnText.textContent = 'Wyślij';
         }
         contactModal.classList.add('is-open');
         contactModal.setAttribute('aria-hidden', 'false');
@@ -941,11 +915,10 @@
 
           if (submitBtn) {
             submitBtn.disabled = true;
-            if (btnText) btnText.textContent = 'שולח...';
+            if (btnText) btnText.textContent = 'Wysyłanie...';
           }
 
           try {
-            // Post payload to form-data endpoint
             const payload = {
               name: nameVal,
               email: emailVal,
@@ -962,7 +935,6 @@
             });
 
             if (!res.ok) {
-              // Try form-encoded fallback
               const formData = new FormData();
               formData.append('name', nameVal);
               formData.append('email', emailVal);
@@ -978,7 +950,6 @@
               mixpanel.track('contact', { action: 'submit', type: 'lead_form' });
             }
 
-            // Replace form with success view
             modalFormView.style.display = 'none';
             modalSuccessView.style.display = 'block';
             contactForm.reset();
@@ -986,13 +957,13 @@
           } catch (err) {
             console.error('Lead submission error:', err);
             if (formErrorMsg) {
-              formErrorMsg.textContent = 'חלה שגיאה בעת שליחת הטופס. ניתן ליצור קשר גם ב-dor@dorbarshalom.com';
+              formErrorMsg.textContent = 'Wystąpił błąd podczas wysyłania. Możesz też napisać do mnie bezpośrednio na adres dor@dorbarshalom.com';
               formErrorMsg.style.display = 'block';
             }
           } finally {
             if (submitBtn) {
               submitBtn.disabled = false;
-              if (btnText) btnText.textContent = 'שליחה';
+              if (btnText) btnText.textContent = 'Wyślij';
             }
           }
         });
