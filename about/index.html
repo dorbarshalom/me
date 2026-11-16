@@ -80,6 +80,10 @@
       padding: 48px 24px 240px;
     }
 
+    body.no-chat-bar .wrap {
+      padding-bottom: 64px;
+    }
+
     .side-nav {
       position: fixed;
       top: 160px;
@@ -811,6 +815,10 @@
         padding: 32px 16px 260px;
       }
 
+      body.no-chat-bar .wrap {
+        padding-bottom: 48px;
+      }
+
       .invoke-inner {
         padding: 14px 16px 18px;
       }
@@ -1187,6 +1195,11 @@
     // DEV TOGGLE: set to true to play the boot/typing intro animation,
     // false to skip straight to the content (handy while developing).
     const SHOW_BOOT_INTRO = false;
+    const SHOW_CHAT_BOX = false;
+
+    if (!SHOW_CHAT_BOX) {
+      document.body.classList.add('no-chat-bar');
+    }
 
     const introLine = "$ initializing dor_bar_shalom.md ...";
     const loadingLine = "$ loading identity, memory, active_processes ...";
@@ -1219,9 +1232,11 @@
         el.classList.add('hidden-block');
         setTimeout(() => { el.classList.remove('hidden-block'); el.classList.add('fade-in'); }, i * 60);
       });
-      invokeBar.style.display = 'block';
-      invokeBar.classList.add('hidden-block');
-      setTimeout(() => { invokeBar.classList.remove('hidden-block'); invokeBar.classList.add('fade-in'); }, 300);
+      if (SHOW_CHAT_BOX) {
+        invokeBar.style.display = 'block';
+        invokeBar.classList.add('hidden-block');
+        setTimeout(() => { invokeBar.classList.remove('hidden-block'); invokeBar.classList.add('fade-in'); }, 300);
+      }
       sideNav.style.display = 'block';
       sideObjective.style.display = 'block';
       initScrollSpy();
