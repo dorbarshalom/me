@@ -148,6 +148,8 @@
       top: 160px;
       left: calc(50% + 400px);
       width: 280px;
+      max-height: calc(100vh - 180px);
+      overflow-y: auto;
       z-index: 25;
     }
 
@@ -157,6 +159,10 @@
       letter-spacing: 0.5px;
       text-transform: uppercase;
       margin-bottom: 10px;
+    }
+
+    .so-label-spaced {
+      margin-top: 20px;
     }
 
     .so-card {
@@ -209,6 +215,37 @@
       font-size: 0.875rem;
       display: block;
       margin-top: 6px;
+    }
+
+    .so-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .so-links a {
+      font-size: 0.875rem;
+      color: #79c0ff;
+      border-bottom: 1px dotted #79c0ff;
+    }
+
+    .so-links a:hover {
+      color: #a5d6ff;
+      border-bottom-color: #a5d6ff;
+    }
+
+    .so-key-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .so-icon {
+      width: 14px;
+      height: 14px;
+      color: #7ee787;
+      flex-shrink: 0;
     }
 
     .mobile-objective {
@@ -866,6 +903,30 @@
       <div class="so-key">open_to</div>
       <span class="so-sub">EIR &middot;advisory &middot; fractional &middot; full-time</span>
     </div>
+
+    <div class="so-label so-label-spaced">highlights</div>
+    <div class="so-card">
+      <div class="so-key so-key-row">
+        <svg class="so-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+          <line x1="12" y1="18" x2="12.01" y2="18"></line>
+        </svg>
+        <span>d_id_mobile_app</span>
+      </div>
+      <div class="so-values">
+        <div class="so-val-main">0 &rarr; 1M downloads</div>
+        <div class="so-val-alt">in under a year</div>
+      </div>
+      <span class="so-desc">Built the D-ID Creative Reality mobile app from scratch with the team.</span>
+      <div class="so-divider"></div>
+      <div class="so-links">
+        <a href="https://apps.apple.com/us/app/d-id-ai-video-generator/id6463755563" target="_blank"
+          rel="noopener noreferrer">App Store &nearr;</a>
+        <a href="https://play.google.com/store/apps/details?id=com.deidentification.studio&hl=en" target="_blank"
+          rel="noopener noreferrer">Google Play &nearr;</a>
+      </div>
+    </div>
   </aside>
 
   <nav class="side-nav" id="sideNav" style="display:none;">
@@ -873,10 +934,10 @@
     <ul>
       <li><a href="#sec-identity" data-target="sec-identity">whoami</a></li>
       <li><a href="#sec-superpowers" data-target="sec-superpowers">superpowers</a></li>
-      <li><a href="#sec-stack" data-target="sec-stack">stack</a></li>
       <li><a href="#sec-active_processes" data-target="sec-active_processes">active_processes</a></li>
       <li><a href="#sec-memory" data-target="sec-memory">memory</a></li>
       <li><a href="#sec-changelog" data-target="sec-changelog">changelog</a></li>
+      <li><a href="#sec-stack" data-target="sec-stack">stack</a></li>
       <li><a href="#sec-training_data" data-target="sec-training_data">training_data</a></li>
       <li><a href="#sec-guardrails" data-target="sec-guardrails">guardrails</a></li>
       <li><a href="#sec-background_processes" data-target="sec-background_processes">background_processes</a></li>
@@ -938,6 +999,30 @@
           <div class="so-key">open_to</div>
           <span class="so-sub">EIR &middot; advisory &middot; fractional &middot; full-time</span>
         </div>
+
+        <div class="so-label so-label-spaced">highlights</div>
+        <div class="so-card">
+          <div class="so-key so-key-row">
+            <svg class="so-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+            <span>d_id_mobile_app</span>
+          </div>
+          <div class="so-values">
+            <div class="so-val-main">0 &rarr; 1M downloads</div>
+            <div class="so-val-alt">in under a year</div>
+          </div>
+          <span class="so-desc">Built the D-ID Creative Reality mobile app from scratch with the team.</span>
+          <div class="so-divider"></div>
+          <div class="so-links">
+            <a href="https://apps.apple.com/us/app/d-id-ai-video-generator/id6463755563" target="_blank"
+              rel="noopener noreferrer">App Store &nearr;</a>
+            <a href="https://play.google.com/store/apps/details?id=com.deidentification.studio&hl=en" target="_blank"
+              rel="noopener noreferrer">Google Play &nearr;</a>
+          </div>
+        </div>
       </div>
 
       <div class="block" id="sec-identity">
@@ -946,13 +1031,7 @@
           <span class="key">location</span>: <span class="string">Petah-Tikva, Israel (aka the center of the solar
             system)</span><br>
           <span class="key">summary</span>: <span class="val">
-            I've spent the last 20 years building products end-to-end, from spotting the customer pain all the way to
-            production. I live in the data (Mixpanel, inside-out), but I'm just as much in the field talking to people,
-            both B2C and B2B, so I actually understand what large clients need, not just what the dashboard says. I
-            co-founded hiFred, a hefty AI product, from scratch with two cofounders. This past year I've been doing
-            something different: shipping production-grade products solo, no engineering team, just me and an AI stack
-            I've rebuilt my entire workflow around: discovery, analysis, design, all the way through to shipping. I'm
-            tech-savvy, hands-on, and at my best when I own the whole ride from idea to prod.
+            I’ve spent 20 years building products end to end, from finding the customer pain to shipping it in production. I work deep in the data, and I spend just as much time talking to B2C and B2B customers, so my decisions come from what people actually need as well as what the numbers show. I co-founded hiFred, an AI product, and built it from scratch with my co-founders. Over the past year I’ve been shipping production-grade products on my own, with no engineering team. Instead I use an AI stack that covers my whole workflow: discovery, analysis, design and delivery.
           </span>
         </div>
       </div>
@@ -973,22 +1052,6 @@
             </li>
             <li><span class="key">ai_product_shipping</span> led products built on LLM + RAG, live in production
             </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="block" id="sec-stack">
-        <div class="section-title">stack</div>
-        <div class="indent">
-          <ul class="no-dash">
-            <li><span class="key">Claude</span> (Code + Projects) daily build partner</li>
-            <li><span class="key">Cursor / Anti Gravity</span> ship production grade products, no dev queue</li>
-            <li><span class="key">Figma &amp; Google Stitch</span> hands-on, pixel-level design, AI-native when
-              it's faster</li>
-            <li><span class="key">Mixpanel</span> Experienced in data mapping and designing clean analytics structures
-            </li>
-            <li><span class="key">Hotjar &amp; session recordings</span> obsessive rewatcher</li>
-            <li><span class="key">NotebookLM</span> research synthesis in minutes</li>
           </ul>
         </div>
       </div>
@@ -1037,8 +1100,11 @@
                   class="memory-co">D-ID</span></span>
             </div>
             <div class="memory-detail">Built one of the first Canva Marketplace apps, driving a biz-dev partnership that
-              got it bundled into Canva Pro — also built the Creative Reality mobile app from scratch, reaching 1M
-              downloads in under a year</div>
+              got it bundled into Canva Pro.<br>Also built the Creative Reality mobile app from scratch, reaching 1M
+              downloads in under a year (<a href="https://apps.apple.com/us/app/d-id-ai-video-generator/id6463755563"
+                target="_blank" rel="noopener noreferrer">App Store &nearr;</a> &middot; <a
+                href="https://play.google.com/store/apps/details?id=com.deidentification.studio&hl=en" target="_blank"
+                rel="noopener noreferrer">Google Play &nearr;</a>)</div>
           </div>
           <div class="memory-item">
             <img class="co-logo" src="/img/logo_vcita.svg" alt="vCita logo">
@@ -1105,6 +1171,22 @@
             </li>
             <li><span class="accent">v1.x</span> &mdash; Designer & Art director <span
                 class="muted">(2005&ndash;2010)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block" id="sec-stack">
+        <div class="section-title">stack</div>
+        <div class="indent">
+          <ul class="no-dash">
+            <li><span class="key">Claude</span> (Code + Projects) daily build partner</li>
+            <li><span class="key">Cursor / Anti Gravity</span> ship production grade products, no dev queue</li>
+            <li><span class="key">Figma &amp; Google Stitch</span> hands-on, pixel-level design, AI-native when
+              it's faster</li>
+            <li><span class="key">Mixpanel</span> Experienced in data mapping and designing clean analytics structures
+            </li>
+            <li><span class="key">Hotjar &amp; session recordings</span> obsessive rewatcher</li>
+            <li><span class="key">NotebookLM</span> research synthesis in minutes</li>
           </ul>
         </div>
       </div>
