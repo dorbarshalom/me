@@ -964,7 +964,8 @@
           <div><span class="key">role</span>: <span class="string">E2E AI Product Builder &amp; Leader</span></div>
           <div class="identity-contact">
             <a href="mailto:dorbarshalom@gmail.com">dorbarshalom@gmail.com</a><span>&middot;</span><a
-              href="tel:+972546800360">054.680.0360</a>
+              href="tel:+972546800360">054.680.0360</a><span>&middot;</span><a
+              href="https://dorbarshalom.me" target="_blank" rel="noopener noreferrer">dorbarshalom.me</a>
           </div>
         </div>
       </div>
@@ -980,6 +981,8 @@
           <a href="mailto:dorbarshalom@gmail.com">dorbarshalom@gmail.com</a>
           &nbsp;&middot;&nbsp;
           <a href="tel:+972546800360">054.680.0360</a>
+          &nbsp;&middot;&nbsp;
+          <a href="https://dorbarshalom.me" target="_blank" rel="noopener noreferrer">dorbarshalom.me</a>
         </div>
       </div>
 
@@ -1503,13 +1506,15 @@
     });
 
     // Mixpanel tracking for contact link clicks
-    document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach(link => {
+    document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"], .identity-contact a[href*="dorbarshalom.me"], .identity-sticky-contact a[href*="dorbarshalom.me"]').forEach(link => {
       link.addEventListener('click', () => {
         const href = link.getAttribute('href');
-        const isMail = href.startsWith('mailto:');
+        let type = 'website';
+        if (href.startsWith('mailto:')) type = 'email';
+        else if (href.startsWith('tel:')) type = 'phone';
         mixpanel.track('contact', {
           action: 'click',
-          type: isMail ? 'email' : 'phone',
+          type: type,
           value: href.replace(/^(mailto:|tel:)/, '')
         });
       });

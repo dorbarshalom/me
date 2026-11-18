@@ -135,6 +135,7 @@ more:
 ## contact
 email: dorbarshalom@gmail.com
 phone: 054.680.0360
+website: https://dorbarshalom.me
 footer_note: this page is the CV. built solo, no dev queue.
 
 ## invoke — ask-box suggestions and canned answers
@@ -146,7 +147,7 @@ format: trigger keyword(s) → response text
 - d-id → Director of Product Integrations at D-ID, Nov 2021–May 2025. Shipped LLM + RAG-powered digital agents — D-ID Agents, Video Translate, Creative Reality Studio Mobile App. Front-row seat to the AI wave from the very start.
 - storydoc → VP of Products at Storydoc, May 2025–Jan 2026. Led product for their storytelling platform before moving to build my own thing full-time.
 - founder / why did you become a founder → After a decade-plus of building other people's products, I'm now building my own — hifred.ai and maintor.systems, in parallel. Same skillset, no queue between the idea and the ship.
-- contact / hire → dorbarshalom@gmail.com · 054.680.0360 — always happy to talk product, AI workflows, or both.
+- contact / hire → dorbarshalom@gmail.com · 054.680.0360 · https://dorbarshalom.me — always happy to talk product, AI workflows, or both.
 - hi / hello → Hi — I'm the CV. Try asking about d-id, hifred, maintor, or why ai.
 
 suggestion chips shown above the input: why ai?, hifred.ai, maintor.systems, d-id, contact

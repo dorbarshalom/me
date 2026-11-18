@@ -40,7 +40,7 @@ const DEFAULT_CONTEXT = `Facts about Dor:
   Designer -> Art Director @ ZeDesign.
 - Skills: product strategy, AI-native workflow (discovery/analysis/specs solo with AI), UX/UI design,
   rapid prototyping (Claude/Cursor), experimentation (Mixpanel, Hotjar), shipping AI products live in production.
-- Contact: dorbarshalom@gmail.com, 054.680.0360.
+- Contact: dorbarshalom@gmail.com, 054.680.0360, https://dorbarshalom.me.
 - Personal: musician (piano & Balkan accordion), paraglider, homebrewer (IPA specialist),
   former IDF 8200 translator, speaks Hebrew/English/Arabic.`;
 
